@@ -1,0 +1,24 @@
+{
+    "soda": [
+        {
+            "nameID": "SCHWEPPES",
+            "priceID": "SCHWEPPES_PRICE"
+        },
+        {
+            "nameID": "COCACOLA",
+            "priceID": "COCACOLA_PRICE"
+        },
+        {
+            "nameID": "COCACOLA_LIGHT",
+            "priceID": "COCACOLA_LIGHT_PRICE"
+        },
+        {
+            "nameID": "PERRIER",
+            "priceID": "PERRIER_PRICE"
+        },
+        {
+            "nameID": "RED_BULL",
+            "priceID": "RED_BULL_PRICE"
+        }
+    ]
+}

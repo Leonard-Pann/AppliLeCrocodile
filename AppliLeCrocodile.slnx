@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="AppliLeCrocodile.Android/AppliLeCrocodile.Android.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="AppliLeCrocodile.Browser/AppliLeCrocodile.Browser.csproj" />
+  <Project Path="AppliLeCrocodile.Desktop/AppliLeCrocodile.Desktop.csproj" />
+  <Project Path="AppliLeCrocodile.iOS/AppliLeCrocodile.iOS.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="AppliLeCrocodile/AppliLeCrocodile.csproj" />
+</Solution>

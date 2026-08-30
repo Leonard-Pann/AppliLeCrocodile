@@ -1,0 +1,189 @@
+{
+    "cocktails": [
+        {
+            "nameID": "ALOUETTE",
+            "imagePath": "Cocktails/alouette.png",
+            "ingredientsNameID": [
+                "PECHE",
+                "FRAISE",
+                "PORE"
+            ]
+        },
+        {
+            "nameID": "ARA",
+            "imagePath": "Cocktails/ara.png",
+            "ingredientsNameID": [
+                "ABRICOT",
+                "CANNEBERGE",
+                "MARACUJA"
+            ]
+        },
+        {
+            "nameID": "AUTRUCHE",
+            "imagePath": "Cocktails/autruche.png",
+            "ingredientsNameID": [
+                "GOYAVE",
+                "CANNEBERGE",
+                "PECHE"
+            ]
+        },
+        {
+            "nameID": "CACATOES",
+            "imagePath": "Cocktails/cacatoes.png",
+            "ingredientsNameID": [
+                "COCO",
+                "BANANE",
+                "ANANAS"
+            ]
+        },
+        {
+            "nameID": "COLIBRI",
+            "imagePath": "Cocktails/colibri.png",
+            "ingredientsNameID": [
+                "POIRE",
+                "PECHE",
+                "CANNEBERGE"
+            ]
+        },
+        {
+            "nameID": "COUCOU",
+            "imagePath": "Cocktails/coucou.png",
+            "ingredientsNameID": [
+                "ORANGE",
+                "MANGUE",
+                "LITCHI"
+            ]
+        },
+        {
+            "nameID": "DODO",
+            "imagePath": "Cocktails/dodo.png",
+            "ingredientsNameID": [
+                "LITCHI",
+                "ABRICOT",
+                "CANNEBERGE"
+            ]
+        },
+        {
+            "nameID": "GOBE_MOUCHE",
+            "imagePath": "Cocktails/gobe_douche.png",
+            "ingredientsNameID": [
+                "GOYAVE",
+                "POMME",
+                "FRAISE"
+            ]
+        },
+        {
+            "nameID": "MANCHOT",
+            "imagePath": "Cocktails/manchot.png",
+            "ingredientsNameID": [
+                "ANANAS",
+                "POMME_VERTE",
+                "LITCHI"
+            ]
+        },
+        {
+            "nameID": "MESANGE",
+            "imagePath": "Cocktails/mesange.png",
+            "ingredientsNameID": [
+                "ORANGE",
+                "PAMPLEMOUSSE",
+                "MARACUJA",
+                "PAMPLEMOUSSE_ROSE",
+                "GRENADINE"
+            ]
+        },
+        {
+            "nameID": "MARABOUT",
+            "imagePath": "Cocktails/marabout.png",
+            "ingredientsNameID": [
+                "POIRE",
+                "PECHE",
+                "LITCHI"
+            ]
+        },
+        {
+            "nameID": "PELICAN",
+            "imagePath": "Cocktails/pelican.png",
+            "ingredientsNameID": [
+                "ANANAS",
+                "MARACUJA",
+                "ABRICOT"
+            ]
+        },
+        {
+            "nameID": "PIC_VERT",
+            "imagePath": "Cocktails/pic_vert.png",
+            "ingredientsNameID": [
+                "PAMPLEMOUSSE_ROSE",
+                "POMME",
+                "ABRICOT"
+            ]
+        },
+        {
+            "nameID": "PIOU_PIOU",
+            "imagePath": "Cocktails/piou_piou.png",
+            "ingredientsNameID": [
+                "ANANAS",
+                "ABRICOT",
+                "MANGUE",
+                "SIROP_DORGEAT"
+            ]
+        },
+        {
+            "nameID": "PTIT_PIAF",
+            "imagePath": "Cocktails/ptit_piaf.png",
+            "ingredientsNameID": [
+                "POMME",
+                "RAISIN",
+                "ABRICOT",
+                "PECHE"
+            ]
+        },
+        {
+            "nameID": "QUETZAL",
+            "imagePath": "Cocktails/quetzal.png",
+            "ingredientsNameID": [
+                "PECHE",
+                "CORONILLE",
+                "MARACUJA"
+            ]
+        },
+        {
+            "nameID": "ROSSIGNOL",
+            "imagePath": "Cocktails/rossignol.png",
+            "ingredientsNameID": [
+                "ABRICOT",
+                "FRAISE",
+                "MARACUJA"
+            ]
+        },
+        {
+            "nameID": "ROUGE_GORGE",
+            "imagePath": "Cocktails/rouge_gorge.png",
+            "ingredientsNameID": [
+                "FRAISE",
+                "MARACUJA",
+                "BANANE"
+            ]
+        },
+        {
+            "nameID": "TOUCAN",
+            "imagePath": "Cocktails/toucan.png",
+            "ingredientsNameID": [
+                "MANGUE",
+                "MARACUJA",
+                "GOYAVE",
+                "BANANE"
+            ]
+        },
+        {
+            "nameID": "VAUTOUR",
+            "imagePath": "Cocktails/vautour.png",
+            "ingredientsNameID": [
+                "MANGUE",
+                "ORANGE",
+                "BANANE"
+            ]
+        }
+    ]
+}

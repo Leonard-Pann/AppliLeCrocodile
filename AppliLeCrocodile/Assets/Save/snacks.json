@@ -1,0 +1,12 @@
+{
+    "snacks": [
+        {
+            "nameID": "PEANUTS",
+            "priceID": "PEANUTS_PRICE"
+        },
+        {
+            "nameID": "CHIPS",
+            "priceID": "CHIPS_PRICE"
+        }
+    ]
+}

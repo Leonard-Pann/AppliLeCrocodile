@@ -1,0 +1,1172 @@
+{
+    "ingredients": [
+        {
+            "nameID": "GIN",
+            "descriptionID": "GIN_DESCRIPTION",
+            "alcoholVolume": 37.5,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/gin.png"
+        },
+        {
+            "nameID": "ORANGE",
+            "descriptionID": "ORANGE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/orange.png"
+        },
+        {
+            "nameID": "SUCRE",
+            "descriptionID": "SUCRE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/sucre.png"
+        },
+        {
+            "nameID": "TEQUILA",
+            "descriptionID": "TEQUILA_DESCRIPTION",
+            "alcoholVolume": 38.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/tequila.png"
+        },
+        {
+            "nameID": "RHUM",
+            "descriptionID": "RHUM_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rhum.png"
+        },
+        {
+            "nameID": "ANANAS",
+            "descriptionID": "ANANAS_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/ananas.png"
+        },
+        {
+            "nameID": "LIQUEUR_DANANAS",
+            "descriptionID": "LIQUEUR_DANANAS_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_dananas.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CANNELLE",
+            "descriptionID": "LIQUEUR_DE_CANNELLE_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_cannelle.png"
+        },
+        {
+            "nameID": "CHAMPAGNE",
+            "descriptionID": "CHAMPAGNE_DESCRIPTION",
+            "alcoholVolume": 12.5,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/champagne.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CAFE",
+            "descriptionID": "LIQUEUR_DE_CAFE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_cafe.png"
+        },
+        {
+            "nameID": "CAFE",
+            "descriptionID": "CAFE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cafe.png"
+        },
+        {
+            "nameID": "COGNAC",
+            "descriptionID": "COGNAC_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cognac.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MENTHE",
+            "descriptionID": "LIQUEUR_DE_MENTHE_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_menthe.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_PIMENT",
+            "descriptionID": "LIQUEUR_DE_PIMENT_DESCRIPTION",
+            "alcoholVolume": 30.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_piment.png"
+        },
+        {
+            "nameID": "CREME",
+            "descriptionID": "CREME_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme.png"
+        },
+        {
+            "nameID": "KIRSCH",
+            "descriptionID": "KIRSCH_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/kirsch.png"
+        },
+        {
+            "nameID": "CHARTREUSE",
+            "descriptionID": "CHARTREUSE_DESCRIPTION",
+            "alcoholVolume": 55.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/chartreuse.png"
+        },
+        {
+            "nameID": "VODKA",
+            "descriptionID": "VODKA_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/vodka.png"
+        },
+        {
+            "nameID": "CITRON",
+            "descriptionID": "CITRON_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/citron.png"
+        },
+        {
+            "nameID": "CREME_DE_CACAO",
+            "descriptionID": "CREME_DE_CACAO_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_cacao.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CACAO",
+            "descriptionID": "LIQUEUR_DE_CACAO_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_cacao.png"
+        },
+        {
+            "nameID": "COINTREAU",
+            "descriptionID": "COINTREAU_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cointreau.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_BANANE",
+            "descriptionID": "LIQUEUR_DE_BANANE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_banane.png"
+        },
+        {
+            "nameID": "BANANE",
+            "descriptionID": "BANANE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/banane.png"
+        },
+        {
+            "nameID": "CACHACA",
+            "descriptionID": "CACHACA_DESCRIPTION",
+            "alcoholVolume": 38.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cachaca.png"
+        },
+        {
+            "nameID": "COQUELICOT",
+            "descriptionID": "COQUELICOT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/coquelicot.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_COQUELICOT",
+            "descriptionID": "LIQUEUR_DE_COQUELICOT_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_coquelicot.png"
+        },
+        {
+            "nameID": "CINZANO",
+            "descriptionID": "CINZANO_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cinzano.png"
+        },
+        {
+            "nameID": "VERMOUTH_DRY",
+            "descriptionID": "VERMOUTH_DRY_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/vermouth_dry.png"
+        },
+        {
+            "nameID": "CAMPARI",
+            "descriptionID": "CAMPARI_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/campari.png"
+        },
+        {
+            "nameID": "CREME_DE_MUROISE",
+            "descriptionID": "CREME_DE_MUROISE_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_muroise.png"
+        },
+        {
+            "nameID": "PISCO",
+            "descriptionID": "PISCO_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pisco.png"
+        },
+        {
+            "nameID": "ABRICOT",
+            "descriptionID": "ABRICOT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/abricot.png"
+        },
+        {
+            "nameID": "RHUM_VIEUX",
+            "descriptionID": "RHUM_VIEUX_DESCRIPTION",
+            "alcoholVolume": 45.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rhum_vieux.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_NOISETTE",
+            "descriptionID": "LIQUEUR_DE_NOISETTE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_noisette.png"
+        },
+        {
+            "nameID": "LIQUEUR_DABRICOT",
+            "descriptionID": "LIQUEUR_DABRICOT_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_dabricot.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CANELLE",
+            "descriptionID": "LIQUEUR_DE_CANELLE_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_canelle.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MANDARINE",
+            "descriptionID": "LIQUEUR_DE_MANDARINE_DESCRIPTION",
+            "alcoholVolume": 30.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_mandarine.png"
+        },
+        {
+            "nameID": "CREME_DE_CASSIS",
+            "descriptionID": "CREME_DE_CASSIS_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_cassis.png"
+        },
+        {
+            "nameID": "BATIDA_DE_COCO",
+            "descriptionID": "BATIDA_DE_COCO_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/batida_de_coco.png"
+        },
+        {
+            "nameID": "GRENADINE",
+            "descriptionID": "GRENADINE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/grenadine.png"
+        },
+        {
+            "nameID": "CHARTREUSE_VERTE",
+            "descriptionID": "CHARTREUSE_VERTE_DESCRIPTION",
+            "alcoholVolume": 55.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/chartreuse_verte.png"
+        },
+        {
+            "nameID": "PAMPLEMOUSSE",
+            "descriptionID": "PAMPLEMOUSSE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/pamplemousse.png"
+        },
+        {
+            "nameID": "CREME_DE_MYRTILLE",
+            "descriptionID": "CREME_DE_MYRTILLE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_myrtille.png"
+        },
+        {
+            "nameID": "POMME",
+            "descriptionID": "POMME_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/pomme.png"
+        },
+        {
+            "nameID": "POMMEAU",
+            "descriptionID": "POMMEAU_DESCRIPTION",
+            "alcoholVolume": 17.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pommeau.png"
+        },
+        {
+            "nameID": "POMME_VERTE",
+            "descriptionID": "POMME_VERTE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/pomme_verte.png"
+        },
+        {
+            "nameID": "MALIBU",
+            "descriptionID": "MALIBU_DESCRIPTION",
+            "alcoholVolume": 21.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/malibu.png"
+        },
+        {
+            "nameID": "CREME_DE_MURE",
+            "descriptionID": "CREME_DE_MURE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_mure.png"
+        },
+        {
+            "nameID": "TRIPLE_SEC",
+            "descriptionID": "TRIPLE_SEC_DESCRIPTION",
+            "alcoholVolume": 30.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/triple_sec.png"
+        },
+        {
+            "nameID": "CALVADOS",
+            "descriptionID": "CALVADOS_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/calvados.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_POMME_VERTE",
+            "descriptionID": "LIQUEUR_DE_POMME_VERTE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_pomme_verte.png"
+        },
+        {
+            "nameID": "CREME_DE_ROSE",
+            "descriptionID": "CREME_DE_ROSE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_rose.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_VIOLETTE",
+            "descriptionID": "LIQUEUR_DE_VIOLETTE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_violette.png"
+        },
+        {
+            "nameID": "AQUAVIT",
+            "descriptionID": "AQUAVIT_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/aquavit.png"
+        },
+        {
+            "nameID": "PORTO",
+            "descriptionID": "PORTO_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/porto.png"
+        },
+        {
+            "nameID": "MARIE_BRIZARD",
+            "descriptionID": "MARIE_BRIZARD_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/marie_brizard.png"
+        },
+        {
+            "nameID": "TOMATE",
+            "descriptionID": "TOMATE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/tomate.png"
+        },
+        {
+            "nameID": "SEL_DE_CELERI",
+            "descriptionID": "SEL_DE_CELERI_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/sel_de_celeri.png"
+        },
+        {
+            "nameID": "TABASCO",
+            "descriptionID": "TABASCO_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/tabasco.png"
+        },
+        {
+            "nameID": "CURACAO_BLEU",
+            "descriptionID": "CURACAO_BLEU_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/curacao_bleu.png"
+        },
+        {
+            "nameID": "CREME_DE_POIRE_WILLIAM",
+            "descriptionID": "CREME_DE_POIRE_WILLIAM_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_poire_william.png"
+        },
+        {
+            "nameID": "FRAISE",
+            "descriptionID": "FRAISE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/fraise.png"
+        },
+        {
+            "nameID": "MANGUE",
+            "descriptionID": "MANGUE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/mangue.png"
+        },
+        {
+            "nameID": "SIROP_DORGEAT",
+            "descriptionID": "SIROP_DORGEAT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/sirop_dorgeat.png"
+        },
+        {
+            "nameID": "CREME_DE_PECHE_DE_VIGNE",
+            "descriptionID": "CREME_DE_PECHE_DE_VIGNE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_peche_de_vigne.png"
+        },
+        {
+            "nameID": "MARACUJA",
+            "descriptionID": "MARACUJA_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/maracuja.png"
+        },
+        {
+            "nameID": "BOURBON",
+            "descriptionID": "BOURBON_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/bourbon.png"
+        },
+        {
+            "nameID": "MELON",
+            "descriptionID": "MELON_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/melon.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CHATAIGNE",
+            "descriptionID": "LIQUEUR_DE_CHATAIGNE_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_chataigne.png"
+        },
+        {
+            "nameID": "CANNEBERGE",
+            "descriptionID": "CANNEBERGE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/canneberge.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_WHISKY",
+            "descriptionID": "LIQUEUR_DE_WHISKY_DESCRIPTION",
+            "alcoholVolume": 30.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_whisky.png"
+        },
+        {
+            "nameID": "WHISKY",
+            "descriptionID": "WHISKY_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/whisky.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_BOURBON",
+            "descriptionID": "LIQUEUR_DE_BOURBON_DESCRIPTION",
+            "alcoholVolume": 30.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_bourbon.png"
+        },
+        {
+            "nameID": "CANNELLE",
+            "descriptionID": "CANNELLE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cannelle.png"
+        },
+        {
+            "nameID": "BAILEYS",
+            "descriptionID": "BAILEYS_DESCRIPTION",
+            "alcoholVolume": 17.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/baileys.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_GINGEMBRE",
+            "descriptionID": "LIQUEUR_DE_GINGEMBRE_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_GINGEMBRE.png"
+        },
+        {
+            "nameID": "COCO",
+            "descriptionID": "COCO_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/coco.png"
+        },
+        {
+            "nameID": "CHERRY",
+            "descriptionID": "CHERRY_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cherry.png"
+        },
+        {
+            "nameID": "VERMOUTH",
+            "descriptionID": "VERMOUTH_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/vermouth.png"
+        },
+        {
+            "nameID": "CITRON_VERT",
+            "descriptionID": "CITRON_VERT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/citron_vert.png"
+        },
+        {
+            "nameID": "MEZCAL",
+            "descriptionID": "MEZCAL_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/mezcal.png"
+        },
+        {
+            "nameID": "NOYAU_DE_POISSY",
+            "descriptionID": "NOYAU_DE_POISSY_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/noyau_de_poissy.png"
+        },
+        {
+            "nameID": "RHUM_CUBAIN",
+            "descriptionID": "RHUM_CUBAIN_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rhum_cubain.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MELON",
+            "descriptionID": "LIQUEUR_DE_MELON_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_melon.png"
+        },
+        {
+            "nameID": "GOYAVE",
+            "descriptionID": "GOYAVE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/goyave.png"
+        },
+        {
+            "nameID": "GRAND_MARNIER",
+            "descriptionID": "GRAND_MARNIER_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/grand_marnier.png"
+        },
+        {
+            "nameID": "CREME_DE_FRAMBOISE",
+            "descriptionID": "CREME_DE_FRAMBOISE_DESCRIPTION",
+            "alcoholVolume": 35.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_framboise.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_FRAMBOISE",
+            "descriptionID": "LIQUEUR_DE_FRAMBOISE_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_framboise.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MANGUE",
+            "descriptionID": "LIQUEUR_DE_MANGUE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_mangue.png"
+        },
+        {
+            "nameID": "PIPPERMINT_DOUX",
+            "descriptionID": "PIPPERMINT_DOUX_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pippermint_doux.png"
+        },
+        {
+            "nameID": "PIPPERMINT_FORT",
+            "descriptionID": "PIPPERMINT_FORT_DESCRIPTION",
+            "alcoholVolume": 24.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pippermint_fort.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MARACUJA",
+            "descriptionID": "LIQUEUR_DE_MARACUJA_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_maracuja.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_KIWI",
+            "descriptionID": "LIQUEUR_DE_KIWI_DESCRIPTION",
+            "alcoholVolume": 17.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_kiwi.png"
+        },
+        {
+            "nameID": "ABSINTHE",
+            "descriptionID": "ABSINTHE_DESCRIPTION",
+            "alcoholVolume": 55.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/absinthe.png"
+        },
+        {
+            "nameID": "CHOCOLAT",
+            "descriptionID": "CHOCOLAT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/chocolat.png"
+        },
+        {
+            "nameID": "LAIT",
+            "descriptionID": "LAIT_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/lait.png"
+        },
+        {
+            "nameID": "PIPPERMINT",
+            "descriptionID": "PIPPERMINT_DESCRIPTION",
+            "alcoholVolume": 21.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pippermint.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_POMME",
+            "descriptionID": "LIQUEUR_DE_POMME_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_pomme.png"
+        },
+        {
+            "nameID": "LITCHI",
+            "descriptionID": "LITCHI_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/litchi.png"
+        },
+        {
+            "nameID": "CURACAO_RUBIS",
+            "descriptionID": "CURACAO_RUBIS_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/curacao_rubis.png"
+        },
+        {
+            "nameID": "EAU_DE_VIE_DE_POIRE_WILLIAM",
+            "descriptionID": "EAU_DE_VIE_DE_POIRE_WILLIAM_DESCRIPTION",
+            "alcoholVolume": 43.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/eau_de_vie_de_poire_william.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_POIRE_WILLIAM",
+            "descriptionID": "LIQUEUR_DE_POIRE_WILLIAM_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_poire_william.png"
+        },
+        {
+            "nameID": "POIRE",
+            "descriptionID": "POIRE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/poire.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_PASTEQUE",
+            "descriptionID": "LIQUEUR_DE_PASTEQUE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_pasteque.png"
+        },
+        {
+            "nameID": "PAPAYE",
+            "descriptionID": "PAPAYE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/papaye.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_LITCHI",
+            "descriptionID": "LIQUEUR_DE_LITCHI_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_litchi.png"
+        },
+        {
+            "nameID": "GUIGNOLET",
+            "descriptionID": "GUIGNOLET_DESCRIPTION",
+            "alcoholVolume": 16.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/guignolet.png"
+        },
+        {
+            "nameID": "BENEDICTINE",
+            "descriptionID": "BENEDICTINE_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/benedictine.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_FRAISE",
+            "descriptionID": "LIQUEUR_DE_FRAISE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_fraise.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_FRAISE_DES_BOIS",
+            "descriptionID": "LIQUEUR_DE_FRAISE_DES_BOIS_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_fraise_des_bois.png"
+        },
+        {
+            "nameID": "RHUM_BRUN",
+            "descriptionID": "RHUM_BRUN_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rhum_brun.png"
+        },
+        {
+            "nameID": "BOUKHA",
+            "descriptionID": "BOUKHA_DESCRIPTION",
+            "alcoholVolume": 37.5,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/boukha.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_FIGUE",
+            "descriptionID": "LIQUEUR_DE_FIGUE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_figue.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_VANILLE",
+            "descriptionID": "LIQUEUR_DE_VANILLE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_vanille.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CARAMEL",
+            "descriptionID": "LIQUEUR_DE_CARAMEL_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/LIQUEUR_DE_CARAMEL.png"
+        },
+        {
+            "nameID": "SUZE",
+            "descriptionID": "SUZE_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/suze.png"
+        },
+        {
+            "nameID": "PISANG",
+            "descriptionID": "PISANG_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pisang.png"
+        },
+        {
+            "nameID": "RAISIN",
+            "descriptionID": "RAISIN_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/raisin.png"
+        },
+        {
+            "nameID": "JUS_DE_RAISIN",
+            "descriptionID": "JUS_DE_RAISIN_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/jus_de_raisin.png"
+        },
+        {
+            "nameID": "FRUIT_DE_LA_PASSION",
+            "descriptionID": "FRUIT_DE_LA_PASSION_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/fruit_de_la_passion.png"
+        },
+        {
+            "nameID": "ZUBROWKA",
+            "descriptionID": "ZUBROWKA_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/zubrowka.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_FRUITS_EXOTIQUES",
+            "descriptionID": "LIQUEUR_DE_FRUITS_EXOTIQUES_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_fruits_exotiques.png"
+        },
+        {
+            "nameID": "TONIC",
+            "descriptionID": "TONIC_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/tonic.png"
+        },
+        {
+            "nameID": "RONDELLE_DORANGE",
+            "descriptionID": "RONDELLE_DORANGE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rondelle_dorange.png"
+        },
+        {
+            "nameID": "AMARETTO",
+            "descriptionID": "AMARETTO_DESCRIPTION",
+            "alcoholVolume": 28.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/amaretto.png"
+        },
+        {
+            "nameID": "PAMPLEMOUSSE_ROSE",
+            "descriptionID": "PAMPLEMOUSSE_ROSE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/pamplemousse_rose.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_MERISE",
+            "descriptionID": "LIQUEUR_DE_MERISE_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_merise.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CITRON",
+            "descriptionID": "LIQUEUR_DE_CITRON_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_citron.png"
+        },
+        {
+            "nameID": "CREME_DE_FRAISE_DES_BOIS",
+            "descriptionID": "CREME_DE_FRAISE_DES_BOIS_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_fraise_des_bois.png"
+        },
+        {
+            "nameID": "MARTINI_DOUX",
+            "descriptionID": "MARTINI_DOUX_DESCRIPTION",
+            "alcoholVolume": 15.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/martini_doux.png"
+        },
+        {
+            "nameID": "MARTINI_DRY",
+            "descriptionID": "MARTINI_DRY_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/martini_dry.png"
+        },
+        {
+            "nameID": "RONDELLE_DE_CITRON",
+            "descriptionID": "RONDELLE_DE_CITRON_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/rondelle_de_citron.png"
+        },
+        {
+            "nameID": "CREME_DE_GRIOTTE",
+            "descriptionID": "CREME_DE_GRIOTTE_DESCRIPTION",
+            "alcoholVolume": 18.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/creme_de_griotte.png"
+        },
+        {
+            "nameID": "CORONILLE",
+            "descriptionID": "CORONILLE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/coronille.png"
+        },
+        {
+            "nameID": "PIMS",
+            "descriptionID": "PIMS_DESCRIPTION",
+            "alcoholVolume": 25.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pims.png"
+        },
+        {
+            "nameID": "JAUNE_DOEUF",
+            "descriptionID": "JAUNE_DOEUF_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/jaune_doeuf.png"
+        },
+        {
+            "nameID": "LIQUEUR_DE_CARAMBOLE",
+            "descriptionID": "LIQUEUR_DE_CARAMBOLE_DESCRIPTION",
+            "alcoholVolume": 17.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/liqueur_de_carambole.png"
+        },
+        {
+            "nameID": "GIN_CHERRY",
+            "descriptionID": "GIN_CHERRY_DESCRIPTION",
+            "alcoholVolume": 35.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/gin_cherry.png"
+        },
+        {
+            "nameID": "WHISKEY_IRLANDAIS",
+            "descriptionID": "WHISKEY_IRLANDAIS_DESCRIPTION",
+            "alcoholVolume": 40.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/whiskey_irlandais.png"
+        },
+        {
+            "nameID": "CERISES_A_LEAU_DE_VIE",
+            "descriptionID": "CERISES_A_LEAU_DE_VIE_DESCRIPTION",
+            "alcoholVolume": 20.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/cerises_a_leau_de_vie.png"
+        },
+        {
+            "nameID": "GRANADINE",
+            "descriptionID": "GRANADINE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/granadine.png"
+        },
+        {
+            "nameID": "PHYSALIS",
+            "descriptionID": "PHYSALIS_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/physalis.png"
+        },
+        {
+            "nameID": "SUCRE_DE_CANNE",
+            "descriptionID": "SUCRE_DE_CANNE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": false,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/sucre_de_canne.png"
+        },
+        {
+            "nameID": "PECHE",
+            "descriptionID": "PECHE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": true,
+            "imagePath": "Ingredients/peche.png"
+        },
+        {
+            "nameID": "PORE",
+            "descriptionID": "PORE_DESCRIPTION",
+            "alcoholVolume": 0.0,
+            "isLiquid": true,
+            "isFruitJuice": false,
+            "imagePath": "Ingredients/pore.png"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AppliLeCrocodile.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:AppliLeCrocodile.Views"
+        mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+        x:Class="AppliLeCrocodile.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Le Crocodile"
+        Width="390"
+        Height="844"
+        MinWidth="320"
+        MinHeight="568"
+        Background="White">
+        <views:MainView />
+</Window>

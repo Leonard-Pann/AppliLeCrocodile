@@ -1,0 +1,49 @@
+{
+    "language": "English",
+    "datas": [
+        {
+            "key": "MENU_LOAD_ERROR",
+            "value": "The menu could not be loaded."
+        },
+        {
+            "key": "RETRY",
+            "value": "Retry"
+        },
+        {
+            "key": "COVER_PAGE_ACCESSIBILITY",
+            "value": "Front cover"
+        },
+        {
+            "key": "SUMMARY_PAGE_ACCESSIBILITY",
+            "value": "Bar information"
+        },
+        {
+            "key": "COCKTAILS_PAGE_ACCESSIBILITY",
+            "value": "Cocktails, page"
+        },
+        {
+            "key": "SEARCH_RESULTS_ACCESSIBILITY",
+            "value": "Cocktail search results"
+        },
+        {
+            "key": "SEARCH_BAR_PLACEHOLDER",
+            "value": "Cocktail or ingredient"
+        },
+        {
+            "key": "CLEAR_SEARCH",
+            "value": "Clear search"
+        },
+        {
+            "key": "NO_COCKTAIL",
+            "value": "No matching cocktail"
+        },
+        {
+            "key": "SOFT_PAGE_ACCESSIBILITY",
+            "value": "Alcohol-free cocktails and fruit juices"
+        },
+        {
+            "key": "LAST_PAGE_ACCESSIBILITY",
+            "value": "Beers, snacks, soft drinks, and shooters"
+        }
+    ]
+}

@@ -1,0 +1,2305 @@
+{
+    "language": "Français",
+    "datas": [
+        {
+            "key": "BAR_NAME",
+            "value": "Le Crocodile"
+        },
+        {
+            "key": "BAR_DESCRIPTION",
+            "value": "LE bar à Cocktails du Quartier Latin depuis plus de 40 ans"
+        },
+        {
+            "key": "BAR_OPENING_DAYS",
+            "value": "Ouverture du mardi au samedi"
+        },
+        {
+            "key": "BAR_OPENING_HOURS",
+            "value": "de 18h à 2h"
+        },
+        {
+            "key": "BAR_CLOSE_DAYS",
+            "value": "Fermé dimanche et lundi soir"
+        },
+        {
+            "key": "HAPPY_HOUR",
+            "value": "Happy hour"
+        },
+        {
+            "key": "HAPPY_HOURS_DAYS",
+            "value": "du mardi au jeudi"
+        },
+        {
+            "key": "HAPPY_HOURS_HOURS",
+            "value": "de 18h à 23h"
+        },
+        {
+            "key": "HAPPY_HOURS_COCKTAILS_PRICE",
+            "value": "tous les cocktails à <HAPPY_HOURR_COCKTAILS_PRICE>€"
+        },
+        {
+            "key": "SUMMARY_COCKTAILS_PRICE_WEEK",
+            "value": "et après 23h à <COCKTAILS_PRICE>€"
+        },
+        {
+            "key": "SUMMARY_AND",
+            "value": "et"
+        },
+        {
+            "key": "SUMMARY_WEEKEND",
+            "value": "les vendredis et samedis"
+        },
+        {
+            "key": "WEEKEND_HAPPY_HOURS_HOURS",
+            "value": "de 18h à 22h"
+        },
+        {
+            "key": "WEEKEND_HAPPY_HOURS_HOURS_PRICE",
+            "value": "tous les cocktails à <HAPPY_HOURR_COCKTAILS_PRICE>€"
+        },
+        {
+            "key": "WEEKEND_HAPPY_PRICE",
+            "value": "et après 22h à <COCKTAILS_PRICE>€"
+        },
+        {
+            "key": "SUMMARY_FACEBOOK",
+            "value": "Plus d'infos sur facebook << le crocodile >>"
+        },
+        {
+            "key": "BAR_ADRESSE",
+            "value": "6 rue Royer Collard Paris 5e"
+        },
+        {
+            "key": "SOFT_TITLE",
+            "value": "SANS ALCOOL  <SOFT_PRICE>€"
+        },
+        {
+            "key": "FRUIT_JUICE_TITLE",
+            "value": "JUS DE FRUIT  <FRUIT_JUICE_PRICE>€"
+        },
+        {
+            "key": "CHOOSE",
+            "value": "au choix"
+        },
+        {
+            "key": "GIN",
+            "value": "gin"
+        },
+        {
+            "key": "ORANGE",
+            "value": "orange"
+        },
+        {
+            "key": "SUCRE",
+            "value": "sucre"
+        },
+        {
+            "key": "TEQUILA",
+            "value": "tequila"
+        },
+        {
+            "key": "RHUM",
+            "value": "rhum"
+        },
+        {
+            "key": "ANANAS",
+            "value": "ananas"
+        },
+        {
+            "key": "LIQUEUR_DANANAS",
+            "value": "liqueur de cannelle"
+        },
+        {
+            "key": "LIQUEUR_DE_CANNELLE",
+            "value": "liqueur de cannelle"
+        },
+        {
+            "key": "CANNELLE",
+            "value": "cannelle"
+        },
+        {
+            "key": "CHAMPAGNE",
+            "value": "champagne"
+        },
+        {
+            "key": "CAFE",
+            "value": "café"
+        },
+        {
+            "key": "LIQUEUR_DE_CAFE",
+            "value": "liqueur de café"
+        },
+        {
+            "key": "COGNAC",
+            "value": "cognac"
+        },
+        {
+            "key": "LIQUEUR_DE_MENTHE",
+            "value": "liqueur de menthe"
+        },
+        {
+            "key": "LIQUEUR_DE_PIMENT",
+            "value": "liqueur de piment"
+        },
+        {
+            "key": "CREME",
+            "value": "crème"
+        },
+        {
+            "key": "KIRSCH",
+            "value": "kirsch"
+        },
+        {
+            "key": "CHARTREUSE",
+            "value": "chartreuse"
+        },
+        {
+            "key": "VODKA",
+            "value": "vodka"
+        },
+        {
+            "key": "CITRON",
+            "value": "citron"
+        },
+        {
+            "key": "CREME_DE_CACAO",
+            "value": "crème de cacao"
+        },
+        {
+            "key": "LIQUEUR_DE_CACAO",
+            "value": "liqueur de cacao"
+        },
+        {
+            "key": "COINTREAU",
+            "value": "cointreau"
+        },
+        {
+            "key": "LIQUEUR_DE_BANANE",
+            "value": "liqueur de banane"
+        },
+        {
+            "key": "BANANE",
+            "value": "banane"
+        },
+        {
+            "key": "CACHACA",
+            "value": "cachaca"
+        },
+        {
+            "key": "COQUELICOT",
+            "value": "coquelicot"
+        },
+        {
+            "key": "LIQUEUR_DE_COQUELICOT",
+            "value": "liqueur de coquelicot"
+        },
+        {
+            "key": "CINZANO",
+            "value": "cinzano"
+        },
+        {
+            "key": "VERMOUTH_DRY",
+            "value": "vermouth dry"
+        },
+        {
+            "key": "CAMPARI",
+            "value": "campari"
+        },
+        {
+            "key": "CREME_DE_MUROISE",
+            "value": "crème de muroise"
+        },
+        {
+            "key": "PISCO",
+            "value": "pisco"
+        },
+        {
+            "key": "ABRICOT",
+            "value": "abricot"
+        },
+        {
+            "key": "RHUM_VIEUX",
+            "value": "rhum vieux"
+        },
+        {
+            "key": "LIQUEUR_DE_NOISETTE",
+            "value": "liqueur de noisette"
+        },
+        {
+            "key": "LIQUEUR_DABRICOT",
+            "value": "liqueur d'abricot"
+        },
+        {
+            "key": "LIQUEUR_DE_CANELLE",
+            "value": "liqueur de canelle"
+        },
+        {
+            "key": "LIQUEUR_DE_MANDARINE",
+            "value": "liqueur de mandarine"
+        },
+        {
+            "key": "CREME_DE_CASSIS",
+            "value": "crème de cassis"
+        },
+        {
+            "key": "BATIDA_DE_COCO",
+            "value": "batida de coco"
+        },
+        {
+            "key": "GRENADINE",
+            "value": "grenadine"
+        },
+        {
+            "key": "CHARTREUSE_VERTE",
+            "value": "chartreuse verte"
+        },
+        {
+            "key": "PAMPLEMOUSSE",
+            "value": "pamplemousse"
+        },
+        {
+            "key": "CREME_DE_MYRTILLE",
+            "value": "crème de myrtille"
+        },
+        {
+            "key": "POMMEAU",
+            "value": "pommeau"
+        },
+        {
+            "key": "POMME",
+            "value": "pomme"
+        },
+        {
+            "key": "POMME_VERTE",
+            "value": "pomme verte"
+        },
+        {
+            "key": "MALIBU",
+            "value": "malibu"
+        },
+        {
+            "key": "CREME_DE_MURE",
+            "value": "crème de mure"
+        },
+        {
+            "key": "TRIPLE_SEC",
+            "value": "triple sec"
+        },
+        {
+            "key": "CALVADOS",
+            "value": "calvados"
+        },
+        {
+            "key": "LIQUEUR_DE_POMME_VERTE",
+            "value": "liqueur de pomme verte"
+        },
+        {
+            "key": "CREME_DE_ROSE",
+            "value": "crème de rose"
+        },
+        {
+            "key": "LIQUEUR_DE_VIOLETTE",
+            "value": "liqueur de violette"
+        },
+        {
+            "key": "AQUAVIT",
+            "value": "aquavit"
+        },
+        {
+            "key": "PORTO",
+            "value": "porto"
+        },
+        {
+            "key": "MARIE_BRIZARD",
+            "value": "marie brizard"
+        },
+        {
+            "key": "TOMATE",
+            "value": "tomate"
+        },
+        {
+            "key": "SEL_DE_CELERI",
+            "value": "sel de céleri"
+        },
+        {
+            "key": "TABASCO",
+            "value": "tabasco"
+        },
+        {
+            "key": "CURACAO_BLEU",
+            "value": "curacao bleu"
+        },
+        {
+            "key": "CREME_DE_POIRE_WILLIAM",
+            "value": "crème de poire william"
+        },
+        {
+            "key": "POIRE",
+            "value": "poire"
+        },
+        {
+            "key": "FRAISE",
+            "value": "fraise"
+        },
+        {
+            "key": "MANGUE",
+            "value": "mangue"
+        },
+        {
+            "key": "SIROP_DORGEAT",
+            "value": "sirop d'orgeat"
+        },
+        {
+            "key": "CREME_DE_PECHE_DE_VIGNE",
+            "value": "crème de pêche de vigne"
+        },
+        {
+            "key": "MARACUJA",
+            "value": "maracuja"
+        },
+        {
+            "key": "BOURBON",
+            "value": "bourbon"
+        },
+        {
+            "key": "MELON",
+            "value": "melon"
+        },
+        {
+            "key": "LIQUEUR_DE_CHATAIGNE",
+            "value": "liqueur de châtaigne"
+        },
+        {
+            "key": "CANNEBERGE",
+            "value": "canneberge"
+        },
+        {
+            "key": "LIQUEUR_DE_WHISKY",
+            "value": "liqueur de whisky"
+        },
+        {
+            "key": "WHISKY",
+            "value": "whisky"
+        },
+        {
+            "key": "LIQUEUR_DE_BOURBON",
+            "value": "liqueur de bourbon"
+        },
+        {
+            "key": "CANELLE",
+            "value": "canelle"
+        },
+        {
+            "key": "BAILEYS",
+            "value": "baileys"
+        },
+        {
+            "key": "LIQUEUR_DE_GINGEMBRE",
+            "value": "liqueur de gingembre"
+        },
+        {
+            "key": "COCO",
+            "value": "coco"
+        },
+        {
+            "key": "CHERRY",
+            "value": "cherry"
+        },
+        {
+            "key": "VERMOUTH",
+            "value": "vermouth"
+        },
+        {
+            "key": "CITRON_VERT",
+            "value": "citron vert"
+        },
+        {
+            "key": "MEZCAL",
+            "value": "mezcal"
+        },
+        {
+            "key": "NOYAU_DE_POISSY",
+            "value": "noyau de poissy"
+        },
+        {
+            "key": "RHUM_CUBAIN",
+            "value": "rhum cubain"
+        },
+        {
+            "key": "LIQUEUR_DE_MELON",
+            "value": "liqueur de melon"
+        },
+        {
+            "key": "GOYAVE",
+            "value": "goyave"
+        },
+        {
+            "key": "GRAND_MARNIER",
+            "value": "grand marnier"
+        },
+        {
+            "key": "CREME_DE_FRAMBOISE",
+            "value": "crème de framboise"
+        },
+        {
+            "key": "LIQUEUR_DE_FRAMBOISE",
+            "value": "liqueur de framboise"
+        },
+        {
+            "key": "LIQUEUR_DE_MANGUE",
+            "value": "liqueur de mangue"
+        },
+        {
+            "key": "PIPPERMINT_DOUX",
+            "value": "pippermint doux"
+        },
+        {
+            "key": "PIPPERMINT_FORT",
+            "value": "pippermint fort"
+        },
+        {
+            "key": "LIQUEUR_DE_MARACUJA",
+            "value": "liqueur de maracuja"
+        },
+        {
+            "key": "LIQUEUR_DE_KIWI",
+            "value": "liqueur de kiwi"
+        },
+        {
+            "key": "ABSINTHE",
+            "value": "absinthe"
+        },
+        {
+            "key": "CHOCOLAT",
+            "value": "chocolat"
+        },
+        {
+            "key": "LAIT",
+            "value": "lait"
+        },
+        {
+            "key": "PIPPERMINT",
+            "value": "pippermint"
+        },
+        {
+            "key": "LIQUEUR_DE_POMME",
+            "value": "liqueur de pomme"
+        },
+        {
+            "key": "LITCHI",
+            "value": "litchi"
+        },
+        {
+            "key": "CURACAO_RUBIS",
+            "value": "curacao rubis"
+        },
+        {
+            "key": "EAU_DE_VIE_DE_POIRE_WILLIAM",
+            "value": "eau de vie de poire william"
+        },
+        {
+            "key": "LIQUEUR_DE_POIRE_WILLIAM",
+            "value": "liqueur de poire william"
+        },
+        {
+            "key": "LIQUEUR_DE_PASTEQUE",
+            "value": "liqueur de pasteque"
+        },
+        {
+            "key": "PAPAYE",
+            "value": "papaye"
+        },
+        {
+            "key": "LIQUEUR_DE_LITCHI",
+            "value": "liqueur de litchi"
+        },
+        {
+            "key": "GUIGNOLET",
+            "value": "guignolet"
+        },
+        {
+            "key": "BENEDICTINE",
+            "value": "benedictine"
+        },
+        {
+            "key": "LIQUEUR_DE_FRAISE",
+            "value": "liqueur de fraise"
+        },
+        {
+            "key": "RHUM_BRUN",
+            "value": "rhum brun"
+        },
+        {
+            "key": "BOUKHA",
+            "value": "boukha"
+        },
+        {
+            "key": "LIQUEUR_DE_FIGUE",
+            "value": "liqueur de figue"
+        },
+        {
+            "key": "LIQUEUR_DE_VANILLE",
+            "value": "liqueur de vanille"
+        },
+        {
+            "key": "LIQUEUR_DE_CARAMEL",
+            "value": "liqueur de caramelle"
+        },
+        {
+            "key": "SUZE",
+            "value": "suze"
+        },
+        {
+            "key": "PISANG",
+            "value": "pisang"
+        },
+        {
+            "key": "RAISIN",
+            "value": "raisin"
+        },
+        {
+            "key": "JUS_DE_RAISIN",
+            "value": "jus de raisin"
+        },
+        {
+            "key": "FRUIT_DE_LA_PASSION",
+            "value": "fruit de la passion"
+        },
+        {
+            "key": "ZUBROWKA",
+            "value": "zubrowka"
+        },
+        {
+            "key": "LIQUEUR_DE_FRUITS_EXOTIQUES",
+            "value": "liqueur de fruits exotiques"
+        },
+        {
+            "key": "TONIC",
+            "value": "tonic"
+        },
+        {
+            "key": "RONDELLE_DORANGE",
+            "value": "rondelle d'orange"
+        },
+        {
+            "key": "AMARETTO",
+            "value": "amaretto"
+        },
+        {
+            "key": "PAMPLEMOUSSE_ROSE",
+            "value": "pamplemousse rose"
+        },
+        {
+            "key": "LIQUEUR_DE_MERISE",
+            "value": "liqueur de merise"
+        },
+        {
+            "key": "LIQUEUR_DE_CITRON",
+            "value": "liqueur de citron"
+        },
+        {
+            "key": "CREME_DE_FRAISE_DES_BOIS",
+            "value": "crème de fraise des bois"
+        },
+        {
+            "key": "LIQUEUR_DE_FRAISE_DES_BOIS",
+            "value": "liqueur de fraise des bois"
+        },
+        {
+            "key": "MARTINI_DOUX",
+            "value": "martini doux"
+        },
+        {
+            "key": "MARTINI_DRY",
+            "value": "martini dry"
+        },
+        {
+            "key": "RONDELLE_DE_CITRON",
+            "value": "rondelle de citron"
+        },
+        {
+            "key": "CREME_DE_GRIOTTE",
+            "value": "crème de griotte"
+        },
+        {
+            "key": "CORONILLE",
+            "value": "coronille"
+        },
+        {
+            "key": "PIMS",
+            "value": "pim's"
+        },
+        {
+            "key": "JAUNE_DOEUF",
+            "value": "jaune d'oeuf"
+        },
+        {
+            "key": "LIQUEUR_DE_CARAMBOLE",
+            "value": "liqueur de carambole"
+        },
+        {
+            "key": "GIN_CHERRY",
+            "value": "gin cherry"
+        },
+        {
+            "key": "WHISKEY_IRLANDAIS",
+            "value": "whiskey irlandais"
+        },
+        {
+            "key": "CERISES_A_LEAU_DE_VIE",
+            "value": "cerise a l'eau de vie"
+        },
+        {
+            "key": "GRANADINE",
+            "value": "granadine"
+        },
+        {
+            "key": "PHYSALIS",
+            "value": "physalis"
+        },
+        {
+            "key": "SUCRE_DE_CANNE",
+            "value": "sucre de canne"
+        },
+        {
+            "key": "PECHE",
+            "value": "pêche"
+        },
+        {
+            "key": "PORE",
+            "value": "pore"
+        },
+        {
+            "key": "ABBAYE",
+            "value": "Abbaye"
+        },
+        {
+            "key": "ACAPULCO",
+            "value": "Acapulco"
+        },
+        {
+            "key": "ACCROCHE_COEUR",
+            "value": "Accroche-coeur"
+        },
+        {
+            "key": "AFFREUX_JOJO",
+            "value": "Affreux Jojo"
+        },
+        {
+            "key": "AHURI",
+            "value": "Ahuri"
+        },
+        {
+            "key": "ALASKA",
+            "value": "Alaska"
+        },
+        {
+            "key": "ALCHIMISTE",
+            "value": "Alchimiste"
+        },
+        {
+            "key": "ALEXANDRA",
+            "value": "Alexandra"
+        },
+        {
+            "key": "ALIBI",
+            "value": "Alibi"
+        },
+        {
+            "key": "ALTA_MIRA",
+            "value": "Alta Mira"
+        },
+        {
+            "key": "AMBASSADOR",
+            "value": "Ambassador"
+        },
+        {
+            "key": "AMERICAN_LEGION",
+            "value": "American Legion"
+        },
+        {
+            "key": "AMERICANO",
+            "value": "Americano"
+        },
+        {
+            "key": "AMOUREUX_TIMIDE",
+            "value": "Amoureux Timide"
+        },
+        {
+            "key": "ANE_DE_BURIDAN",
+            "value": "Ane De Buridan"
+        },
+        {
+            "key": "ANGEVINE",
+            "value": "Angevine"
+        },
+        {
+            "key": "ANTIDOTE",
+            "value": "Antidote"
+        },
+        {
+            "key": "APACHE",
+            "value": "Apache"
+        },
+        {
+            "key": "AURORE",
+            "value": "Aurore"
+        },
+        {
+            "key": "BABICOCO",
+            "value": "Babicoco"
+        },
+        {
+            "key": "BACARDI",
+            "value": "Bacardi"
+        },
+        {
+            "key": "BACHI_BOUZOUK",
+            "value": "Bachi-bouzouk"
+        },
+        {
+            "key": "BAGUENAUDE",
+            "value": "Baguenaude"
+        },
+        {
+            "key": "BALALAIKA",
+            "value": "Balalaika"
+        },
+        {
+            "key": "BALLET_RUSSE",
+            "value": "Ballet Russe"
+        },
+        {
+            "key": "BANANA_COW",
+            "value": "Banana Cow"
+        },
+        {
+            "key": "BANDIT_D'HONNEUR",
+            "value": "Bandit d'honneur"
+        },
+        {
+            "key": "BAOBAB",
+            "value": "Baobab"
+        },
+        {
+            "key": "BARAKA",
+            "value": "Baraka"
+        },
+        {
+            "key": "BASKARIA",
+            "value": "Baskaria"
+        },
+        {
+            "key": "BATIDA",
+            "value": "Batida"
+        },
+        {
+            "key": "BATIDINHA",
+            "value": "Batidinha"
+        },
+        {
+            "key": "BEBER_PARA_VIVIR",
+            "value": "Beber Para Vivir"
+        },
+        {
+            "key": "BENI_OUI_OUI",
+            "value": "Beni-oui-oui"
+        },
+        {
+            "key": "BEGUIN",
+            "value": "Beguin"
+        },
+        {
+            "key": "BIG_DANE",
+            "value": "Big Dane"
+        },
+        {
+            "key": "BLACKSON",
+            "value": "Blackson"
+        },
+        {
+            "key": "BLOODY_MARY",
+            "value": "Bloody Mary"
+        },
+        {
+            "key": "BLUE_HAWAIAN",
+            "value": "Blue Hawaian"
+        },
+        {
+            "key": "BLUE_LAGOON",
+            "value": "Blue Lagoon"
+        },
+        {
+            "key": "BOHEME",
+            "value": "Boheme"
+        },
+        {
+            "key": "BOISSON_DES_ILES",
+            "value": "Boisson des Iles"
+        },
+        {
+            "key": "BOOTLEGGER",
+            "value": "Bootlegger"
+        },
+        {
+            "key": "BOUGON",
+            "value": "Bougon"
+        },
+        {
+            "key": "BOUTE_EN_TRAIN",
+            "value": "Boute-en-train"
+        },
+        {
+            "key": "BOUTON_D'OR",
+            "value": "Bouton d'or"
+        },
+        {
+            "key": "BRIGAND",
+            "value": "Brigand"
+        },
+        {
+            "key": "BRULE_POURPOINT",
+            "value": "Brûle-pourpoint"
+        },
+        {
+            "key": "CABOCHARD",
+            "value": "Cabochard"
+        },
+        {
+            "key": "CABOTIN",
+            "value": "Cabotin"
+        },
+        {
+            "key": "CAIMAN_I",
+            "value": "Caïman I"
+        },
+        {
+            "key": "CAIMAN_II",
+            "value": "Caïman II"
+        },
+        {
+            "key": "CAIPIRISSIMA",
+            "value": "Caipirissima"
+        },
+        {
+            "key": "CAMOUFLET",
+            "value": "Camouflet"
+        },
+        {
+            "key": "CAMPARI_GIN",
+            "value": "Campari Gin"
+        },
+        {
+            "key": "CANULAR",
+            "value": "Canular"
+        },
+        {
+            "key": "CAPHARNAUM",
+            "value": "Capharnaüm"
+        },
+        {
+            "key": "CARACAS_NIGHT",
+            "value": "Caracas Night"
+        },
+        {
+            "key": "CARDINAL",
+            "value": "Cardinal"
+        },
+        {
+            "key": "CARIOCA",
+            "value": "Carioca"
+        },
+        {
+            "key": "CASSE_COU",
+            "value": "Casse-cou"
+        },
+        {
+            "key": "CHANTACO",
+            "value": "Chantaco"
+        },
+        {
+            "key": "CHARABIA",
+            "value": "Charabia"
+        },
+        {
+            "key": "CHALOUPEE",
+            "value": "Chaloupée"
+        },
+        {
+            "key": "CHARANOVA",
+            "value": "Charanova"
+        },
+        {
+            "key": "CHARENTAISE",
+            "value": "Charentaise"
+        },
+        {
+            "key": "CHARIVARI",
+            "value": "Charivari"
+        },
+        {
+            "key": "CHARLES_HENRY",
+            "value": "Charles Henry"
+        },
+        {
+            "key": "CHAT_BOTTE",
+            "value": "Chat Botté"
+        },
+        {
+            "key": "CHAUDRON_DU_DIABLE",
+            "value": "Chaudron du Diable"
+        },
+        {
+            "key": "CHEMIN_DE_DAMAS",
+            "value": "Chemin de Damas"
+        },
+        {
+            "key": "CHENAPAN",
+            "value": "Chenapan"
+        },
+        {
+            "key": "CHERUBIN",
+            "value": "Chérubin"
+        },
+        {
+            "key": "CHICANO",
+            "value": "Chicano"
+        },
+        {
+            "key": "CHIMERE",
+            "value": "Chimère"
+        },
+        {
+            "key": "CHOCOLAT_COINTREAU",
+            "value": "Chocolat Cointreau"
+        },
+        {
+            "key": "CIBOULETTE",
+            "value": "Ciboulette"
+        },
+        {
+            "key": "CIEL_DE_PROVENCE",
+            "value": "Ciel de Provence"
+        },
+        {
+            "key": "CIGALE",
+            "value": "Cigale"
+        },
+        {
+            "key": "CLARIDGE",
+            "value": "Claridge"
+        },
+        {
+            "key": "CLE_DES_CHAMPS",
+            "value": "Cle des champs"
+        },
+        {
+            "key": "CLOU_ROUILLE",
+            "value": "Clou Rouillé"
+        },
+        {
+            "key": "CONQUISTADOR",
+            "value": "Conquistador"
+        },
+        {
+            "key": "CONSUL_DO_BRASIL",
+            "value": "Consul do Brasil"
+        },
+        {
+            "key": "COQUELICOT_COCKTAIL",
+            "value": "Coquelicot"
+        },
+        {
+            "key": "COQ_EN_PATE",
+            "value": "Coq en Pâte"
+        },
+        {
+            "key": "CORDE_AU_COU",
+            "value": "Corde au cou"
+        },
+        {
+            "key": "CROQUE_MITAINE",
+            "value": "Croque-mitaine"
+        },
+        {
+            "key": "CROCODILE",
+            "value": "Crocodile"
+        },
+        {
+            "key": "CUPIDON",
+            "value": "Cupidon"
+        },
+        {
+            "key": "DAIKIRI",
+            "value": "Daïkiri"
+        },
+        {
+            "key": "DAIKIRI_ORANGE",
+            "value": "Daïkiri Orange"
+        },
+        {
+            "key": "DANDY",
+            "value": "Dandy"
+        },
+        {
+            "key": "DESPERADO",
+            "value": "Desperado"
+        },
+        {
+            "key": "DEGONFLE",
+            "value": "Dégonflé"
+        },
+        {
+            "key": "DJAHDIEUF",
+            "value": "Djahdieuf"
+        },
+        {
+            "key": "DON_DU_CIEL",
+            "value": "Don du ciel"
+        },
+        {
+            "key": "DOUCEUR_EXOTIQUE",
+            "value": "Douceur exotique"
+        },
+        {
+            "key": "DOUX_REVEUR",
+            "value": "Doux rêveur"
+        },
+        {
+            "key": "DRAGON_VERT",
+            "value": "Dragon Vert"
+        },
+        {
+            "key": "DUR_A_CUIRE",
+            "value": "Dur à cuire"
+        },
+        {
+            "key": "ELIXIR",
+            "value": "Elixir"
+        },
+        {
+            "key": "EMBRUME",
+            "value": "Embrumé"
+        },
+        {
+            "key": "ENFANT_GATE",
+            "value": "Enfant gâté"
+        },
+        {
+            "key": "ENTOURLOUPE",
+            "value": "Entourloupe"
+        },
+        {
+            "key": "ESCALE",
+            "value": "Escale"
+        },
+        {
+            "key": "ESCOGRIFFE",
+            "value": "Escogriffe"
+        },
+        {
+            "key": "ESPADON",
+            "value": "Espadon"
+        },
+        {
+            "key": "FAIR_PLAY",
+            "value": "Fair-Play"
+        },
+        {
+            "key": "FAKIR",
+            "value": "Fakir"
+        },
+        {
+            "key": "FALBALA",
+            "value": "Falbala"
+        },
+        {
+            "key": "FANFARON",
+            "value": "Fanfaron"
+        },
+        {
+            "key": "FARFADET",
+            "value": "Farfadet"
+        },
+        {
+            "key": "FAVELA",
+            "value": "Favela"
+        },
+        {
+            "key": "FEU_FOLLET",
+            "value": "Feu Follet"
+        },
+        {
+            "key": "FLIBUSTIER",
+            "value": "Flibustier"
+        },
+        {
+            "key": "FLIRT",
+            "value": "Flirt"
+        },
+        {
+            "key": "FOLLE_DE_CHAILLOT",
+            "value": "Folle de Chaillot"
+        },
+        {
+            "key": "FOND_DE_CULOTTE",
+            "value": "Fond de culotte"
+        },
+        {
+            "key": "FONDU",
+            "value": "Fondu"
+        },
+        {
+            "key": "FORMULE_3",
+            "value": "Formule 3"
+        },
+        {
+            "key": "FORMULE_2",
+            "value": "Formule 2"
+        },
+        {
+            "key": "FORMULE_1",
+            "value": "Formule 1"
+        },
+        {
+            "key": "FOULIVET",
+            "value": "Foulivet"
+        },
+        {
+            "key": "FRANCISCO",
+            "value": "Francisco"
+        },
+        {
+            "key": "FRELUQUET",
+            "value": "Freluquet"
+        },
+        {
+            "key": "FRIPOUILLE",
+            "value": "Fripouille"
+        },
+        {
+            "key": "FRUIT_DEFENDU",
+            "value": "Fruit Défendu"
+        },
+        {
+            "key": "FUNAMBULE",
+            "value": "Funambule"
+        },
+        {
+            "key": "GAGNE_PETIT",
+            "value": "Gagne-petit"
+        },
+        {
+            "key": "GALEJADE",
+            "value": "Galéjade"
+        },
+        {
+            "key": "GALERIEN",
+            "value": "Galérien"
+        },
+        {
+            "key": "GALIPETTE",
+            "value": "Galipette"
+        },
+        {
+            "key": "GALOUPIOT",
+            "value": "Galoupiot"
+        },
+        {
+            "key": "GARGOUILLE",
+            "value": "Gargouille"
+        },
+        {
+            "key": "GAVROCHE",
+            "value": "Gavroche"
+        },
+        {
+            "key": "GIMMICK",
+            "value": "Gimmick"
+        },
+        {
+            "key": "GIN_FIZZ",
+            "value": "Gin Fizz"
+        },
+        {
+            "key": "GIROUETTE",
+            "value": "Girouette"
+        },
+        {
+            "key": "GITAN",
+            "value": "Gitan"
+        },
+        {
+            "key": "GODELUREAU",
+            "value": "Godelureau"
+        },
+        {
+            "key": "GOUGNAFIER",
+            "value": "Gougnafier"
+        },
+        {
+            "key": "GOUROU",
+            "value": "Gourou"
+        },
+        {
+            "key": "GRAND_LARGE",
+            "value": "Grand Large"
+        },
+        {
+            "key": "GRAND_MARNIER_TONIC",
+            "value": "Grand Marnier Tonic"
+        },
+        {
+            "key": "GRASSHOPPER",
+            "value": "Grasshopper"
+        },
+        {
+            "key": "GRENOUILLE_DE_BENITIER",
+            "value": "Grenouille De Benitier"
+        },
+        {
+            "key": "GRI_GRI",
+            "value": "Gri-gri"
+        },
+        {
+            "key": "GRINGO",
+            "value": "Gringo"
+        },
+        {
+            "key": "GRIPPE_SOU",
+            "value": "Grippe-sou"
+        },
+        {
+            "key": "GUINGUETTE",
+            "value": "Guinguette"
+        },
+        {
+            "key": "HALLALI",
+            "value": "Hallali"
+        },
+        {
+            "key": "HAS_BEEN",
+            "value": "Has Been"
+        },
+        {
+            "key": "HURLUBERLU",
+            "value": "Hurluberlu"
+        },
+        {
+            "key": "IMPERTINENT",
+            "value": "Impertinent"
+        },
+        {
+            "key": "INDECIS",
+            "value": "Indécis"
+        },
+        {
+            "key": "INDISCRET",
+            "value": "Indiscret"
+        },
+        {
+            "key": "JACARE",
+            "value": "Jacare"
+        },
+        {
+            "key": "JACK_ROSE",
+            "value": "Jack Rose"
+        },
+        {
+            "key": "JOBARD",
+            "value": "Jobard"
+        },
+        {
+            "key": "JOLIE_MOME",
+            "value": "Jolie Môme"
+        },
+        {
+            "key": "KAMIKAZE",
+            "value": "Kamikaze"
+        },
+        {
+            "key": "KHAN",
+            "value": "Khan"
+        },
+        {
+            "key": "KING_ALFONSO",
+            "value": "King Alfonso"
+        },
+        {
+            "key": "LAION",
+            "value": "Laion"
+        },
+        {
+            "key": "LAION_CASSIS",
+            "value": "Laion Cassis"
+        },
+        {
+            "key": "LARENJEIRA",
+            "value": "Larenjeira"
+        },
+        {
+            "key": "LAZY_RIVER",
+            "value": "Lazy River"
+        },
+        {
+            "key": "LEA_DOUDOU",
+            "value": "Lea Doudou"
+        },
+        {
+            "key": "LIBELLULE",
+            "value": "Libellule"
+        },
+        {
+            "key": "LIBERTIN",
+            "value": "Libertin"
+        },
+        {
+            "key": "LOUP_DE_MER",
+            "value": "Loup de Mer"
+        },
+        {
+            "key": "LOUPEDADE",
+            "value": "Loupédadé"
+        },
+        {
+            "key": "LOUP_GAROU",
+            "value": "Loup Garou"
+        },
+        {
+            "key": "LUCIOLE",
+            "value": "Luciole"
+        },
+        {
+            "key": "MAEVA",
+            "value": "Maeva"
+        },
+        {
+            "key": "MAI_TAI",
+            "value": "Maï Taï"
+        },
+        {
+            "key": "MANHATTAN",
+            "value": "Manhattan"
+        },
+        {
+            "key": "MARGARITA",
+            "value": "Margarita"
+        },
+        {
+            "key": "MARGOULIN",
+            "value": "Margoulin"
+        },
+        {
+            "key": "MARINA",
+            "value": "Marina"
+        },
+        {
+            "key": "MARTINI_DRY_COCKTAIL",
+            "value": "Martini Dry"
+        },
+        {
+            "key": "MASCOTTE",
+            "value": "Mascotte"
+        },
+        {
+            "key": "M'AS_TU_VU",
+            "value": "M'as-tu-vu"
+        },
+        {
+            "key": "MEA_CULPA",
+            "value": "Mea culpa"
+        },
+        {
+            "key": "MEK_TOUB",
+            "value": "Mek Toub"
+        },
+        {
+            "key": "MEXICAIN",
+            "value": "Mexicain"
+        },
+        {
+            "key": "MIDINETTE",
+            "value": "Midinette"
+        },
+        {
+            "key": "MIRAGE",
+            "value": "Mirage"
+        },
+        {
+            "key": "MISANTHROPE",
+            "value": "Misanthrope"
+        },
+        {
+            "key": "MISS_BA",
+            "value": "Miss Ba"
+        },
+        {
+            "key": "MISTIGRI",
+            "value": "Mistigri"
+        },
+        {
+            "key": "MOHICAN",
+            "value": "Mohican"
+        },
+        {
+            "key": "MUCARA",
+            "value": "Mucara"
+        },
+        {
+            "key": "MUTIN",
+            "value": "Mutin"
+        },
+        {
+            "key": "MUSE",
+            "value": "Muse"
+        },
+        {
+            "key": "NABAB",
+            "value": "Nabab"
+        },
+        {
+            "key": "NEFERTITI",
+            "value": "Nefertiti"
+        },
+        {
+            "key": "NIRVANA",
+            "value": "Nirvana"
+        },
+        {
+            "key": "NUNUCHE",
+            "value": "Nunuche"
+        },
+        {
+            "key": "NYMPHE",
+            "value": "Nymphe"
+        },
+        {
+            "key": "OISEAU_BLEU",
+            "value": "Oiseau bleu"
+        },
+        {
+            "key": "OLIBRIUS",
+            "value": "Olibrius"
+        },
+        {
+            "key": "OMBRAGE",
+            "value": "Ombrage"
+        },
+        {
+            "key": "ONCLE_TOM",
+            "value": "Oncle Tom"
+        },
+        {
+            "key": "OUBLI",
+            "value": "Oubli"
+        },
+        {
+            "key": "OUED",
+            "value": "Oued"
+        },
+        {
+            "key": "QUISTITI",
+            "value": "Quistiti"
+        },
+        {
+            "key": "OULAN_BATOR",
+            "value": "Oulan Bator"
+        },
+        {
+            "key": "PACTOLE",
+            "value": "Pactole"
+        },
+        {
+            "key": "PAILLOTTE",
+            "value": "Paillotte"
+        },
+        {
+            "key": "PALTOQUET",
+            "value": "Paltoquet"
+        },
+        {
+            "key": "PAPA_COLLINS",
+            "value": "Papa Collins"
+        },
+        {
+            "key": "PAPOOSE",
+            "value": "Papoose"
+        },
+        {
+            "key": "PARADISE_ABRICOT",
+            "value": "Paradise Abricot"
+        },
+        {
+            "key": "PARADISE_BANANE",
+            "value": "Paradise Banane"
+        },
+        {
+            "key": "PARADISE_CASSIS",
+            "value": "Paradise Cassis"
+        },
+        {
+            "key": "PARADISE_FRAISE",
+            "value": "Paradise Fraise"
+        },
+        {
+            "key": "PARADISE_FRAMBOISE",
+            "value": "Paradise Framboise"
+        },
+        {
+            "key": "PARADISE_GRIOTTE",
+            "value": "Paradise Griotte"
+        },
+        {
+            "key": "PARADISE_LITCHI",
+            "value": "Paradise Litchi"
+        },
+        {
+            "key": "PARADISE_MANGUE",
+            "value": "Paradise Mangue"
+        },
+        {
+            "key": "PARADISE_MANDARINE",
+            "value": "Paradise Mandarine"
+        },
+        {
+            "key": "PARADISE_MELON",
+            "value": "Paradise Melon"
+        },
+        {
+            "key": "PARADISE_MURE",
+            "value": "Paradise Mûre"
+        },
+        {
+            "key": "PARADISE_MUROISE",
+            "value": "Paradise Muroise"
+        },
+        {
+            "key": "PARADISE_MYRTILLE",
+            "value": "Paradise Myrtille"
+        },
+        {
+            "key": "PARADISE_PECHE",
+            "value": "Paradise Pêche"
+        },
+        {
+            "key": "PARADISE_PISANG",
+            "value": "Paradise Pisang"
+        },
+        {
+            "key": "PARIA",
+            "value": "Paria"
+        },
+        {
+            "key": "PARENTHESE",
+            "value": "Parenthèse"
+        },
+        {
+            "key": "PASSE_MURAILLE",
+            "value": "Passe Muraille"
+        },
+        {
+            "key": "PATATRAC",
+            "value": "Patatrac"
+        },
+        {
+            "key": "PECHE_KOBA",
+            "value": "Pêche Koba"
+        },
+        {
+            "key": "PERLIMPINPIN",
+            "value": "Perlimpinpin"
+        },
+        {
+            "key": "PETIT_CHOSE",
+            "value": "Petit Chose"
+        },
+        {
+            "key": "PHILTRE",
+            "value": "Philtre"
+        },
+        {
+            "key": "PIERRE_VERT",
+            "value": "Pierre Vert"
+        },
+        {
+            "key": "PIMS_COCKTAIL",
+            "value": "Pim's"
+        },
+        {
+            "key": "PINA_COLADA",
+            "value": "Piña Colada"
+        },
+        {
+            "key": "PINCE_SANS_RIRE",
+            "value": "Pince sans Rire"
+        },
+        {
+            "key": "PINK_PUSSY",
+            "value": "Pink Pussy"
+        },
+        {
+            "key": "PIROUETTE",
+            "value": "Pirouette"
+        },
+        {
+            "key": "PISKINHA",
+            "value": "Piskinha"
+        },
+        {
+            "key": "PISKITA",
+            "value": "Piskita"
+        },
+        {
+            "key": "PITCHOUNE",
+            "value": "Pitchoune"
+        },
+        {
+            "key": "PLANTEUR",
+            "value": "Planteur"
+        },
+        {
+            "key": "PLOUC",
+            "value": "Plouc"
+        },
+        {
+            "key": "POLSKA_BANANE",
+            "value": "Polska Banane"
+        },
+        {
+            "key": "POLTRON",
+            "value": "Poltron"
+        },
+        {
+            "key": "PONDICHERRY",
+            "value": "Pondicherry"
+        },
+        {
+            "key": "PORTO_FLIP",
+            "value": "Porto Flip"
+        },
+        {
+            "key": "POULBOT",
+            "value": "Poulbot"
+        },
+        {
+            "key": "P'TIT_QUINQUIN",
+            "value": "P'tit Quinquin"
+        },
+        {
+            "key": "P'TITE_SIRENE",
+            "value": "P'tite Sirène"
+        },
+        {
+            "key": "PUDIBOND",
+            "value": "Pudibond"
+        },
+        {
+            "key": "PUNCH",
+            "value": "Punch"
+        },
+        {
+            "key": "QUI_QU'EN_GROGNE",
+            "value": "Qui qu'en Grogne"
+        },
+        {
+            "key": "RAS_LE_BOL",
+            "value": "Ras-le-bol"
+        },
+        {
+            "key": "RAYA",
+            "value": "Raya"
+        },
+        {
+            "key": "REGAIN",
+            "value": "Regain"
+        },
+        {
+            "key": "REINE_DES_CARAIBES",
+            "value": "Reine des Caraïbes"
+        },
+        {
+            "key": "RIBOULDINGUE",
+            "value": "Ribouldingue"
+        },
+        {
+            "key": "RIFIFI",
+            "value": "Rififi"
+        },
+        {
+            "key": "RIGOLO",
+            "value": "Rigolo"
+        },
+        {
+            "key": "RIO_GRANDE",
+            "value": "Rio Grande"
+        },
+        {
+            "key": "ROMAINE",
+            "value": "Romaine"
+        },
+        {
+            "key": "ROND_DE_CUIR",
+            "value": "Rond de Cuir"
+        },
+        {
+            "key": "ROSE",
+            "value": "Rose"
+        },
+        {
+            "key": "ROYAL_PUNCH_COCO",
+            "value": "Royal Punch Coco"
+        },
+        {
+            "key": "RUSSIE_BLANCHE",
+            "value": "Russie Blanche"
+        },
+        {
+            "key": "RUSSIE_NOIRE",
+            "value": "Russie Noire"
+        },
+        {
+            "key": "SACRIPANT",
+            "value": "Sacripant"
+        },
+        {
+            "key": "SAGOUIN",
+            "value": "Sagouin"
+        },
+        {
+            "key": "SALE_GOSSE",
+            "value": "Sale Gosse"
+        },
+        {
+            "key": "SALTIMBANQUE",
+            "value": "Saltimbanque"
+        },
+        {
+            "key": "SAN_CRISTOBAL",
+            "value": "San Cristobal"
+        },
+        {
+            "key": "SANS_GENE",
+            "value": "Sans-Gêne"
+        },
+        {
+            "key": "SANS_SOUCI",
+            "value": "Sans Souci"
+        },
+        {
+            "key": "SAUDADE",
+            "value": "Saudade"
+        },
+        {
+            "key": "SCOUBIDOU",
+            "value": "Scoubidou"
+        },
+        {
+            "key": "SHOSHONEE",
+            "value": "Shoshonee"
+        },
+        {
+            "key": "SIDE_CAR",
+            "value": "Side Car"
+        },
+        {
+            "key": "SIMPLET",
+            "value": "Simplet"
+        },
+        {
+            "key": "SINGAPORE_SLING",
+            "value": "Singapore Sling"
+        },
+        {
+            "key": "SINOQUE",
+            "value": "Sinoque"
+        },
+        {
+            "key": "SMILING",
+            "value": "Smiling"
+        },
+        {
+            "key": "SO_BRITISH",
+            "value": "So British"
+        },
+        {
+            "key": "SORTILEGE",
+            "value": "Sortilège"
+        },
+        {
+            "key": "SOUPIRANT",
+            "value": "Soupirant"
+        },
+        {
+            "key": "TABARLY",
+            "value": "Tabarly"
+        },
+        {
+            "key": "TAJ_MAHAL",
+            "value": "Taj Mahal"
+        },
+        {
+            "key": "TARTEMPION",
+            "value": "Tartempion"
+        },
+        {
+            "key": "TEQUILA_FIZZ",
+            "value": "Tequila Fizz"
+        },
+        {
+            "key": "TEQUILA_SUNRISE",
+            "value": "Tequila Sunrise"
+        },
+        {
+            "key": "TETARD",
+            "value": "Têtard"
+        },
+        {
+            "key": "TETE_A_TETE",
+            "value": "Tête à Tête"
+        },
+        {
+            "key": "TETE_DE_LINOTTE",
+            "value": "Tête De Linotte"
+        },
+        {
+            "key": "TEXAS",
+            "value": "Texas"
+        },
+        {
+            "key": "THOMASSINO",
+            "value": "Thomassino"
+        },
+        {
+            "key": "TINTAMARRE",
+            "value": "Tintamarre"
+        },
+        {
+            "key": "TI'PUNCH",
+            "value": "Ti'Punch"
+        },
+        {
+            "key": "TIRE_AU_FLANC",
+            "value": "Tire-au-Flanc"
+        },
+        {
+            "key": "TOCADE",
+            "value": "Tocade"
+        },
+        {
+            "key": "TOHU_BOHU",
+            "value": "Tohu Bohu"
+        },
+        {
+            "key": "TOM_COLLLINS",
+            "value": "Tom Colllins"
+        },
+        {
+            "key": "TOM_JUNIOR",
+            "value": "Tom Junior"
+        },
+        {
+            "key": "TONKINOIS",
+            "value": "Tonkinois"
+        },
+        {
+            "key": "TRAINE_SAVATES",
+            "value": "Traîne-savates"
+        },
+        {
+            "key": "TRAIT_D'UNION",
+            "value": "Trait d'Union"
+        },
+        {
+            "key": "TRALALA",
+            "value": "Tralala"
+        },
+        {
+            "key": "TRAQUENARD",
+            "value": "Traquenard"
+        },
+        {
+            "key": "TREMOLO",
+            "value": "Trémolo"
+        },
+        {
+            "key": "333",
+            "value": "333"
+        },
+        {
+            "key": "TROLL",
+            "value": "Troll"
+        },
+        {
+            "key": "TROUBADOUR",
+            "value": "Troubadour"
+        },
+        {
+            "key": "TROUBLE_FETE",
+            "value": "Trouble-fête"
+        },
+        {
+            "key": "TRUBLION",
+            "value": "Trublion"
+        },
+        {
+            "key": "TYPHON",
+            "value": "Typhon"
+        },
+        {
+            "key": "UPPERCUT",
+            "value": "Uppercut"
+        },
+        {
+            "key": "VAGABOND",
+            "value": "Vagabond"
+        },
+        {
+            "key": "VAGUE_A_L'AME",
+            "value": "Vague à l'âme"
+        },
+        {
+            "key": "VAHINE",
+            "value": "Vahiné"
+        },
+        {
+            "key": "VA_NU_PIED",
+            "value": "Va-nu-pied"
+        },
+        {
+            "key": "VEAU_QUI_TETE",
+            "value": "Veau qui tète"
+        },
+        {
+            "key": "VENDETTA",
+            "value": "Vendetta"
+        },
+        {
+            "key": "VERT_GALANT",
+            "value": "Vert Galant"
+        },
+        {
+            "key": "VIKING",
+            "value": "Viking"
+        },
+        {
+            "key": "VODKA_LEMON",
+            "value": "Vodka Lemon"
+        },
+        {
+            "key": "VODKA_ORANGE",
+            "value": "Vodka Orange"
+        },
+        {
+            "key": "WHISKY_SOUR",
+            "value": "Whisky Sour"
+        },
+        {
+            "key": "WHITE_LADY",
+            "value": "White Lady"
+        },
+        {
+            "key": "YOYO_VERDE",
+            "value": "Yoyo Verde"
+        },
+        {
+            "key": "YUCATAN",
+            "value": "Yucatan"
+        },
+        {
+            "key": "ZAZOU",
+            "value": "Zazou"
+        },
+        {
+            "key": "ZEBULON",
+            "value": "Zébulon"
+        },
+        {
+            "key": "ZEPHYR",
+            "value": "Zéphyr"
+        },
+        {
+            "key": "ALOUETTE",
+            "value": "Alouette"
+        },
+        {
+            "key": "ARA",
+            "value": "Ara"
+        },
+        {
+            "key": "AUTRUCHE",
+            "value": "Autruche"
+        },
+        {
+            "key": "CACATOES",
+            "value": "Cacatoès"
+        },
+        {
+            "key": "COLIBRI",
+            "value": "Colibri"
+        },
+        {
+            "key": "COUCOU",
+            "value": "Coucou"
+        },
+        {
+            "key": "DODO",
+            "value": "Dodo"
+        },
+        {
+            "key": "GOBE_MOUCHE",
+            "value": "Gobe Mouche"
+        },
+        {
+            "key": "MANCHOT",
+            "value": "Manchot"
+        },
+        {
+            "key": "MESANGE",
+            "value": "Mésange"
+        },
+        {
+            "key": "MARABOUT",
+            "value": "Marabout"
+        },
+        {
+            "key": "PELICAN",
+            "value": "Pélican"
+        },
+        {
+            "key": "PIC_VERT",
+            "value": "Pic-Vert"
+        },
+        {
+            "key": "PIOU_PIOU",
+            "value": "Piou-piou"
+        },
+        {
+            "key": "PTIT_PIAF",
+            "value": "P'tit Piaf"
+        },
+        {
+            "key": "QUETZAL",
+            "value": "Quetzal"
+        },
+        {
+            "key": "ROSSIGNOL",
+            "value": "Rossignol"
+        },
+        {
+            "key": "ROUGE_GORGE",
+            "value": "Rouge-gorge"
+        },
+        {
+            "key": "TOUCAN",
+            "value": "Toucan"
+        },
+        {
+            "key": "VAUTOUR",
+            "value": "Vautour"
+        },
+        {
+            "key": "BEER_TITLE",
+            "value": "Bières pression"
+        },
+        {
+            "key": "CHOUFFE",
+            "value": "CHOUFFE"
+        },
+        {
+            "key": "CHOUFFE_DESCRIPTION",
+            "value": "La Chouffe est une bière blonde à triple fermentation, elle possède un haut degré d'alcool de 8%. Son arôme est particulier, fleur d'oranger ou pomme acide."
+        },
+        {
+            "key": "CHOUFFE_DEMI_PRICE",
+            "value": "Demi : <CHOUFFE_DEMI_PRICE> €"
+        },
+        {
+            "key": "CHOUFFE_PINTE_PRICE",
+            "value": "Pinte : <CHOUFFE_PINTE_PRICE> €"
+        },
+        {
+            "key": "PELFORTH",
+            "value": "PELFORTH"
+        },
+        {
+            "key": "PELFORTH_DESCRIPTION",
+            "value": "La Pelforth est une bière Bière brune à 6,5 % avec un fort goût de caramel ou de miel, et légèrement de café. Elle est relativement sucrée et peu amère, pour une bière brune."
+        },
+        {
+            "key": "PELFORTH_DEMI_PRICE",
+            "value": "Demi : <PELFORTH_DEMI_PRICE> €"
+        },
+        {
+            "key": "PELFORTH_PINTE_PRICE",
+            "value": "Pinte : <PELFORTH_PINTE_PRICE> €"
+        },
+        {
+            "key": "SNACKS_TITLE",
+            "value": "A grignoter"
+        },
+        {
+            "key": "PEANUTS",
+            "value": "Cacahuètes"
+        },
+        {
+            "key": "PEANUTS_PRICE",
+            "value": "<PEANUT_PRICE> €"
+        },
+        {
+            "key": "CHIPS",
+            "value": "Chips Barbecue, poulet ou nature"
+        },
+        {
+            "key": "CHIPS_PRICE",
+            "value": "<CHIPS_PRICE> €"
+        },
+        {
+            "key": "SODA_TITLE",
+            "value": "Soft"
+        },
+        {
+            "key": "SCHWEPPES",
+            "value": "Schweppes"
+        },
+        {
+            "key": "SCHWEPPES_PRICE",
+            "value": "<SCHWEPPES_PRICE> €"
+        },
+        {
+            "key": "COCACOLA",
+            "value": "Coca-Cola"
+        },
+        {
+            "key": "COCACOLA_PRICE",
+            "value": "<COCACOLA_PRICE> €"
+        },
+        {
+            "key": "COCACOLA_LIGHT",
+            "value": "Coca-Cola light"
+        },
+        {
+            "key": "COCACOLA_LIGHT_PRICE",
+            "value": "<COCACOLA_LIGHT_PRICE> €"
+        },
+        {
+            "key": "PERRIER",
+            "value": "Perrier"
+        },
+        {
+            "key": "PERRIER_PRICE",
+            "value": "<PERRIER_PRICE> €"
+        },
+        {
+            "key": "RED_BULL",
+            "value": "Red Bull"
+        },
+        {
+            "key": "RED_BULL_PRICE",
+            "value": "<RED_BULL_PRICE> €"
+        },
+        {
+            "key": "SHOOTERS_TITLE",
+            "value": "Nos croc'shooters"
+        },
+        {
+            "key": "ONE_SHOOTER_PRICE",
+            "value": "<ONE_SHOOTER_PRICE> € le shooter"
+        },
+        {
+            "key": "FIVE_SHOOTER_PRICE",
+            "value": "<FIVE_SHOOTER_PRICE> € les 5 shooter au choix"
+        },
+        {
+            "key": "TEN_SHOOTER_PRICE",
+            "value": "<TEN_SHOOTER_PRICE> € les 10 shooter au choix"
+        },
+        {
+            "key": "VODKA_KIWI",
+            "value": "Vodka-kiwi"
+        },
+        {
+            "key": "VODKA_FRAISE",
+            "value": "Vodka-fraise"
+        },
+        {
+            "key": "VODKA_FRAMBOISE",
+            "value": "Vodka-framboise"
+        },
+        {
+            "key": "VODKA_SPECULOS",
+            "value": "Vodka-Spéculos"
+        },
+        {
+            "key": "TEQUILA_SHOOT",
+            "value": "Téquila"
+        },
+        {
+            "key": "RHUM_VIEUX_POIRE",
+            "value": "Rhum vieux-poire"
+        },
+        {
+            "key": "VODKA_CARAMEL",
+            "value": "Vodka-caramel"
+        },
+        {
+            "key": "JEIGERMEISTER",
+            "value": "Jeigermeister"
+        },
+        {
+            "key": "GIN_CASSIS",
+            "value": "Gin cassis"
+        },
+        {
+            "key": "B52",
+            "value": "B52"
+        },
+        {
+            "key": "BUY_MENU_CARD",
+            "value": "Pas la peine de voler notre jolie carte avec un sourire et <MENU_CARD_PRICE>€ elle est à vous !!!"
+        },
+        {
+            "key": "SEARCH_BAR_PLACEHOLDER",
+            "value": "Cocktail ou ingrédient"
+        },
+        {
+            "key": "CLEAR_SEARCH",
+            "value": "Effacer la recherche"
+        },
+        {
+            "key": "NO_COCKTAIL",
+            "value": "Aucun cocktail correspondant"
+        },
+        {
+            "key": "MENU_LOAD_ERROR",
+            "value": "Impossible de charger la carte."
+        },
+        {
+            "key": "RETRY",
+            "value": "Réessayer"
+        },
+        {
+            "key": "COVER_PAGE_ACCESSIBILITY",
+            "value": "Première de couverture"
+        },
+        {
+            "key": "SUMMARY_PAGE_ACCESSIBILITY",
+            "value": "Informations du bar"
+        },
+        {
+            "key": "COCKTAILS_PAGE_ACCESSIBILITY",
+            "value": "Cocktails, page"
+        },
+        {
+            "key": "SEARCH_RESULTS_ACCESSIBILITY",
+            "value": "Résultats de recherche des cocktails"
+        },
+        {
+            "key": "SOFT_PAGE_ACCESSIBILITY",
+            "value": "Sans alcool et jus de fruits"
+        },
+        {
+            "key": "LAST_PAGE_ACCESSIBILITY",
+            "value": "Bières, snacks, softs et shooters"
+        }
+    ]
+}

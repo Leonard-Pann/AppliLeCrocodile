@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.CoverPageView"
+             x:DataType="vm:CoverPageViewModel"
+             Background="White">
+    <Viewbox Stretch="Uniform">
+        <Border Width="{Binding ReferenceWidth}"
+                Height="{Binding ReferenceHeight}"
+                Background="White">
+            <Image Source="/Assets/Images/croco.png"
+                   Stretch="UniformToFill"
+                   AutomationProperties.Name="{Binding AccessibilityName}" />
+        </Border>
+    </Viewbox>
+</UserControl>

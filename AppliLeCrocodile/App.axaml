@@ -1,0 +1,40 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             xmlns:views="using:AppliLeCrocodile.Views"
+             x:Class="AppliLeCrocodile.App"
+             RequestedThemeVariant="Light">
+    <Application.DataTemplates>
+        <DataTemplate DataType="vm:CoverPageViewModel">
+            <views:CoverPageView />
+        </DataTemplate>
+        <DataTemplate DataType="vm:SummaryPageViewModel">
+            <views:SummaryPageView />
+        </DataTemplate>
+        <DataTemplate DataType="vm:CocktailMenuPageViewModel">
+            <views:CocktailMenuPageView />
+        </DataTemplate>
+        <DataTemplate DataType="vm:SoftPageViewModel">
+            <views:SoftPageView />
+        </DataTemplate>
+        <DataTemplate DataType="vm:LastPageViewModel">
+            <views:LastPageView />
+        </DataTemplate>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
+            <Setter Property="MinHeight" Value="48" />
+            <Setter Property="MinWidth" Value="96" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
+        </Style>
+    </Application.Styles>
+</Application>

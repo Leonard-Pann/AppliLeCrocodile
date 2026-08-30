@@ -1,0 +1,140 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.LastPageView"
+             x:DataType="vm:LastPageViewModel"
+             Background="White">
+    <UserControl.Styles>
+        <Style Selector="TextBlock.sectionTitle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextDecorations" Value="Underline" />
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="BeerTemplate" x:DataType="vm:BeerItemViewModel">
+            <StackPanel MinWidth="120"
+                        Spacing="4">
+                <TextBlock Text="{Binding Name}"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           TextDecorations="Underline" />
+                <TextBlock Text="{Binding HalfPintPrice}" FontSize="16" />
+                <TextBlock Text="{Binding PintPrice}" FontSize="16" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PricedItemTemplate" x:DataType="vm:PricedItemViewModel">
+            <Grid Margin="0,0,0,5"
+                  ColumnDefinitions="*,Auto"
+                  ColumnSpacing="18">
+                <TextBlock Text="{Binding Name}"
+                           FontSize="14"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Price}"
+                           FontSize="14" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SodaItemTemplate" x:DataType="vm:PricedItemViewModel">
+            <Grid Margin="0,0,0,5"
+                  ColumnDefinitions="*,Auto"
+                  ColumnSpacing="4">
+                <TextBlock Text="{Binding Name}"
+                           FontSize="14"
+                           TextWrapping="Wrap" />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Price}"
+                           FontSize="14" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ShooterTemplate" x:DataType="x:String">
+            <TextBlock Margin="0,0,0,4"
+                       Text="{Binding .}"
+                       FontSize="13"
+                       TextAlignment="Center" />
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Border Width="{Binding ReferenceWidth}"
+                Height="{Binding ReferenceHeight}"
+                Padding="34,34,34,22"
+                Background="White"
+                AutomationProperties.Name="{Binding AccessibilityName}">
+            <StackPanel>
+                <TextBlock Classes="sectionTitle" Text="{Binding BeerTitle}" />
+                <ItemsControl Margin="0,24,0,0"
+                              HorizontalAlignment="Center"
+                              ItemsSource="{Binding Beers}"
+                              ItemTemplate="{StaticResource BeerTemplate}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="45" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <TextBlock Margin="0,26,0,0"
+                           Classes="sectionTitle"
+                           Text="{Binding SnackTitle}" />
+                <ItemsControl Margin="8,18,8,0"
+                              ItemsSource="{Binding Snacks}"
+                              ItemTemplate="{StaticResource PricedItemTemplate}" />
+
+                <TextBlock Margin="0,24,0,0"
+                           Classes="sectionTitle"
+                           Text="{Binding SodaTitle}" />
+                <Grid Margin="2,18,2,0"
+                      ColumnDefinitions="*,*"
+                      ColumnSpacing="36">
+                    <ItemsControl ItemsSource="{Binding LeftSodas}"
+                                  ItemTemplate="{StaticResource SodaItemTemplate}" />
+                    <ItemsControl Grid.Column="1"
+                                  ItemsSource="{Binding RightSodas}"
+                                  ItemTemplate="{StaticResource SodaItemTemplate}" />
+                </Grid>
+
+                <TextBlock Margin="0,24,0,0"
+                           Classes="sectionTitle"
+                           Text="{Binding ShooterTitle}" />
+                <ItemsControl Margin="0,17,0,0"
+                              HorizontalAlignment="Center"
+                              ItemsSource="{Binding ShooterPrices}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <TextBlock Margin="0,0,0,3"
+                                       Text="{Binding .}"
+                                       FontSize="13"
+                                       TextAlignment="Center" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Grid Margin="0,17,0,0"
+                      ColumnDefinitions="*,*,*"
+                      ColumnSpacing="12">
+                    <ItemsControl ItemsSource="{Binding ShooterLeftColumn}"
+                                  ItemTemplate="{StaticResource ShooterTemplate}" />
+                    <ItemsControl Grid.Column="1"
+                                  ItemsSource="{Binding ShooterCenterColumn}"
+                                  ItemTemplate="{StaticResource ShooterTemplate}" />
+                    <ItemsControl Grid.Column="2"
+                                  ItemsSource="{Binding ShooterRightColumn}"
+                                  ItemTemplate="{StaticResource ShooterTemplate}" />
+                </Grid>
+
+                <TextBlock Margin="0,25,0,0"
+                           Text="{Binding ClosingText}"
+                           FontSize="13"
+                           LineHeight="17"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </Viewbox>
+</UserControl>

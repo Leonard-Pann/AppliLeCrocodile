@@ -1,0 +1,40 @@
+{
+    "shooters": [
+        {
+            "nameID": "VODKA_KIWI"
+        },
+        {
+            "nameID": "VODKA_FRAISE"
+        },
+        {
+            "nameID": "VODKA_FRAMBOISE"
+        },
+        {
+            "nameID": "VODKA_SPECULOS"
+        },
+        {
+            "nameID": "TEQUILA_SHOOT"
+        },
+        {
+            "nameID": "RHUM_VIEUX_POIRE"
+        },
+        {
+            "nameID": "VODKA_CARAMEL"
+        },
+        {
+            "nameID": "JEIGERMEISTER"
+        },
+        {
+            "nameID": "GIN_CASSIS"
+        },
+        {
+            "nameID": "B52"
+        },
+        {
+            "nameID": "ABSINTHE"
+        },
+        {
+            "nameID": "CHARTREUSE"
+        }
+    ]
+}

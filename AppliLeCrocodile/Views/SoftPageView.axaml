@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.SoftPageView"
+             x:DataType="vm:SoftPageViewModel"
+             Background="White">
+    <UserControl.Resources>
+        <DataTemplate x:Key="SoftTemplate" x:DataType="vm:CocktailItemViewModel">
+            <StackPanel Margin="0,0,0,8"
+                        Spacing="0">
+                <TextBlock Text="{Binding Name}"
+                           FontSize="17"
+                           FontWeight="Bold"
+                           TextWrapping="Wrap" />
+                <TextBlock Text="{Binding Ingredients}"
+                           FontSize="12"
+                           LineHeight="14"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Border Width="{Binding ReferenceWidth}"
+                Height="{Binding ReferenceHeight}"
+                Padding="30,46,30,24"
+                Background="White"
+                AutomationProperties.Name="{Binding AccessibilityName}">
+            <StackPanel>
+                <TextBlock Text="{Binding SoftTitle}"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           TextAlignment="Center" />
+
+                <Grid Margin="0,12,0,0"
+                      ColumnDefinitions="*,*"
+                      ColumnSpacing="30">
+                    <ItemsControl Grid.Column="0"
+                                  ItemsSource="{Binding LeftColumn}"
+                                  ItemTemplate="{StaticResource SoftTemplate}" />
+                    <ItemsControl Grid.Column="1"
+                                  ItemsSource="{Binding RightColumn}"
+                                  ItemTemplate="{StaticResource SoftTemplate}" />
+                </Grid>
+
+                <TextBlock Margin="0,30,0,0"
+                           Text="{Binding FruitJuiceTitle}"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           TextAlignment="Center" />
+                <TextBlock Margin="0,4,0,0"
+                           Text="{Binding ChooseText}"
+                           FontSize="14"
+                           TextAlignment="Center" />
+                <TextBlock Margin="0,2,0,0"
+                           Text="{Binding FruitJuices}"
+                           FontSize="14"
+                           LineHeight="18"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </Viewbox>
+</UserControl>

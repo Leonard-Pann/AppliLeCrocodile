@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.CocktailMenuPageView"
+             x:DataType="vm:CocktailMenuPageViewModel"
+             Background="White">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CocktailTemplate" x:DataType="vm:CocktailItemViewModel">
+            <StackPanel Margin="0,0,0,6"
+                        Spacing="0">
+                <TextBlock Text="{Binding Name}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           TextWrapping="Wrap" />
+                <TextBlock Text="{Binding Ingredients}"
+                           FontSize="12"
+                           LineHeight="14"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Border Width="{Binding ReferenceWidth}"
+                Height="{Binding ReferenceHeight}"
+                Padding="30,82,30,30"
+                Background="White"
+                AutomationProperties.Name="{Binding AccessibilityName}">
+            <Grid>
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="24"
+                      IsVisible="{Binding IsRegularPage}">
+                    <ItemsControl Grid.Column="0"
+                                  ItemsSource="{Binding LeftColumn}"
+                                  ItemTemplate="{StaticResource CocktailTemplate}" />
+                    <ItemsControl Grid.Column="1"
+                                  ItemsSource="{Binding RightColumn}"
+                                  ItemTemplate="{StaticResource CocktailTemplate}" />
+                </Grid>
+
+                <ScrollViewer IsVisible="{Binding IsSingleColumnSearch}"
+                              IsScrollChainingEnabled="False"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <ItemsControl Width="160"
+                                  HorizontalAlignment="Center"
+                                  ItemsSource="{Binding LeftColumn}"
+                                  ItemTemplate="{StaticResource CocktailTemplate}" />
+                </ScrollViewer>
+
+                <ScrollViewer IsVisible="{Binding IsTwoColumnSearch}"
+                              IsScrollChainingEnabled="False"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <Grid ColumnDefinitions="*,*"
+                          ColumnSpacing="24">
+                        <ItemsControl Grid.Column="0"
+                                      ItemsSource="{Binding LeftColumn}"
+                                      ItemTemplate="{StaticResource CocktailTemplate}" />
+                        <ItemsControl Grid.Column="1"
+                                      ItemsSource="{Binding RightColumn}"
+                                      ItemTemplate="{StaticResource CocktailTemplate}" />
+                    </Grid>
+                </ScrollViewer>
+
+                <TextBlock IsVisible="{Binding HasNoSearchResults}"
+                           Text="{Binding NoResultsText}"
+                           FontSize="17"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+    </Viewbox>
+</UserControl>
