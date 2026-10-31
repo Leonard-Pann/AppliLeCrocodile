@@ -15,6 +15,7 @@ public partial class MainViewModel : ViewModelBase
     private readonly IFavoriteCocktailStore favoriteStore;
     private readonly ICocktailReviewService reviewService;
     private readonly ICocktailImageLoader imageLoader;
+    private readonly IReviewerNameStore reviewerNameStore;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsMenuReady))]
@@ -47,7 +48,8 @@ public partial class MainViewModel : ViewModelBase
         MenuLayoutOptions layoutOptions,
         IFavoriteCocktailStore favoriteStore,
         ICocktailReviewService reviewService,
-        ICocktailImageLoader imageLoader)
+        ICocktailImageLoader imageLoader,
+        IReviewerNameStore reviewerNameStore)
     {
         this.languageManager = languageManager;
         this.cocktailManager = cocktailManager;
@@ -55,6 +57,7 @@ public partial class MainViewModel : ViewModelBase
         this.favoriteStore = favoriteStore;
         this.reviewService = reviewService;
         this.imageLoader = imageLoader;
+        this.reviewerNameStore = reviewerNameStore;
     }
 
     public bool HasError => !string.IsNullOrWhiteSpace(ErrorMessage);
@@ -101,7 +104,7 @@ public partial class MainViewModel : ViewModelBase
             }
 
             CocktailPage = new CocktailMenuPageViewModel(
-                catalog, languageManager, layoutOptions, favoriteStore, reviewService, imageLoader);
+                catalog, languageManager, layoutOptions, favoriteStore, reviewService, imageLoader, reviewerNameStore);
             CocktailPage.PropertyChanged += OnCocktailPagePropertyChanged;
             await CocktailPage.LoadFavoritesAsync(cancellationToken);
             MenuPageFactory pageFactory = new MenuPageFactory(languageManager, layoutOptions);

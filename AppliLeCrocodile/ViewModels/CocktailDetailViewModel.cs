@@ -10,6 +10,9 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 {
     private readonly IFavoriteCocktailStore favoriteStore;
     private readonly ICocktailImageLoader imageLoader;
+    private readonly ICocktailReviewService reviewService;
+    private readonly IReviewerNameStore reviewerNameStore;
+    private readonly Action close;
     private readonly Action<string, bool> favoriteChanged;
     private readonly CancellationTokenSource lifetime = new CancellationTokenSource();
     private bool isDisposed;
@@ -34,6 +37,13 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
     [ObservableProperty]
     private string reviewStatus = string.Empty;
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasReviewComposer))]
+    private ReviewComposerViewModel? reviewComposer;
+
+    [ObservableProperty]
+    private string submissionStatus = string.Empty;
+
     public CocktailDetailViewModel(
         Cocktail cocktail,
         string name,
@@ -41,6 +51,8 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         bool isFavorite,
         IFavoriteCocktailStore favoriteStore,
         ICocktailImageLoader imageLoader,
+        ICocktailReviewService reviewService,
+        IReviewerNameStore reviewerNameStore,
         Action<string, bool> favoriteChanged,
         Action close)
     {
@@ -50,8 +62,11 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         this.isFavorite = isFavorite;
         this.favoriteStore = favoriteStore;
         this.imageLoader = imageLoader;
+        this.reviewService = reviewService;
+        this.reviewerNameStore = reviewerNameStore;
+        this.close = close;
         this.favoriteChanged = favoriteChanged;
-        CloseCommand = new RelayCommand(close);
+        CloseCommand = new RelayCommand(Close);
     }
 
     public Cocktail Cocktail { get; }
@@ -96,6 +111,54 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
     }
 
     public IRelayCommand CloseCommand { get; }
+
+    public bool HasReviewComposer => ReviewComposer is not null;
+
+    public bool IsDemo => reviewService.IsDemo;
+
+    [RelayCommand]
+    private async Task OpenReviewComposerAsync()
+    {
+        if (ReviewComposer is not null || isDisposed)
+        {
+            return;
+        }
+
+        SubmissionStatus = string.Empty;
+        ReviewComposer = new ReviewComposerViewModel(
+            Cocktail.NameId, reviewService, reviewerNameStore, OnReviewSubmitted, CloseReviewComposer);
+        await ReviewComposer.LoadNameAsync();
+    }
+
+    private void OnReviewSubmitted()
+    {
+        CloseReviewComposer();
+        SubmissionStatus = reviewService.IsDemo
+            ? "Merci ! En mode démonstration, cet avis n’est pas conservé."
+            : "Merci pour votre avis !";
+    }
+
+    private void CloseReviewComposer()
+    {
+        ReviewComposerViewModel? composer = ReviewComposer;
+        ReviewComposer = null;
+        composer?.Dispose();
+    }
+
+    private void Close()
+    {
+        if (ReviewComposer is not null)
+        {
+            if (ReviewComposer.CancelCommand.CanExecute(null))
+            {
+                ReviewComposer.CancelCommand.Execute(null);
+            }
+
+            return;
+        }
+
+        close();
+    }
 
     [RelayCommand]
     private async Task ToggleFavoriteAsync()
@@ -153,6 +216,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         }
 
         isDisposed = true;
+        CloseReviewComposer();
         lifetime.Cancel();
         Image?.Dispose();
         lifetime.Dispose();

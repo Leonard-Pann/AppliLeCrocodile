@@ -23,7 +23,9 @@ internal static class Program
         MemoryFavoriteStore favorites = new MemoryFavoriteStore();
         FixedReviewService reviews = new FixedReviewService();
         EmptyImageLoader images = new EmptyImageLoader();
-        CocktailMenuPageViewModel page = new CocktailMenuPageViewModel(catalog, language, options, favorites, reviews, images);
+        MemoryReviewerNameStore reviewerNames = new MemoryReviewerNameStore();
+        CocktailMenuPageViewModel page = new CocktailMenuPageViewModel(
+            catalog, language, options, favorites, reviews, images, reviewerNames);
 
         Check(page.ResultCount == catalog.Cocktails.Count && page.ResultCount > 300, "Every cocktail is present.");
         Check(Flatten(page).Select(item => item.Cocktail).SequenceEqual(catalog.Cocktails),
@@ -107,7 +109,8 @@ internal static class Program
         Check(detail.IsFavorite, "A cocktail can be favorited.");
         Check(first.IsFavorite, "Favoriting updates the catalogue marker immediately.");
         Check(ReferenceEquals(originalRows, page.Rows), "Favoriting preserves the unfiltered list and its scroll position.");
-        CocktailMenuPageViewModel reopenedPage = new CocktailMenuPageViewModel(catalog, language, options, favorites, reviews, images);
+        CocktailMenuPageViewModel reopenedPage = new CocktailMenuPageViewModel(
+            catalog, language, options, favorites, reviews, images, reviewerNames);
         await reopenedPage.LoadFavoritesAsync(CancellationToken.None);
         Check(reopenedPage.Rows[0].Left.IsFavorite, "Stored favorites restore catalogue markers on startup.");
         detail.CloseCommand.Execute(null);
@@ -139,7 +142,7 @@ internal static class Program
         await page.LoadReviewsCommand.ExecuteAsync(null);
         Check(!page.HasReviewError, "Review loading can be retried.");
 
-        MainViewModel main = new MainViewModel(language, manager, options, favorites, reviews, images);
+        MainViewModel main = new MainViewModel(language, manager, options, favorites, reviews, images, reviewerNames);
         await main.InitializeCommand.ExecuteAsync(null);
         Check(main.IsMenuReady && main.Pages.Count == 5 && main.Pages[2] is CocktailMenuPageViewModel
             && main.Pages[3] is SoftPageViewModel && main.Pages[4] is LastPageViewModel, "The menu contains exactly five sections.");
@@ -160,14 +163,135 @@ internal static class Program
         IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> sample = await demo.GetReviewsAsync(["ABBAYE"], CancellationToken.None);
         IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> repeat = await demo.GetReviewsAsync(["ABBAYE"], CancellationToken.None);
         Check(sample["ABBAYE"].SequenceEqual(repeat["ABBAYE"])
-            && sample["ABBAYE"].All(review => review.Rating is >= 1 and <= 5 && review.Comment.Length == 0),
-            "Demo reviews are stable, valid and have empty comments.");
+            && sample["ABBAYE"].All(review => review.Rating is >= 1 and <= 5 && review.Comment.Length > 0),
+            "Demo reviews provide repeatable random ratings and comments.");
+        await demo.SubmitReviewAsync("ABBAYE", new CocktailReview("Submitted visitor", 5, "Not stored"), CancellationToken.None);
+        IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> afterSubmission =
+            await demo.GetReviewsAsync(["ABBAYE"], CancellationToken.None);
+        Check(afterSubmission["ABBAYE"].SequenceEqual(sample["ABBAYE"]), "Demo submissions are discarded.");
+        await VerifyReviewComposerAsync();
+        await VerifyReviewerNameStorageAsync();
+        await first.OpenCommand.ExecuteAsync(null);
+        detail = page.SelectedCocktail!;
+        await detail.OpenReviewComposerCommand.ExecuteAsync(null);
+        Check(detail.HasReviewComposer && page.IsInteractionBlocked, "The comment form opens inside the cocktail detail.");
+        detail.CloseCommand.Execute(null);
+        Check(!detail.HasReviewComposer && page.HasSelectedCocktail, "Back closes the form before closing the cocktail.");
+        detail.CloseCommand.Execute(null);
         Console.WriteLine($"Passed {assertions} checks.");
     }
 
     private static CocktailItemViewModel[] Flatten(CocktailMenuPageViewModel page)
     {
         return page.Rows.SelectMany(row => row.Right is null ? new[] { row.Left } : new[] { row.Left, row.Right }).ToArray();
+    }
+
+    private static async Task VerifyReviewComposerAsync()
+    {
+        MemoryReviewerNameStore names = new MemoryReviewerNameStore();
+        FixedReviewService service = new FixedReviewService();
+        int submitted = 0;
+        int canceled = 0;
+        using ReviewComposerViewModel composer = new ReviewComposerViewModel(
+            "ABBAYE", service, names, () => submitted++, () => canceled++);
+        Check(!composer.SubmitCommand.CanExecute(null), "Submission is blocked while the nickname is loading.");
+        await composer.LoadNameAsync();
+        Check(composer.IsUserNameRequired && !composer.SubmitCommand.CanExecute(null), "The first review asks for a nickname.");
+        composer.UserName = "  Croco visitor  ";
+        composer.Comment = "   ";
+        composer.RatingChoices[3].SelectCommand.Execute(null);
+        Check(composer.Rating == 4 && composer.RatingChoices.Count(choice => choice.IsFilled) == 4,
+            "Selecting a star sets the rating and fills the preceding stars.");
+        Check(!composer.SubmitCommand.CanExecute(null), "Whitespace-only comments cannot be submitted.");
+        composer.Comment = "  A lovely cocktail.  ";
+        composer.Rating = 0;
+        Check(!composer.SubmitCommand.CanExecute(null), "A rating must be selected.");
+        composer.Rating = 6;
+        Check(!composer.SubmitCommand.CanExecute(null), "Ratings above five are rejected.");
+        composer.Rating = 4;
+        composer.UserName = new string('a', 41);
+        Check(!composer.SubmitCommand.CanExecute(null), "Overlong nicknames are rejected.");
+        composer.UserName = "  Croco visitor  ";
+        composer.Comment = new string('a', 2001);
+        Check(!composer.SubmitCommand.CanExecute(null), "Overlong comments are rejected.");
+        composer.Comment = "  A lovely cocktail.  ";
+        await composer.SubmitCommand.ExecuteAsync(null);
+        Check(submitted == 1 && names.UserName == "Croco visitor", "The first submission saves the trimmed nickname.");
+        Check(service.Submissions is [{ CocktailId: "ABBAYE", Review.Rating: 4, Review.Comment: "A lovely cocktail." }],
+            "Submission sends the cocktail identifier, nickname, rating and trimmed comment through the service.");
+
+        using ReviewComposerViewModel next = new ReviewComposerViewModel(
+            "ALASKA", service, names, () => submitted++, () => canceled++);
+        await next.LoadNameAsync();
+        Check(!next.IsUserNameRequired && next.UserName == "Croco visitor", "The next cocktail reuses the saved nickname.");
+        next.CancelCommand.Execute(null);
+        Check(canceled == 1 && service.Submissions.Count == 1, "Canceling never sends a review.");
+
+        MemoryReviewerNameStore failingNames = new MemoryReviewerNameStore { FailLoads = true };
+        using ReviewComposerViewModel retry = new ReviewComposerViewModel(
+            "ALASKA", service, failingNames, () => submitted++, () => { });
+        await retry.LoadNameAsync();
+        Check(retry.HasLoadError && !retry.SubmitCommand.CanExecute(null), "Nickname loading failures block submission.");
+        failingNames.FailLoads = false;
+        await retry.LoadNameAsync();
+        retry.UserName = "New visitor";
+        retry.Rating = 3;
+        retry.Comment = "Draft kept for retry.";
+        failingNames.FailWrites = true;
+        await retry.SubmitCommand.ExecuteAsync(null);
+        Check(retry.ErrorMessage.Length > 0 && service.Submissions.Count == 1 && failingNames.UserName is null,
+            "A nickname save failure prevents sending a review.");
+        failingNames.FailWrites = false;
+        service.FailSubmissions = true;
+        await retry.SubmitCommand.ExecuteAsync(null);
+        Check(retry.Comment == "Draft kept for retry." && retry.Rating == 3 && retry.ErrorMessage.Length > 0
+            && retry.SubmitCommand.CanExecute(null), "A server failure preserves the draft and allows retry.");
+        service.FailSubmissions = false;
+        await retry.SubmitCommand.ExecuteAsync(null);
+        Check(service.Submissions.Count == 2 && submitted == 2, "Retry sends one review after the failure is resolved.");
+
+        service.SubmissionGate = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        using ReviewComposerViewModel pending = new ReviewComposerViewModel(
+            "ALASKA", service, names, () => submitted++, () => { });
+        await pending.LoadNameAsync();
+        pending.Rating = 5;
+        pending.Comment = "Waiting for the server.";
+        Task pendingSubmission = pending.SubmitCommand.ExecuteAsync(null);
+        Check(pending.IsSubmitting && !pending.SubmitCommand.CanExecute(null) && !pending.CancelCommand.CanExecute(null),
+            "Submission blocks duplicate sends and accidental cancellation.");
+        pending.Dispose();
+        await pendingSubmission;
+        Check(service.Submissions.Count == 2 && submitted == 2, "Disposing a cocktail cancels its pending submission.");
+    }
+
+    private static async Task VerifyReviewerNameStorageAsync()
+    {
+        string directory = Path.Combine(Path.GetTempPath(), "LeCrocodileTests", Guid.NewGuid().ToString("N"));
+        string path = Path.Combine(directory, "reviewer-name.json");
+        try
+        {
+            LocalReviewerNameStore store = new LocalReviewerNameStore(path);
+            Check(await store.LoadAsync(CancellationToken.None) is null, "A missing nickname file asks for the first nickname.");
+            await store.SaveAsync("  Persistent visitor  ", CancellationToken.None);
+            LocalReviewerNameStore reopened = new LocalReviewerNameStore(path);
+            Check(await reopened.LoadAsync(CancellationToken.None) == "Persistent visitor",
+                "Nickname survives a new store instance.");
+            await File.WriteAllTextAsync(path, "invalid JSON");
+            await ExpectAsync<InvalidDataException>(() => store.LoadAsync(CancellationToken.None));
+            await File.WriteAllTextAsync(path, "{\"UserName\":\"  \"}");
+            await ExpectAsync<InvalidDataException>(() => store.LoadAsync(CancellationToken.None));
+            await store.SaveAsync("Recovered visitor", CancellationToken.None);
+            Check(await reopened.LoadAsync(CancellationToken.None) == "Recovered visitor",
+                "Nickname storage releases its gate after errors.");
+        }
+        finally
+        {
+            if (Directory.Exists(directory))
+            {
+                File.Delete(path);
+                Directory.Delete(directory);
+            }
+        }
     }
 
     private static async Task VerifyStorageAsync()

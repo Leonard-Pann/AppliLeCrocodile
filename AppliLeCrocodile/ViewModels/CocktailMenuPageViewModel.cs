@@ -14,6 +14,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     private readonly IFavoriteCocktailStore favoriteStore;
     private readonly ICocktailReviewService reviewService;
     private readonly ICocktailImageLoader imageLoader;
+    private readonly IReviewerNameStore reviewerNameStore;
     private readonly IReadOnlyList<CocktailItemViewModel> allItems;
     private readonly IReadOnlyList<IngredientChoiceViewModel> ingredientChoices;
     private readonly HashSet<string> favoriteIds = new HashSet<string>(StringComparer.Ordinal);
@@ -78,13 +79,15 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         MenuLayoutOptions layoutOptions,
         IFavoriteCocktailStore favoriteStore,
         ICocktailReviewService reviewService,
-        ICocktailImageLoader imageLoader)
+        ICocktailImageLoader imageLoader,
+        IReviewerNameStore reviewerNameStore)
         : base(languageManager.GetText("COCKTAILS_PAGE_ACCESSIBILITY"), layoutOptions)
     {
         this.languageManager = languageManager;
         this.favoriteStore = favoriteStore;
         this.reviewService = reviewService;
         this.imageLoader = imageLoader;
+        this.reviewerNameStore = reviewerNameStore;
         selectedRating = RatingOptions[0];
         string cultureName = languageManager.CurrentLanguage == LanguageManager.DefaultLanguage ? "fr-FR" : "en-US";
         CompareInfo compareInfo = CultureInfo.GetCultureInfo(cultureName).CompareInfo;
@@ -200,7 +203,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
 
         SelectedCocktail = new CocktailDetailViewModel(cocktail, languageManager.GetText(cocktail.NameId),
             cocktail.IngredientNameIds.Select(languageManager.GetText).ToArray(), favoriteIds.Contains(cocktail.NameId),
-            favoriteStore, imageLoader, OnFavoriteChanged, CloseCocktail);
+            favoriteStore, imageLoader, reviewService, reviewerNameStore, OnFavoriteChanged, CloseCocktail);
         UpdateDetailReviews();
         await SelectedCocktail.LoadImageAsync();
     }

@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.ReviewComposerView"
+             x:DataType="vm:ReviewComposerViewModel" KeyboardNavigation.TabNavigation="Cycle">
+    <UserControl.KeyBindings>
+        <KeyBinding Gesture="Escape" Command="{Binding CancelCommand}" />
+    </UserControl.KeyBindings>
+    <Grid Background="#66000000">
+        <Border Margin="18" Padding="20" MaxWidth="460" MaxHeight="680" VerticalAlignment="Center"
+                Background="White" CornerRadius="12" BorderBrush="{StaticResource MenuDivider}" BorderThickness="1">
+            <Grid RowDefinitions="Auto,*,Auto" RowSpacing="16">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
+                    <TextBlock Text="Ajouter un commentaire" Classes="sectionTitle" TextWrapping="Wrap"
+                               VerticalAlignment="Center" />
+                    <Button Grid.Column="1" Classes="icon" Content="×" FontSize="26" Command="{Binding CancelCommand}"
+                            AutomationProperties.Name="Fermer le formulaire" />
+                </Grid>
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False">
+                    <StackPanel Spacing="12" Margin="0,0,0,4">
+                        <ProgressBar IsVisible="{Binding IsBusy}" IsIndeterminate="True" Height="4" />
+                        <StackPanel Spacing="12" IsEnabled="{Binding !IsBusy}">
+                            <StackPanel IsVisible="{Binding IsUserNameRequired}" Spacing="6">
+                                <TextBlock Text="Votre pseudo" Classes="sectionTitle" />
+                                <TextBox x:Name="UserNameInput" Text="{Binding UserName, Mode=TwoWay}" MaxLength="40"
+                                         MinHeight="48" PlaceholderText="Choisissez un pseudo"
+                                         AutomationProperties.Name="Votre pseudo" />
+                                <TextBlock Text="Il sera mémorisé sur cet appareil pour vos prochains avis."
+                                           FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource MenuMuted}" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding UserName, StringFormat='Votre avis sera signé : {0}'}"
+                                       IsVisible="{Binding !IsUserNameRequired}" TextWrapping="Wrap" />
+                            <TextBlock Text="Votre note" Classes="sectionTitle" />
+                            <ItemsControl x:Name="StarChoices" ItemsSource="{Binding RatingChoices}"
+                                          HorizontalAlignment="Center">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="4" /></ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="vm:ReviewStarChoiceViewModel">
+                                        <Button Classes="icon reviewStar" Classes.selected="{Binding IsFilled}"
+                                                Command="{Binding SelectCommand}" AutomationProperties.Name="{Binding AccessibleName}"
+                                                ToolTip.Tip="{Binding AccessibleName}">
+                                            <Path Data="{StaticResource StarIcon}" Width="26" Height="26" Stretch="Uniform"
+                                                  Stroke="{StaticResource CrocodileGreen}" StrokeThickness="1.5" />
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock Text="{Binding Rating, StringFormat='Note choisie : {0} / 5'}" FontSize="12"
+                                       Foreground="{StaticResource MenuMuted}" HorizontalAlignment="Center" />
+                            <TextBlock Text="Votre commentaire" Classes="sectionTitle" />
+                            <TextBox Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000" AcceptsReturn="True"
+                                     TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
+                                     PlaceholderText="Qu’avez-vous pensé de ce cocktail ?"
+                                     AutomationProperties.Name="Votre commentaire" />
+                        </StackPanel>
+                        <TextBlock Text="{Binding ErrorMessage}" TextWrapping="Wrap" Foreground="#9B3025"
+                                   IsVisible="{Binding ErrorMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <Button Content="Réessayer" Command="{Binding LoadNameCommand}" IsVisible="{Binding HasLoadError}" />
+                        <TextBlock Text="Mode démonstration : les commentaires envoyés ne sont pas enregistrés."
+                                   FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource MenuMuted}"
+                                   IsVisible="{Binding IsDemo}" />
+                    </StackPanel>
+                </ScrollViewer>
+                <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="8">
+                    <Button Content="Annuler" Command="{Binding CancelCommand}" HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" />
+                    <Button Grid.Column="1" Classes="primary" Content="Envoyer" Command="{Binding SubmitCommand}"
+                            HorizontalAlignment="Stretch" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

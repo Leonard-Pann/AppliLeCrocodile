@@ -3,10 +3,21 @@ using AppliLeCrocodile.Models;
 namespace AppliLeCrocodile.Services;
 
 /// <summary>
-/// Provides repeatable sample reviews until a remote review service is available.
+/// Provides repeatable random sample reviews and discards submissions until a remote service is available.
 /// </summary>
 public sealed class DemoCocktailReviewService : ICocktailReviewService
 {
+    public bool IsDemo => true;
+
+    private static readonly string[] SampleComments =
+    [
+        "Un cocktail très agréable !",
+        "Une belle découverte, je recommande.",
+        "Un mélange original et bien équilibré.",
+        "Un peu trop sucré à mon goût.",
+        "À goûter au prochain passage."
+    ];
+
     public Task<IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>>> GetReviewsAsync(
         IReadOnlyList<string> cocktailIds,
         CancellationToken cancellationToken)
@@ -25,10 +36,19 @@ public sealed class DemoCocktailReviewService : ICocktailReviewService
 
                 Random random = new Random(seed);
                 reviews[cocktailId] = Array.AsReadOnly(Enumerable.Range(1, 3)
-                    .Select(index => new CocktailReview($"Visiteur {index}", random.Next(1, 6), string.Empty)).ToArray());
+                    .Select(index => new CocktailReview(
+                        $"Visiteur {index}", random.Next(1, 6), SampleComments[random.Next(SampleComments.Length)])).ToArray());
             }
 
             return reviews;
         }, cancellationToken);
+    }
+
+    public Task SubmitReviewAsync(string cocktailId, CocktailReview review, CancellationToken cancellationToken)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(cocktailId);
+        ArgumentNullException.ThrowIfNull(review);
+        cancellationToken.ThrowIfCancellationRequested();
+        return Task.CompletedTask;
     }
 }

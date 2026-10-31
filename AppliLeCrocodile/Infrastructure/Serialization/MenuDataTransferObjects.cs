@@ -32,6 +32,11 @@ internal sealed class FavoritesDto
     public string[] CocktailIds { get; init; } = [];
 }
 
+internal sealed class ReviewerNameDto
+{
+    public string UserName { get; init; } = string.Empty;
+}
+
 internal sealed class IngredientFileDto
 {
     [JsonPropertyName("ingredients")]

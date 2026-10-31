@@ -37,6 +37,9 @@ internal static class CompositionRoot
         IFavoriteCocktailStore favoriteStore = new LocalFavoriteCocktailStore(favoritesPath);
         ICocktailReviewService reviewService = new DemoCocktailReviewService();
         ICocktailImageLoader imageLoader = new AssetCocktailImageLoader();
-        return new MainViewModel(languageManager, cocktailManager, layoutOptions, favoriteStore, reviewService, imageLoader);
+        string reviewerNamePath = Path.Combine(Path.GetDirectoryName(favoritesPath)!, "reviewer-name.json");
+        IReviewerNameStore reviewerNameStore = new LocalReviewerNameStore(reviewerNamePath);
+        return new MainViewModel(
+            languageManager, cocktailManager, layoutOptions, favoriteStore, reviewService, imageLoader, reviewerNameStore);
     }
 }

@@ -23,8 +23,15 @@ Favorites are stored in `LeCrocodile/favorites.json` under the platform's local 
 Writes are asynchronous and replace the file atomically. Invalid existing files are reported instead of overwritten.
 
 `ICocktailReviewService` accepts cocktail identifiers and returns reviews with a user name, a 1–5 rating, and a comment.
-`DemoCocktailReviewService` currently returns three repeatable sample reviews per cocktail, with empty comments.
+`DemoCocktailReviewService` currently returns three repeatable random sample reviews per cocktail, including comments.
+`SubmitReviewAsync` accepts a cocktail identifier and a validated review; the demo implementation discards the submission.
+`IsDemo` controls the demo notice and submission feedback, so a real provider can replace the mock without changing the views.
 Replace its registration in `CompositionRoot` with a server-backed implementation when the API is available.
+
+The detail view opens a comment form with a nickname, a 1–5 star selector, and a comment.
+`IReviewerNameStore` persists only the nickname in `LeCrocodile/reviewer-name.json` under local application data.
+It is requested on the first submission and reused across cocktails and application restarts, without authentication or accounts.
+Review text and ratings are not stored locally; failed submissions keep the draft open for retry.
 
 ## Regression checks
 

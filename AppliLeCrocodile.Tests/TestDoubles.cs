@@ -71,7 +71,30 @@ internal sealed class EmptyImageLoader : ICocktailImageLoader
 
 internal sealed class FixedReviewService : ICocktailReviewService
 {
+    public bool IsDemo => false;
+
     public bool FailRequests { get; set; }
+
+    public bool FailSubmissions { get; set; }
+
+    public List<(string CocktailId, CocktailReview Review)> Submissions { get; } = [];
+
+    public TaskCompletionSource? SubmissionGate { get; set; }
+
+    public async Task SubmitReviewAsync(string cocktailId, CocktailReview review, CancellationToken cancellationToken)
+    {
+        if (FailSubmissions)
+        {
+            throw new IOException("Simulated submission failure.");
+        }
+
+        if (SubmissionGate is not null)
+        {
+            await SubmissionGate.Task.WaitAsync(cancellationToken);
+        }
+
+        Submissions.Add((cocktailId, review));
+    }
 
     public Task<IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>>> GetReviewsAsync(
         IReadOnlyList<string> cocktailIds,
@@ -93,5 +116,37 @@ internal sealed class FixedReviewService : ICocktailReviewService
         }
 
         return Task.FromResult<IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>>>(reviews);
+    }
+}
+
+internal sealed class MemoryReviewerNameStore : IReviewerNameStore
+{
+    public string? UserName { get; private set; }
+
+    public bool FailLoads { get; set; }
+
+    public bool FailWrites { get; set; }
+
+    public Task<string?> LoadAsync(CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        if (FailLoads)
+        {
+            throw new IOException("Simulated name loading failure.");
+        }
+
+        return Task.FromResult(UserName);
+    }
+
+    public Task SaveAsync(string userName, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        if (FailWrites)
+        {
+            throw new IOException("Simulated name saving failure.");
+        }
+
+        UserName = userName;
+        return Task.CompletedTask;
     }
 }
