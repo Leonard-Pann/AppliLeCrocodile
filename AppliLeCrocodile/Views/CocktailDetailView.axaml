@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             xmlns:models="using:AppliLeCrocodile.Models"
+             x:Class="AppliLeCrocodile.Views.CocktailDetailView"
+             x:DataType="vm:CocktailDetailViewModel" Background="White"
+             KeyboardNavigation.TabNavigation="Cycle">
+    <UserControl.KeyBindings>
+        <KeyBinding Gesture="Escape" Command="{Binding CloseCommand}" />
+    </UserControl.KeyBindings>
+    <Grid RowDefinitions="Auto,*" MaxWidth="780">
+        <Grid Margin="18,12" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+            <Button x:Name="BackButton" Classes="icon" Command="{Binding CloseCommand}"
+                    AutomationProperties.Name="Retour aux cocktails">
+                <Path Data="{StaticResource BackIcon}" Width="24" Height="24" Stretch="Uniform"
+                      Stroke="{StaticResource CrocodileGreen}" StrokeThickness="2" />
+            </Button>
+            <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="22" FontWeight="Bold"
+                       LineHeight="30" TextWrapping="Wrap" VerticalAlignment="Center" />
+            <Button Grid.Column="2" Classes="icon favorite" Classes.selected="{Binding IsFavorite}"
+                    Command="{Binding ToggleFavoriteCommand}" AutomationProperties.Name="{Binding FavoriteActionText}"
+                    ToolTip.Tip="{Binding FavoriteActionText}">
+                <Path Data="{StaticResource StarIcon}" Width="27" Height="27" Stretch="Uniform"
+                      Stroke="{StaticResource CrocodileGreen}" StrokeThickness="1.6" />
+            </Button>
+        </Grid>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False">
+            <StackPanel Margin="30,0,30,32" Spacing="16">
+                <Border Height="230" Background="{StaticResource CrocodileTint}" CornerRadius="8" ClipToBounds="True">
+                    <Grid>
+                        <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Name}" />
+                        <StackPanel IsVisible="{Binding HasNoImage}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Spacing="12">
+                            <Border Width="88" Height="88" CornerRadius="8" ClipToBounds="True" HorizontalAlignment="Center">
+                                <Image Source="/Assets/Images/ico.png" Stretch="Uniform" />
+                            </Border>
+                            <TextBlock Text="Photo à venir" Foreground="{StaticResource MenuMuted}" TextAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <TextBlock Text="{Binding ErrorMessage}" TextWrapping="Wrap" Foreground="#9B3025"
+                           IsVisible="{Binding ErrorMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                <TextBlock Text="{Binding AlcoholText}" Foreground="{StaticResource CrocodileGreen}" />
+                <TextBlock Text="Ingrédients" Classes="sectionTitle" />
+                <ItemsControl ItemsSource="{Binding Ingredients}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <TextBlock Text="{Binding ., StringFormat='• {0}'}" FontSize="15" LineHeight="24" TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="Description" Classes="sectionTitle" />
+                <TextBlock Text="{Binding Description}" FontSize="15" LineHeight="23" TextWrapping="Wrap" />
+                <Border Height="1" Background="{StaticResource MenuDivider}" />
+                <TextBlock Text="Avis utilisateurs" Classes="sectionTitle" />
+                <TextBlock Text="{Binding RatingText}" FontSize="20" Foreground="{StaticResource CrocodileGreen}" />
+                <TextBlock Text="Avis de démonstration" FontSize="12" Foreground="{StaticResource MenuMuted}" />
+                <TextBlock Text="{Binding ReviewStatus}" TextWrapping="Wrap"
+                           IsVisible="{Binding ReviewStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                <ItemsControl ItemsSource="{Binding Reviews}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="models:CocktailReview">
+                            <Border Padding="0,12" BorderBrush="{StaticResource MenuDivider}" BorderThickness="0,1,0,0">
+                                <StackPanel Spacing="6">
+                                    <TextBlock Text="{Binding UserName}" FontWeight="Bold" FontSize="16" LineHeight="24" />
+                                    <TextBlock Text="{Binding Stars}" FontSize="20" Foreground="{StaticResource CrocodileGreen}"
+                                               AutomationProperties.Name="{Binding Rating, StringFormat='{}{0} étoiles sur 5'}" />
+                                    <TextBlock Text="{Binding Comment}" FontSize="14" LineHeight="22" TextWrapping="Wrap"
+                                               IsVisible="{Binding Comment, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

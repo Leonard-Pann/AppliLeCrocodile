@@ -3,97 +3,29 @@
              xmlns:behaviors="using:AppliLeCrocodile.Behaviors"
              xmlns:vm="using:AppliLeCrocodile.ViewModels"
              x:Class="AppliLeCrocodile.Views.MainView"
-             x:DataType="vm:MainViewModel"
-             Background="White"
-             ClipToBounds="True">
+             x:DataType="vm:MainViewModel" TopLevel.AutoSafeAreaPadding="True"
+             Background="White" ClipToBounds="True">
     <Grid Background="White"
           behaviors:HorizontalSwipeBehavior.NextCommand="{Binding GoToNextPageCommand}"
           behaviors:HorizontalSwipeBehavior.PreviousCommand="{Binding GoToPreviousPageCommand}"
           behaviors:HorizontalSwipeBehavior.Threshold="48"
           behaviors:HorizontalSwipeBehavior.IsEnabled="{Binding IsHorizontalSwipeEnabled}"
           behaviors:DismissFocusOnBackgroundBehavior.IsEnabled="True">
-        <Carousel ItemsSource="{Binding Pages}"
-                  SelectedIndex="{Binding CurrentPageIndex, Mode=TwoWay}"
-                  IsSwipeEnabled="False"
-                  IsVisible="{Binding IsMenuReady}"
-                  Background="White">
+        <Carousel ItemsSource="{Binding Pages}" SelectedIndex="{Binding CurrentPageIndex, Mode=TwoWay}"
+                  IsSwipeEnabled="False" IsVisible="{Binding IsMenuReady}" Background="White">
             <Carousel.PageTransition>
-                <PageSlide Duration="0:0:0.25"
-                           Orientation="Horizontal" />
+                <PageSlide Duration="0:0:0.25" Orientation="Horizontal" />
             </Carousel.PageTransition>
         </Carousel>
-
-        <ContentControl Content="{Binding SearchResultsPage}"
-                        IsVisible="{Binding IsCocktailSearchResultsVisible}"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        Background="White"
-                        ZIndex="5" />
-
-        <Border Height="48"
-                Margin="18,18,18,0"
-                Padding="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                IsVisible="{Binding IsCocktailSearchVisible}"
-                Background="White"
-                BorderBrush="Black"
-                BorderThickness="1"
-                CornerRadius="6"
-                ZIndex="10">
-            <TextBox Text="{Binding SearchText, Mode=TwoWay}"
-                     PlaceholderText="{Binding SearchPlaceholder}"
-                     FontSize="16"
-                     Padding="12,7"
-                     Background="White"
-                     BorderThickness="0"
-                     VerticalContentAlignment="Center"
-                     AutomationProperties.Name="{Binding SearchPlaceholder}">
-                <TextBox.InnerRightContent>
-                    <Button Width="38"
-                            Height="38"
-                            MinWidth="38"
-                            MinHeight="38"
-                            Padding="0"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            Content="×"
-                            Command="{Binding ClearSearchCommand}"
-                            IsVisible="{Binding HasActiveCocktailSearch}"
-                            Focusable="False"
-                            FontSize="24"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            ToolTip.Tip="{Binding ClearSearchText}"
-                            AutomationProperties.Name="{Binding ClearSearchText}" />
-                </TextBox.InnerRightContent>
-            </TextBox>
-        </Border>
-
-        <Grid IsVisible="{Binding IsLoading}"
-              Background="White">
-            <ProgressBar Width="160"
-                         Height="5"
-                         IsIndeterminate="True"
-                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center" />
+        <Grid IsVisible="{Binding IsLoading}" Background="White">
+            <ProgressBar Width="160" Height="5" IsIndeterminate="True"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
-
-        <Border IsVisible="{Binding HasError}"
-                Padding="32"
-                Background="White">
-            <StackPanel MaxWidth="360"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Spacing="24">
-                <TextBlock Text="{Binding ErrorMessage}"
-                           FontSize="15"
-                           LineHeight="20"
-                           TextAlignment="Center"
-                           TextWrapping="Wrap" />
-                <Button Command="{Binding InitializeCommand}"
-                        Content="{Binding RetryText}"
-                        HorizontalAlignment="Center" />
+        <Border IsVisible="{Binding HasError}" Padding="32" Background="White">
+            <StackPanel MaxWidth="360" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="24">
+                <TextBlock Text="{Binding ErrorMessage}" FontSize="15" LineHeight="20"
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <Button Command="{Binding InitializeCommand}" Content="{Binding RetryText}" HorizontalAlignment="Center" />
             </StackPanel>
         </Border>
     </Grid>

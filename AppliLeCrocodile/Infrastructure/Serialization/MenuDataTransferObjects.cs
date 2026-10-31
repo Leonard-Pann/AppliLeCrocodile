@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using AppliLeCrocodile.Models;
 
 namespace AppliLeCrocodile.Infrastructure.Serialization;
 
@@ -18,6 +19,17 @@ internal sealed class CocktailDto
 
     [JsonPropertyName("ingredientsNameID")]
     public string[] IngredientNameIds { get; init; } = [];
+
+    [JsonPropertyName("alcoholLevel")]
+    public AlcoholLevel? AlcoholLevel { get; init; }
+
+    [JsonPropertyName("description")]
+    public string Description { get; init; } = string.Empty;
+}
+
+internal sealed class FavoritesDto
+{
+    public string[] CocktailIds { get; init; } = [];
 }
 
 internal sealed class IngredientFileDto

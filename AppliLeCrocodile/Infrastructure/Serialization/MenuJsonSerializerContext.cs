@@ -11,6 +11,7 @@ namespace AppliLeCrocodile.Infrastructure.Serialization;
 [JsonSerializable(typeof(ShooterFileDto))]
 [JsonSerializable(typeof(LanguageFileDto))]
 [JsonSerializable(typeof(ConstantsFileDto))]
+[JsonSerializable(typeof(FavoritesDto))]
 internal sealed partial class MenuJsonSerializerContext : JsonSerializerContext
 {
 }

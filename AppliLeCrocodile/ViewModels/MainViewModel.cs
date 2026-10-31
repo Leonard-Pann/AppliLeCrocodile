@@ -1,32 +1,28 @@
+using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using AppliLeCrocodile.Configuration;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
-using AppliLeCrocodile.Services.Filters;
-using AppliLeCrocodile.Services.Layout;
 
 namespace AppliLeCrocodile.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
     private readonly ICocktailManager cocktailManager;
-    private readonly ICocktailItemLayoutCalculator cocktailItemLayoutCalculator;
     private readonly ILanguageManager languageManager;
     private readonly MenuLayoutOptions layoutOptions;
-    private MenuPageFactory? pageFactory;
+    private readonly IFavoriteCocktailStore favoriteStore;
+    private readonly ICocktailReviewService reviewService;
+    private readonly ICocktailImageLoader imageLoader;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsMenuReady))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchVisible))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchResultsVisible))]
     private bool isLoading = true;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(HasError))]
     [NotifyPropertyChangedFor(nameof(IsMenuReady))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchVisible))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchResultsVisible))]
     private string errorMessage = string.Empty;
 
     [ObservableProperty]
@@ -35,61 +31,37 @@ public partial class MainViewModel : ViewModelBase
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(GoToNextPageCommand))]
     [NotifyCanExecuteChangedFor(nameof(GoToPreviousPageCommand))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchVisible))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchResultsVisible))]
     private IReadOnlyList<MenuPageViewModel> pages = [];
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(GoToNextPageCommand))]
     [NotifyCanExecuteChangedFor(nameof(GoToPreviousPageCommand))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchVisible))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchResultsVisible))]
     private int currentPageIndex;
 
     [ObservableProperty]
-    private string searchText = string.Empty;
-
-    [ObservableProperty]
-    private string searchPlaceholder = string.Empty;
-
-    [ObservableProperty]
-    private string clearSearchText = string.Empty;
-
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(HasActiveCocktailSearch))]
-    [NotifyPropertyChangedFor(nameof(IsCocktailSearchResultsVisible))]
-    [NotifyPropertyChangedFor(nameof(IsHorizontalSwipeEnabled))]
-    [NotifyCanExecuteChangedFor(nameof(ClearSearchCommand))]
-    [NotifyCanExecuteChangedFor(nameof(GoToNextPageCommand))]
-    [NotifyCanExecuteChangedFor(nameof(GoToPreviousPageCommand))]
-    private CocktailMenuPageViewModel? searchResultsPage;
+    private CocktailMenuPageViewModel? cocktailPage;
 
     public MainViewModel(
         ILanguageManager languageManager,
         ICocktailManager cocktailManager,
         MenuLayoutOptions layoutOptions,
-        ICocktailItemLayoutCalculator cocktailItemLayoutCalculator)
+        IFavoriteCocktailStore favoriteStore,
+        ICocktailReviewService reviewService,
+        ICocktailImageLoader imageLoader)
     {
         this.languageManager = languageManager;
         this.cocktailManager = cocktailManager;
         this.layoutOptions = layoutOptions;
-        this.cocktailItemLayoutCalculator = cocktailItemLayoutCalculator;
+        this.favoriteStore = favoriteStore;
+        this.reviewService = reviewService;
+        this.imageLoader = imageLoader;
     }
 
     public bool HasError => !string.IsNullOrWhiteSpace(ErrorMessage);
 
     public bool IsMenuReady => !IsLoading && !HasError && Pages.Count > 0;
 
-    public bool IsCocktailSearchVisible => IsMenuReady
-        && CurrentPageIndex >= 0
-        && CurrentPageIndex < Pages.Count
-        && Pages[CurrentPageIndex] is CocktailMenuPageViewModel;
-
-    public bool HasActiveCocktailSearch => SearchResultsPage is not null;
-
-    public bool IsCocktailSearchResultsVisible => IsCocktailSearchVisible && HasActiveCocktailSearch;
-
-    public bool IsHorizontalSwipeEnabled => !HasActiveCocktailSearch;
+    public bool IsHorizontalSwipeEnabled => CocktailPage?.IsInteractionBlocked != true;
 
     [RelayCommand(CanExecute = nameof(CanGoToNextPage))]
     private void GoToNextPage()
@@ -113,37 +85,31 @@ public partial class MainViewModel : ViewModelBase
         return IsHorizontalSwipeEnabled && CurrentPageIndex > 0 && CurrentPageIndex < Pages.Count;
     }
 
-    [RelayCommand(CanExecute = nameof(CanClearSearch))]
-    private void ClearSearch()
-    {
-        SearchText = string.Empty;
-    }
-
-    private bool CanClearSearch()
-    {
-        return HasActiveCocktailSearch;
-    }
-
-    [RelayCommand(AllowConcurrentExecutions = false)]
+    [RelayCommand]
     private async Task InitializeAsync(CancellationToken cancellationToken)
     {
         IsLoading = true;
         ErrorMessage = string.Empty;
-
         try
         {
             layoutOptions.Validate();
             await languageManager.InitializeAsync(LanguageManager.DefaultLanguage, cancellationToken);
             MenuCatalog catalog = await cocktailManager.LoadAsync(cancellationToken);
+            if (CocktailPage is not null)
+            {
+                CocktailPage.PropertyChanged -= OnCocktailPagePropertyChanged;
+            }
 
-            pageFactory = new MenuPageFactory(languageManager, layoutOptions, cocktailItemLayoutCalculator);
-            Pages = pageFactory.CreatePages(catalog);
-            SearchText = string.Empty;
-            SearchResultsPage = null;
-            SearchPlaceholder = languageManager.GetText("SEARCH_BAR_PLACEHOLDER");
-            ClearSearchText = languageManager.GetText("CLEAR_SEARCH");
+            CocktailPage = new CocktailMenuPageViewModel(
+                catalog, languageManager, layoutOptions, favoriteStore, reviewService, imageLoader);
+            CocktailPage.PropertyChanged += OnCocktailPagePropertyChanged;
+            await CocktailPage.LoadFavoritesAsync(cancellationToken);
+            MenuPageFactory pageFactory = new MenuPageFactory(languageManager, layoutOptions);
+            Pages = pageFactory.CreatePages(catalog, CocktailPage);
             CurrentPageIndex = 0;
-            RetryText = languageManager.TryGetText("RETRY", out string retry) ? retry : "Réessayer";
+            RetryText = languageManager.GetText("RETRY");
+            IsLoading = false;
+            await CocktailPage.LoadReviewsAsync(cancellationToken);
         }
         catch (OperationCanceledException)
         {
@@ -162,26 +128,13 @@ public partial class MainViewModel : ViewModelBase
         }
     }
 
-    partial void OnSearchTextChanged(string value)
+    private void OnCocktailPagePropertyChanged(object? sender, PropertyChangedEventArgs eventArgs)
     {
-        ApplyCocktailSearch(value);
-    }
-
-    private void ApplyCocktailSearch(string query)
-    {
-        if (pageFactory is null || Pages.Count < 4)
+        if (eventArgs.PropertyName == nameof(CocktailMenuPageViewModel.IsInteractionBlocked))
         {
-            return;
+            OnPropertyChanged(nameof(IsHorizontalSwipeEnabled));
+            GoToNextPageCommand.NotifyCanExecuteChanged();
+            GoToPreviousPageCommand.NotifyCanExecuteChanged();
         }
-
-        if (string.IsNullOrWhiteSpace(query))
-        {
-            SearchResultsPage = null;
-            return;
-        }
-
-        TextCocktailFilter filter = new TextCocktailFilter(languageManager, query);
-        IReadOnlyList<Cocktail> results = cocktailManager.GetCocktails(filter);
-        SearchResultsPage = pageFactory.CreateSearchResultsPage(results);
     }
 }

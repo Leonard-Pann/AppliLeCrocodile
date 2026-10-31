@@ -1,7 +1,6 @@
 using AppliLeCrocodile.Configuration;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
-using AppliLeCrocodile.Services.Layout;
 
 namespace AppliLeCrocodile.ViewModels;
 
@@ -9,136 +8,24 @@ public sealed class MenuPageFactory
 {
     private readonly ILanguageManager languageManager;
     private readonly MenuLayoutOptions layoutOptions;
-    private readonly ICocktailItemLayoutCalculator cocktailItemLayoutCalculator;
 
-    public MenuPageFactory(
-        ILanguageManager languageManager,
-        MenuLayoutOptions layoutOptions,
-        ICocktailItemLayoutCalculator cocktailItemLayoutCalculator)
+    public MenuPageFactory(ILanguageManager languageManager, MenuLayoutOptions layoutOptions)
     {
         this.languageManager = languageManager;
         this.layoutOptions = layoutOptions;
-        this.cocktailItemLayoutCalculator = cocktailItemLayoutCalculator;
     }
 
-    public IReadOnlyList<MenuPageViewModel> CreatePages(MenuCatalog catalog)
+    public IReadOnlyList<MenuPageViewModel> CreatePages(MenuCatalog catalog, CocktailMenuPageViewModel cocktailPage)
     {
         ArgumentNullException.ThrowIfNull(catalog);
-
-        List<MenuPageViewModel> pages =
+        return Array.AsReadOnly<MenuPageViewModel>(
         [
             new CoverPageViewModel(languageManager.GetText("COVER_PAGE_ACCESSIBILITY"), layoutOptions),
-            new SummaryPageViewModel(languageManager, layoutOptions)
-        ];
-
-        CocktailItemViewModel[] cocktailItems = catalog.Cocktails.Select(CreateCocktailItem).ToArray();
-        IReadOnlyList<CocktailPageColumns> cocktailPages = PartitionCocktails(cocktailItems);
-        for (int pageIndex = 0; pageIndex < cocktailPages.Count; pageIndex++)
-        {
-            CocktailPageColumns columns = cocktailPages[pageIndex];
-            pages.Add(new CocktailMenuPageViewModel(
-                languageManager.GetText("COCKTAILS_PAGE_ACCESSIBILITY"),
-                pageIndex + 1,
-                columns.LeftColumn,
-                columns.RightColumn,
-                layoutOptions));
-        }
-
-        pages.Add(CreateSoftPage(catalog));
-        pages.Add(CreateLastPage(catalog));
-        return pages.AsReadOnly();
-    }
-
-    private IReadOnlyList<CocktailPageColumns> PartitionCocktails(IReadOnlyList<CocktailItemViewModel> cocktails)
-    {
-        List<CocktailPageColumns> pages = [];
-        int cocktailIndex = 0;
-
-        while (cocktailIndex < cocktails.Count)
-        {
-            IReadOnlyList<CocktailItemViewModel> leftColumn = FillColumn(cocktails, ref cocktailIndex);
-            IReadOnlyList<CocktailItemViewModel> rightColumn = FillColumn(cocktails, ref cocktailIndex);
-            pages.Add(new CocktailPageColumns(leftColumn, rightColumn));
-        }
-
-        return pages.AsReadOnly();
-    }
-
-    public CocktailMenuPageViewModel CreateSearchResultsPage(IReadOnlyList<Cocktail> cocktails)
-    {
-        CocktailItemViewModel[] items = cocktails.Select(CreateCocktailItem).ToArray();
-        int leftCount = GetSearchResultLeftColumnCount(items);
-        CocktailItemViewModel[] leftColumn = items.Take(leftCount).ToArray();
-        CocktailItemViewModel[] rightColumn = items.Skip(leftCount).ToArray();
-
-        return CocktailMenuPageViewModel.CreateSearchResults(
-            languageManager.GetText("SEARCH_RESULTS_ACCESSIBILITY"),
-            Array.AsReadOnly(leftColumn),
-            Array.AsReadOnly(rightColumn),
-            languageManager.GetText("NO_COCKTAIL"),
-            layoutOptions);
-    }
-
-    private IReadOnlyList<CocktailItemViewModel> FillColumn(
-        IReadOnlyList<CocktailItemViewModel> cocktails,
-        ref int cocktailIndex)
-    {
-        List<CocktailItemViewModel> column = [];
-        double usedHeight = 0d;
-
-        while (cocktailIndex < cocktails.Count)
-        {
-            CocktailItemViewModel cocktail = cocktails[cocktailIndex];
-            double itemHeight = MeasureHeight(cocktail);
-            if (itemHeight > cocktailItemLayoutCalculator.AvailableColumnHeight)
-            {
-                string message = $"Cocktail '{cocktail.Name}' is taller than an empty cocktail column "
-                    + "and cannot be displayed without clipping.";
-                throw new InvalidDataException(message);
-            }
-
-            if (column.Count > 0 && usedHeight + itemHeight > cocktailItemLayoutCalculator.AvailableColumnHeight)
-            {
-                break;
-            }
-
-            column.Add(cocktail);
-            usedHeight += itemHeight;
-            cocktailIndex++;
-        }
-
-        return column.AsReadOnly();
-    }
-
-    private int GetSearchResultLeftColumnCount(IReadOnlyList<CocktailItemViewModel> cocktails)
-    {
-        if (cocktails.Count == 0)
-        {
-            return 0;
-        }
-
-        double totalHeight = cocktails.Sum(MeasureHeight);
-        if (totalHeight <= cocktailItemLayoutCalculator.AvailableColumnHeight)
-        {
-            return cocktails.Count;
-        }
-
-        double targetHeight = totalHeight / 2d;
-        double leftHeight = 0d;
-        int leftCount = 0;
-
-        while (leftCount < cocktails.Count - 1 && leftHeight < targetHeight)
-        {
-            leftHeight += MeasureHeight(cocktails[leftCount]);
-            leftCount++;
-        }
-
-        return leftCount;
-    }
-
-    private double MeasureHeight(CocktailItemViewModel cocktail)
-    {
-        return cocktailItemLayoutCalculator.MeasureHeight(cocktail.Name, cocktail.Ingredients);
+            new SummaryPageViewModel(languageManager, layoutOptions),
+            cocktailPage,
+            CreateSoftPage(catalog),
+            CreateLastPage(catalog)
+        ]);
     }
 
     private SoftPageViewModel CreateSoftPage(MenuCatalog catalog)
@@ -219,8 +106,4 @@ public sealed class MenuPageFactory
     {
         return new PricedItemViewModel(languageManager.GetText(item.NameId), languageManager.GetText(item.PriceId));
     }
-
-    private sealed record CocktailPageColumns(
-        IReadOnlyList<CocktailItemViewModel> LeftColumn,
-        IReadOnlyList<CocktailItemViewModel> RightColumn);
 }

@@ -8,4 +8,5 @@
     <Deploy />
   </Project>
   <Project Path="AppliLeCrocodile/AppliLeCrocodile.csproj" />
+  <Project Path="AppliLeCrocodile.Tests/AppliLeCrocodile.Tests.csproj" />
 </Solution>

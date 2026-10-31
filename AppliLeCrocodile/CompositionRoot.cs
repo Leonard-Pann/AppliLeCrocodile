@@ -1,7 +1,6 @@
 using AppliLeCrocodile.Configuration;
 using AppliLeCrocodile.Infrastructure.Assets;
 using AppliLeCrocodile.Services;
-using AppliLeCrocodile.Services.Layout;
 using AppliLeCrocodile.ViewModels;
 
 namespace AppliLeCrocodile;
@@ -33,7 +32,11 @@ internal static class CompositionRoot
             ReferenceHeight = 844
         };
 
-        ICocktailItemLayoutCalculator cocktailItemLayoutCalculator = new AvaloniaCocktailItemLayoutCalculator(layoutOptions);
-        return new MainViewModel(languageManager, cocktailManager, layoutOptions, cocktailItemLayoutCalculator);
+        string favoritesPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LeCrocodile", "favorites.json");
+        IFavoriteCocktailStore favoriteStore = new LocalFavoriteCocktailStore(favoritesPath);
+        ICocktailReviewService reviewService = new DemoCocktailReviewService();
+        ICocktailImageLoader imageLoader = new AssetCocktailImageLoader();
+        return new MainViewModel(languageManager, cocktailManager, layoutOptions, favoriteStore, reviewService, imageLoader);
     }
 }

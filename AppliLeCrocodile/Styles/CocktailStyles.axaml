@@ -1,0 +1,93 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <SolidColorBrush x:Key="CrocodileGreen">#225500</SolidColorBrush>
+        <SolidColorBrush x:Key="CrocodileTint">#EDF3E8</SolidColorBrush>
+        <SolidColorBrush x:Key="MenuMuted">#596151</SolidColorBrush>
+        <SolidColorBrush x:Key="MenuDivider">#DDE4D7</SolidColorBrush>
+        <StreamGeometry x:Key="FilterIcon">M3,4 L21,4 L14,12 L14,20 L10,18 L10,12 Z</StreamGeometry>
+        <StreamGeometry x:Key="StarIcon">M12,2 L15.1,8.3 L22,9.3 L17,14.2 L18.2,21.1 L12,17.8 L5.8,21.1 L7,14.2 L2,9.3 L8.9,8.3 Z</StreamGeometry>
+        <StreamGeometry x:Key="BackIcon">M15,4 L7,12 L15,20 M7,12 L22,12</StreamGeometry>
+    </Styles.Resources>
+    <Style Selector="Button.icon">
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="MinWidth" Value="48" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+    <Style Selector="Button.primary">
+        <Setter Property="Background" Value="{StaticResource CrocodileGreen}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Button.menuItem">
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="Padding" Value="0,3,0,5" />
+        <Setter Property="Margin" Value="0,0,0,6" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="Button.menuItem:pointerover, Button.menuItem:focus-visible">
+        <Setter Property="Background" Value="{StaticResource CrocodileTint}" />
+    </Style>
+    <Style Selector="ListBox.cocktails">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="ListBox.cocktails ListBoxItem">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  HorizontalContentAlignment="Stretch" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="ToggleButton.alcohol">
+        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="Padding" Value="8,10" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="6" />
+    </Style>
+    <Style Selector="ToggleButton.alcohol:checked">
+        <Setter Property="Background" Value="{StaticResource CrocodileGreen}" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="TextBlock.sectionTitle">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="LineHeight" Value="26" />
+    </Style>
+    <Style Selector="Button.ingredientChip">
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="Padding" Value="12,8" />
+        <Setter Property="Margin" Value="0,0,6,6" />
+        <Setter Property="CornerRadius" Value="18" />
+        <Setter Property="Background" Value="{StaticResource CrocodileTint}" />
+        <Setter Property="Foreground" Value="{StaticResource CrocodileGreen}" />
+    </Style>
+    <Style Selector="Button.favorite Path">
+        <Setter Property="Fill" Value="Transparent" />
+    </Style>
+    <Style Selector="Button.favorite.selected Path">
+        <Setter Property="Fill" Value="{StaticResource CrocodileGreen}" />
+    </Style>
+</Styles>

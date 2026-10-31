@@ -3,6 +3,8 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Controls;
+using Avalonia.VisualTree;
 
 namespace AppliLeCrocodile.Behaviors;
 
@@ -118,6 +120,12 @@ public sealed class HorizontalSwipeBehavior : AvaloniaObject
             return;
         }
 
+        if (eventArgs.Source is Visual visual && visual.FindAncestorOfType<TextBox>(includeSelf: true) is not null)
+        {
+            state.Reset();
+            return;
+        }
+
         PointerPoint pointerPoint = eventArgs.GetCurrentPoint(element);
         if (eventArgs.Pointer.Type == PointerType.Mouse && !pointerPoint.Properties.IsLeftButtonPressed)
         {
@@ -155,6 +163,11 @@ public sealed class HorizontalSwipeBehavior : AvaloniaObject
         if (Math.Abs(delta.Y) >= DirectionDetectionDistance && Math.Abs(delta.Y) > Math.Abs(delta.X))
         {
             state.IsVerticalGesture = true;
+            return;
+        }
+
+        if (state.IsVerticalGesture)
+        {
             return;
         }
 

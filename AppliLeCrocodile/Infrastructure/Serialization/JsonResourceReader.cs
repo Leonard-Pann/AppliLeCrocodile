@@ -19,7 +19,7 @@ internal sealed class JsonResourceReader
 
         try
         {
-            T? result = JsonSerializer.Deserialize(json, typeInfo);
+            T? result = await Task.Run(() => JsonSerializer.Deserialize(json, typeInfo), cancellationToken);
             return result ?? throw new InvalidDataException($"The JSON asset '{relativePath}' contains a null root value.");
         }
         catch (JsonException exception)

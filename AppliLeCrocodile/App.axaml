@@ -24,6 +24,7 @@
 
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://AppliLeCrocodile/Styles/CocktailStyles.axaml" />
         <Style Selector="TextBlock">
             <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
             <Setter Property="Foreground" Value="Black" />
@@ -32,8 +33,12 @@
             <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
             <Setter Property="MinHeight" Value="48" />
             <Setter Property="MinWidth" Value="96" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <Style Selector="TextBox">
+            <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
+        </Style>
+        <Style Selector="ToggleButton, CheckBox, ComboBox, ComboBoxItem">
             <Setter Property="FontFamily" Value="avares://AppliLeCrocodile/Assets/Fonts/Balsamiq#Balsamiq Sans" />
         </Style>
     </Application.Styles>

@@ -2,11 +2,18 @@ namespace AppliLeCrocodile.Models;
 
 public sealed class Cocktail : IEquatable<Cocktail>
 {
-    public Cocktail(string nameId, string imagePath, IReadOnlyList<string> ingredientNameIds)
+    public Cocktail(
+        string nameId,
+        string imagePath,
+        IReadOnlyList<string> ingredientNameIds,
+        AlcoholLevel? alcoholLevel = null,
+        string description = "")
     {
         NameId = nameId;
         ImagePath = imagePath;
         IngredientNameIds = ingredientNameIds;
+        AlcoholLevel = alcoholLevel;
+        Description = description;
     }
 
     public string NameId { get; }
@@ -14,6 +21,10 @@ public sealed class Cocktail : IEquatable<Cocktail>
     public string ImagePath { get; }
 
     public IReadOnlyList<string> IngredientNameIds { get; }
+
+    public AlcoholLevel? AlcoholLevel { get; }
+
+    public string Description { get; }
 
     public bool Equals(Cocktail? other)
     {

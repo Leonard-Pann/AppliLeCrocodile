@@ -1,0 +1,107 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppliLeCrocodile.ViewModels"
+             x:Class="AppliLeCrocodile.Views.CocktailFiltersView"
+             x:DataType="vm:CocktailMenuPageViewModel"
+             KeyboardNavigation.TabNavigation="Cycle">
+    <UserControl.KeyBindings>
+        <KeyBinding Gesture="Escape" Command="{Binding CloseFiltersCommand}" />
+    </UserControl.KeyBindings>
+    <Grid Background="#66000000">
+        <Border Margin="18" Padding="20" MaxWidth="480" MaxHeight="720"
+                VerticalAlignment="Center" Background="White" CornerRadius="12"
+                BorderBrush="{StaticResource MenuDivider}" BorderThickness="1">
+            <Grid RowDefinitions="Auto,*,Auto" RowSpacing="14">
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Text="Affiner les cocktails" Classes="sectionTitle" VerticalAlignment="Center" />
+                    <Button x:Name="CloseFiltersButton" Grid.Column="1" Classes="icon" Content="×" FontSize="26"
+                            Command="{Binding CloseFiltersCommand}" AutomationProperties.Name="Fermer les filtres" />
+                </Grid>
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto" IsScrollChainingEnabled="False">
+                    <StackPanel Spacing="12" Margin="0,0,4,6">
+                        <TextBlock Text="Quantité d’alcool" Classes="sectionTitle" />
+                        <TextBlock Text="Tous les niveaux si aucun n’est sélectionné." FontSize="12"
+                                   Foreground="{StaticResource MenuMuted}" TextWrapping="Wrap" />
+                        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6">
+                            <ToggleButton Classes="alcohol" Content="Faible" IsChecked="{Binding IncludeLowAlcohol}" />
+                            <ToggleButton Grid.Column="1" Classes="alcohol" Content="Moyen"
+                                          IsChecked="{Binding IncludeMediumAlcohol}" />
+                            <ToggleButton Grid.Column="2" Classes="alcohol" Content="Chargé"
+                                          IsChecked="{Binding IncludeStrongAlcohol}" />
+                        </Grid>
+                        <TextBlock Text="Ingrédients" Classes="sectionTitle" Margin="0,6,0,0" />
+                        <TextBlock Text="Le cocktail doit contenir tous les ingrédients sélectionnés."
+                                   TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource MenuMuted}" />
+                        <Button x:Name="IngredientPicker" Content="Ajouter un ingrédient  ▾" HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left" AutomationProperties.Name="Choisir des ingrédients">
+                            <Button.Flyout>
+                                <Flyout Placement="Bottom" ShowMode="Standard">
+                                    <Grid RowDefinitions="Auto,*" Width="240" MaxHeight="300" RowSpacing="8">
+                                        <TextBox Text="{Binding IngredientSearchText, Mode=TwoWay}"
+                                                 PlaceholderText="Rechercher un ingrédient" MinHeight="48"
+                                                 AutomationProperties.Name="Rechercher un ingrédient" />
+                                        <ScrollViewer Grid.Row="1" MaxHeight="230" IsScrollChainingEnabled="False">
+                                            <ItemsControl ItemsSource="{Binding AvailableIngredients}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate x:DataType="vm:IngredientChoiceViewModel">
+                                                        <Button Content="{Binding Name}" Command="{Binding ToggleCommand}"
+                                                                HorizontalAlignment="Stretch" Background="Transparent"
+                                                                HorizontalContentAlignment="Left" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <ItemsControl ItemsSource="{Binding SelectedIngredients}" IsVisible="{Binding SelectedIngredients.Count}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:IngredientChoiceViewModel">
+                                    <Button Classes="ingredientChip" Command="{Binding ToggleCommand}"
+                                            AutomationProperties.Name="{Binding Name}" ToolTip.Tip="Retirer cet ingrédient">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                                            <TextBlock Text="×" FontSize="18" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Border Height="1" Background="{StaticResource MenuDivider}" />
+                        <CheckBox Content="Uniquement mes favoris" IsChecked="{Binding FavoritesOnly}" MinHeight="48" />
+                        <TextBlock Text="{Binding FavoritesStatus}" TextWrapping="Wrap" FontSize="12"
+                                   IsVisible="{Binding FavoritesStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <Button Content="Réessayer les favoris" Command="{Binding RetryFavoritesCommand}"
+                                IsVisible="{Binding FavoritesStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <TextBlock Text="Avis utilisateurs" Classes="sectionTitle" />
+                        <ComboBox ItemsSource="{Binding RatingOptions}" SelectedItem="{Binding SelectedRating}"
+                                  HorizontalAlignment="Stretch" MinHeight="48" AutomationProperties.Name="Note minimale">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="vm:RatingFilterOption">
+                                    <TextBlock Text="{Binding Name}" Padding="0,3" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <CheckBox Content="Les mieux notés en premier" IsChecked="{Binding SortByRating}" MinHeight="48" />
+                        <TextBlock Text="{Binding ReviewStatus}" TextWrapping="Wrap" FontSize="12"
+                                   IsVisible="{Binding ReviewStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <Button Content="Réessayer les avis" Command="{Binding LoadReviewsCommand}"
+                                IsVisible="{Binding HasReviewError}" />
+                    </StackPanel>
+                </ScrollViewer>
+                <StackPanel Grid.Row="2" Spacing="8">
+                    <Button Classes="primary" Command="{Binding CloseFiltersCommand}" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding ResultText, StringFormat='Afficher les {0}'}" Foreground="White" />
+                    </Button>
+                    <Button Content="Tout réinitialiser" Command="{Binding ResetFiltersCommand}"
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
