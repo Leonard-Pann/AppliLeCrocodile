@@ -1,4 +1,4 @@
-AppliLeCrocodile est une application mobile affichant la carte du bar Le Crocodile, situé dans le 5ᵉ arrondissement de Paris.
+AppliLeCrocodile est une application cross plateforme (Windows, Mac, Linux, Android et iOS) affichant la carte du bar Le Crocodile, situé dans le 5ᵉ arrondissement de Paris.
 
 Vous y trouverez plus de 100 cocktails disponibles à la carte, ainsi que des fonctions de filtrage.
 
