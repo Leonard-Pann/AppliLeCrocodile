@@ -102,7 +102,6 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     public IReadOnlyList<RatingFilterOption> RatingOptions { get; } =
     [
         new RatingFilterOption("Toutes les notes", 0),
-        new RatingFilterOption("Au moins 1 étoile", 1),
         new RatingFilterOption("Au moins 2 étoiles", 2),
         new RatingFilterOption("Au moins 3 étoiles", 3),
         new RatingFilterOption("Au moins 4 étoiles", 4),
@@ -143,6 +142,11 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
             IReadOnlySet<string> loadedIds = await favoriteStore.LoadAsync(cancellationToken);
             favoriteIds.Clear();
             favoriteIds.UnionWith(loadedIds);
+            foreach (CocktailItemViewModel item in allItems)
+            {
+                item.IsFavorite = favoriteIds.Contains(item.Cocktail!.NameId);
+            }
+
             FavoritesStatus = string.Empty;
             ApplyFilters();
         }
@@ -221,6 +225,8 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
 
     private void OnFavoriteChanged(string cocktailId, bool isFavorite)
     {
+        CocktailItemViewModel item = allItems.First(candidate => candidate.Cocktail!.NameId == cocktailId);
+        item.IsFavorite = isFavorite;
         if (isFavorite)
         {
             favoriteIds.Add(cocktailId);

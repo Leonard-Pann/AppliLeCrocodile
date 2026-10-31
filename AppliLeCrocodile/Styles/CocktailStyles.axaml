@@ -33,15 +33,17 @@
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="6" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Content="{TemplateBinding Content}" Padding="{TemplateBinding Padding}"
                                   Background="{TemplateBinding Background}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="Button.menuItem:pointerover, Button.menuItem:focus-visible">
+    <Style Selector=".desktopHover Button.menuItem:pointerover, Button.menuItem:focus-visible">
         <Setter Property="Background" Value="{StaticResource CrocodileTint}" />
     </Style>
     <Style Selector="ListBox.cocktails">
@@ -62,12 +64,29 @@
     </Style>
     <Style Selector="ToggleButton.alcohol">
         <Setter Property="MinHeight" Value="48" />
-        <Setter Property="Padding" Value="8,10" />
+        <Setter Property="Padding" Value="8,0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="CornerRadius" Value="6" />
+    </Style>
+    <Style Selector="TextBlock.filterLabel">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="LineHeight" Value="20" />
+    </Style>
+    <Style Selector="CheckBox.filterOption">
+        <Style.Resources>
+            <x:Double x:Key="CheckBoxMinHeight">48</x:Double>
+        </Style.Resources>
+        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="Padding" Value="8,0,0,0" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
     <Style Selector="ToggleButton.alcohol:checked">
         <Setter Property="Background" Value="{StaticResource CrocodileGreen}" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="ToggleButton.alcohol:checked TextBlock">
         <Setter Property="Foreground" Value="White" />
     </Style>
     <Style Selector="TextBlock.sectionTitle">

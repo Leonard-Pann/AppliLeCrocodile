@@ -53,7 +53,28 @@
                 <TextBlock Text="{Binding Description}" FontSize="15" LineHeight="23" TextWrapping="Wrap" />
                 <Border Height="1" Background="{StaticResource MenuDivider}" />
                 <TextBlock Text="Avis utilisateurs" Classes="sectionTitle" />
-                <TextBlock Text="{Binding RatingText}" FontSize="20" Foreground="{StaticResource CrocodileGreen}" />
+                <StackPanel Orientation="Horizontal" Spacing="12" AutomationProperties.Name="{Binding RatingText}">
+                    <TextBlock Text="{Binding RatingText}" FontSize="20" LineHeight="28" VerticalAlignment="Center"
+                               Foreground="{StaticResource CrocodileGreen}" />
+                    <ItemsControl ItemsSource="{Binding RatingStars}" IsVisible="{Binding HasReviews}"
+                                  VerticalAlignment="Center">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="3" /></ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:RatingStarViewModel">
+                                <Grid Width="20" Height="20">
+                                    <Path Data="{StaticResource StarIcon}" Width="20" Height="20" Stretch="Uniform"
+                                          Stroke="{StaticResource CrocodileGreen}" StrokeThickness="1" />
+                                    <Border Width="{Binding FillWidth}" Height="20" HorizontalAlignment="Left" ClipToBounds="True">
+                                        <Path Data="{StaticResource StarIcon}" Width="20" Height="20" Stretch="Uniform"
+                                              HorizontalAlignment="Left" Fill="{StaticResource CrocodileGreen}" />
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
                 <TextBlock Text="Avis de démonstration" FontSize="12" Foreground="{StaticResource MenuMuted}" />
                 <TextBlock Text="{Binding ReviewStatus}" TextWrapping="Wrap"
                            IsVisible="{Binding ReviewStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />

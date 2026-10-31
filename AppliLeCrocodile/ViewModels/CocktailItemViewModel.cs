@@ -1,10 +1,14 @@
 using AppliLeCrocodile.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace AppliLeCrocodile.ViewModels;
 
-public sealed class CocktailItemViewModel
+public sealed partial class CocktailItemViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private bool isFavorite;
+
     public CocktailItemViewModel(string name, string ingredients)
     {
         Name = name;

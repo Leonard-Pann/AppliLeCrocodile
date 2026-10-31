@@ -27,6 +27,8 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(RatingText))]
+    [NotifyPropertyChangedFor(nameof(RatingStars))]
+    [NotifyPropertyChangedFor(nameof(HasReviews))]
     private IReadOnlyList<CocktailReview> reviews = [];
 
     [ObservableProperty]
@@ -74,7 +76,24 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
     public string RatingText => Reviews.Count == 0
         ? "Pas encore d’avis"
-        : $"{Reviews.Average(review => review.Rating):0.0} / 5 · {Reviews.Count} avis";
+        : $"{Reviews.Average(review => review.Rating):0.0} / 5";
+
+    public bool HasReviews => Reviews.Count > 0;
+
+    public IReadOnlyList<RatingStarViewModel> RatingStars
+    {
+        get
+        {
+            if (!HasReviews)
+            {
+                return [];
+            }
+
+            double average = Reviews.Average(review => review.Rating);
+            return Enumerable.Range(0, 5)
+                .Select(index => new RatingStarViewModel(Math.Clamp(average - index, 0d, 1d) * 20d)).ToArray();
+        }
+    }
 
     public IRelayCommand CloseCommand { get; }
 
@@ -139,3 +158,5 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         lifetime.Dispose();
     }
 }
+
+public sealed record RatingStarViewModel(double FillWidth);

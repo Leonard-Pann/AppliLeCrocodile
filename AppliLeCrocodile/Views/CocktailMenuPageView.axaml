@@ -3,12 +3,18 @@
              xmlns:vm="using:AppliLeCrocodile.ViewModels"
              xmlns:views="using:AppliLeCrocodile.Views"
              x:Class="AppliLeCrocodile.Views.CocktailMenuPageView"
-             x:DataType="vm:CocktailMenuPageViewModel" Background="White">
+             x:DataType="vm:CocktailMenuPageViewModel" Background="White"
+             Classes.desktopHover="{OnPlatform Default=False, Windows=True, macOS=True, Linux=True}">
     <UserControl.Resources>
         <DataTemplate x:Key="CocktailTemplate" x:DataType="vm:CocktailItemViewModel">
             <Button Classes="menuItem" Command="{Binding OpenCommand}" AutomationProperties.Name="{Binding Name}">
                 <StackPanel Spacing="0">
-                    <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" LineHeight="22" TextWrapping="Wrap" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+                        <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="Bold" LineHeight="22" TextWrapping="Wrap" />
+                        <Path Grid.Column="1" Data="{StaticResource StarIcon}" Width="14" Height="14" Margin="0,4,0,0"
+                              VerticalAlignment="Top" Stretch="Uniform" Fill="{StaticResource CrocodileGreen}"
+                              IsVisible="{Binding IsFavorite}" AutomationProperties.Name="Favori" />
+                    </Grid>
                     <TextBlock Text="{Binding Ingredients}" FontSize="12" LineHeight="16" TextWrapping="Wrap" />
                 </StackPanel>
             </Button>
@@ -16,10 +22,10 @@
     </UserControl.Resources>
     <Grid>
         <Grid RowDefinitions="Auto,Auto,*" MaxWidth="780" IsEnabled="{Binding !IsInteractionBlocked}">
-            <Grid Margin="18,18,18,0" ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Grid Margin="18,18,18,0" ColumnDefinitions="*,Auto" ColumnSpacing="8" Height="50">
                 <Border BorderBrush="Black" BorderThickness="1" CornerRadius="6" Padding="1">
                     <TextBox Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="{Binding SearchPlaceholder}"
-                             FontSize="16" Padding="10,7" MinHeight="46" Background="White" BorderThickness="0"
+                             FontSize="16" Padding="10,7" MinHeight="0" Background="White" BorderThickness="0"
                              VerticalContentAlignment="Center" AutomationProperties.Name="{Binding SearchPlaceholder}">
                         <TextBox.InnerRightContent>
                             <Button Classes="icon" Width="44" MinWidth="44" Height="44" MinHeight="44" Padding="0"
@@ -29,6 +35,7 @@
                     </TextBox>
                 </Border>
                 <Button Grid.Column="1" Classes="icon" Command="{Binding OpenFiltersCommand}"
+                        Width="50" Height="50"
                         BorderBrush="{StaticResource CrocodileGreen}" BorderThickness="1"
                         AutomationProperties.Name="Filtrer les cocktails" ToolTip.Tip="Filtrer les cocktails">
                     <Grid>
@@ -39,14 +46,12 @@
                     </Grid>
                 </Button>
             </Grid>
-            <Grid Grid.Row="1" Margin="30,8,30,6" ColumnDefinitions="*,Auto">
-                <TextBlock Text="{Binding ResultText}" FontSize="12" Foreground="{StaticResource MenuMuted}"
-                           VerticalAlignment="Center" />
-                <Button Grid.Column="1" Content="Réinitialiser" Command="{Binding ResetFiltersCommand}"
-                        IsVisible="{Binding HasActiveFilters}" MinWidth="0" MinHeight="32" Padding="6,2"
+            <Grid Grid.Row="1" Margin="30,8,30,6" IsVisible="{Binding HasActiveFilters}">
+                <Button Content="Réinitialiser" Command="{Binding ResetFiltersCommand}"
+                        HorizontalAlignment="Right" MinWidth="0" MinHeight="32" Padding="6,2"
                         FontSize="12" Background="Transparent" Foreground="{StaticResource CrocodileGreen}" />
             </Grid>
-            <ListBox Grid.Row="2" Classes="cocktails" ItemsSource="{Binding Rows}" Padding="30,0,30,30"
+            <ListBox Grid.Row="2" Classes="cocktails" ItemsSource="{Binding Rows}" Padding="30,12,30,30"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
                      ScrollViewer.IsScrollChainingEnabled="False" ScrollViewer.IsScrollInertiaEnabled="True"
                      AutomationProperties.Name="{Binding AccessibilityName}">
@@ -67,7 +72,7 @@
             </ListBox>
             <StackPanel Grid.Row="2" IsVisible="{Binding HasNoResults}" Margin="30" Spacing="16"
                         VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Aucun cocktail ne correspond à vos critères." TextWrapping="Wrap" TextAlignment="Center" />
+                <TextBlock Text="Aucun cocktail trouvé." TextWrapping="Wrap" TextAlignment="Center" />
                 <Button Content="Tout réinitialiser" Command="{Binding ResetFiltersCommand}" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>

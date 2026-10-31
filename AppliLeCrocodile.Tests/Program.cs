@@ -30,6 +30,8 @@ internal static class Program
             "Two-column reading order matches the existing alphabetical order.");
         Check(page.Rows.Take(page.Rows.Count - 1).All(row => row.Right is not null), "Only the final cell may be empty.");
         Check(!page.HasActiveFilters && !page.HasNoResults, "Initial filter state is clear.");
+        Check(page.RatingOptions.Select(option => option.MinimumRating).SequenceEqual([0, 2, 3, 4, 5]),
+            "Rating choices omit the redundant one-star threshold.");
 
         page.SearchText = "  GIN  ";
         TextCocktailFilter expectedTextFilter = new TextCocktailFilter(language, "GIN");
@@ -88,10 +90,26 @@ internal static class Program
         Check(detail.Reviews.Count == 2 && detail.Reviews[0].UserName == "Tester A"
             && detail.Reviews[0].Comment.Length > 0, "Detail exposes ratings, comments and user names.");
         Check(detail.HasNoImage && detail.Ingredients.Count > 0, "Missing images do not prevent displaying ingredients.");
+        Check(!first.IsFavorite, "The catalogue initially shows no favorite marker.");
+        Check(detail.RatingText.EndsWith(" / 5") && !detail.RatingText.Contains("avis", StringComparison.Ordinal),
+            "The rating summary excludes the review count.");
+        IReadOnlyList<CocktailReview> originalReviews = detail.Reviews;
+        detail.Reviews = [new CocktailReview("A", 2, ""), new CocktailReview("B", 3, ""), new CocktailReview("C", 3, "")];
+        Check(detail.RatingStars.Count == 5 && detail.RatingStars[0].FillWidth == 20d
+            && detail.RatingStars[1].FillWidth == 20d && Math.Abs(detail.RatingStars[2].FillWidth - 40d / 3d) < 0.001d
+            && detail.RatingStars[3].FillWidth == 0d && detail.RatingStars[4].FillWidth == 0d,
+            "Global stars preserve the fractional average rating.");
+        detail.Reviews = [];
+        Check(!detail.HasReviews && detail.RatingStars.Count == 0, "No reviews means no misleading rating stars.");
+        detail.Reviews = originalReviews;
         IReadOnlyList<CocktailRowViewModel> originalRows = page.Rows;
         await detail.ToggleFavoriteCommand.ExecuteAsync(null);
         Check(detail.IsFavorite, "A cocktail can be favorited.");
+        Check(first.IsFavorite, "Favoriting updates the catalogue marker immediately.");
         Check(ReferenceEquals(originalRows, page.Rows), "Favoriting preserves the unfiltered list and its scroll position.");
+        CocktailMenuPageViewModel reopenedPage = new CocktailMenuPageViewModel(catalog, language, options, favorites, reviews, images);
+        await reopenedPage.LoadFavoritesAsync(CancellationToken.None);
+        Check(reopenedPage.Rows[0].Left.IsFavorite, "Stored favorites restore catalogue markers on startup.");
         detail.CloseCommand.Execute(null);
         Check(!page.IsInteractionBlocked && page.SelectedCocktail is null, "Back closes the detail.");
         page.FavoritesOnly = true;
@@ -102,9 +120,11 @@ internal static class Program
         favorites.FailWrites = true;
         await detail.ToggleFavoriteCommand.ExecuteAsync(null);
         Check(detail.IsFavorite && detail.ErrorMessage.Length > 0, "A failed save keeps the previous favorite state.");
+        Check(first.IsFavorite, "Failed saves preserve the catalogue favorite marker.");
         favorites.FailWrites = false;
         await detail.ToggleFavoriteCommand.ExecuteAsync(null);
         Check(!detail.IsFavorite && page.ResultCount == 0, "Unfavoriting immediately updates filtered results.");
+        Check(!first.IsFavorite, "Unfavoriting removes the catalogue marker.");
         detail.CloseCommand.Execute(null);
         page.ResetFiltersCommand.Execute(null);
         page.OpenFiltersCommand.Execute(null);

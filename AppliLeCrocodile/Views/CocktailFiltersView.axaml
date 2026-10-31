@@ -24,11 +24,18 @@
                         <TextBlock Text="Tous les niveaux si aucun n’est sélectionné." FontSize="12"
                                    Foreground="{StaticResource MenuMuted}" TextWrapping="Wrap" />
                         <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6">
-                            <ToggleButton Classes="alcohol" Content="Faible" IsChecked="{Binding IncludeLowAlcohol}" />
-                            <ToggleButton Grid.Column="1" Classes="alcohol" Content="Moyen"
-                                          IsChecked="{Binding IncludeMediumAlcohol}" />
-                            <ToggleButton Grid.Column="2" Classes="alcohol" Content="Chargé"
-                                          IsChecked="{Binding IncludeStrongAlcohol}" />
+                            <ToggleButton Classes="alcohol" IsChecked="{Binding IncludeLowAlcohol}"
+                                          AutomationProperties.Name="Faible">
+                                <TextBlock Classes="filterLabel" Text="Faible" />
+                            </ToggleButton>
+                            <ToggleButton Grid.Column="1" Classes="alcohol" IsChecked="{Binding IncludeMediumAlcohol}"
+                                          AutomationProperties.Name="Moyen">
+                                <TextBlock Classes="filterLabel" Text="Moyen" />
+                            </ToggleButton>
+                            <ToggleButton Grid.Column="2" Classes="alcohol" IsChecked="{Binding IncludeStrongAlcohol}"
+                                          AutomationProperties.Name="Chargé">
+                                <TextBlock Classes="filterLabel" Text="Chargé" />
+                            </ToggleButton>
                         </Grid>
                         <TextBlock Text="Ingrédients" Classes="sectionTitle" Margin="0,6,0,0" />
                         <TextBlock Text="Le cocktail doit contenir tous les ingrédients sélectionnés."
@@ -73,7 +80,14 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                         <Border Height="1" Background="{StaticResource MenuDivider}" />
-                        <CheckBox Content="Uniquement mes favoris" IsChecked="{Binding FavoritesOnly}" MinHeight="48" />
+                        <CheckBox Classes="filterOption" IsChecked="{Binding FavoritesOnly}"
+                                  AutomationProperties.Name="Uniquement mes favoris">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Classes="filterLabel" Text="Uniquement mes favoris" />
+                                <Path Data="{StaticResource StarIcon}" Width="16" Height="16" VerticalAlignment="Center"
+                                      Stretch="Uniform" Fill="{StaticResource CrocodileGreen}" />
+                            </StackPanel>
+                        </CheckBox>
                         <TextBlock Text="{Binding FavoritesStatus}" TextWrapping="Wrap" FontSize="12"
                                    IsVisible="{Binding FavoritesStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         <Button Content="Réessayer les favoris" Command="{Binding RetryFavoritesCommand}"
@@ -87,7 +101,10 @@
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>
-                        <CheckBox Content="Les mieux notés en premier" IsChecked="{Binding SortByRating}" MinHeight="48" />
+                        <CheckBox Classes="filterOption" IsChecked="{Binding SortByRating}"
+                                  AutomationProperties.Name="Les mieux notés en premier">
+                            <TextBlock Classes="filterLabel" Text="Les mieux notés en premier" />
+                        </CheckBox>
                         <TextBlock Text="{Binding ReviewStatus}" TextWrapping="Wrap" FontSize="12"
                                    IsVisible="{Binding ReviewStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         <Button Content="Réessayer les avis" Command="{Binding LoadReviewsCommand}"
