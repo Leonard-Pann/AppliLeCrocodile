@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="../AppliLeCrocodileServer/LeCrocodile.Reviews.Contracts/LeCrocodile.Reviews.Contracts.csproj" />
   <Project Path="AppliLeCrocodile.Android/AppliLeCrocodile.Android.csproj">
     <Deploy />
   </Project>

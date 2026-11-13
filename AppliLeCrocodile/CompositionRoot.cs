@@ -7,6 +7,12 @@ namespace AppliLeCrocodile;
 
 internal static class CompositionRoot
 {
+    private static readonly System.Net.Http.HttpClient ReviewHttpClient = new System.Net.Http.HttpClient(
+        new System.Net.Http.HttpClientHandler { AllowAutoRedirect = false })
+    {
+        Timeout = TimeSpan.FromSeconds(15)
+    };
+
     public static MainViewModel CreateMainViewModel()
     {
         IAssetReader assetReader = new AvaloniaAssetReader();
@@ -35,7 +41,9 @@ internal static class CompositionRoot
         string favoritesPath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "LeCrocodile", "favorites.json");
         IFavoriteCocktailStore favoriteStore = new LocalFavoriteCocktailStore(favoritesPath);
-        ICocktailReviewService reviewService = new DemoCocktailReviewService();
+        string identityPath = Path.Combine(Path.GetDirectoryName(favoritesPath)!, "installation-id.txt");
+        IInstallationIdentity identity = new LocalInstallationIdentity(identityPath);
+        ICocktailReviewService reviewService = new HttpCocktailReviewService(ReviewHttpClient, identity, assetReader);
         ICocktailImageLoader imageLoader = new AssetCocktailImageLoader();
         string reviewerNamePath = Path.Combine(Path.GetDirectoryName(favoritesPath)!, "reviewer-name.json");
         IReviewerNameStore reviewerNameStore = new LocalReviewerNameStore(reviewerNamePath);

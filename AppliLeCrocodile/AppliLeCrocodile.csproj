@@ -8,6 +8,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <ProjectReference Include="../../AppliLeCrocodileServer/LeCrocodile.Reviews.Contracts/LeCrocodile.Reviews.Contracts.csproj" />
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 

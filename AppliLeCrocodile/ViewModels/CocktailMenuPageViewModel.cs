@@ -5,6 +5,7 @@ using AppliLeCrocodile.Configuration;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
 using AppliLeCrocodile.Services.Filters;
+using LeCrocodile.Reviews.Contracts;
 
 namespace AppliLeCrocodile.ViewModels;
 
@@ -18,8 +19,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     private readonly IReadOnlyList<CocktailItemViewModel> allItems;
     private readonly IReadOnlyList<IngredientChoiceViewModel> ingredientChoices;
     private readonly HashSet<string> favoriteIds = new HashSet<string>(StringComparer.Ordinal);
-    private IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> reviewsByCocktail =
-        new Dictionary<string, IReadOnlyList<CocktailReview>>();
+    private readonly Dictionary<string, ReviewSummary> reviewsByCocktail = new Dictionary<string, ReviewSummary>();
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(HasSearchText))]
@@ -177,7 +177,12 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         try
         {
             string[] ids = allItems.Select(item => item.Cocktail!.NameId).ToArray();
-            reviewsByCocktail = await reviewService.GetReviewsAsync(ids, cancellationToken);
+            IReadOnlyDictionary<string, ReviewSummary> summaries = await reviewService.GetSummariesAsync(ids, cancellationToken);
+            reviewsByCocktail.Clear();
+            foreach (KeyValuePair<string, ReviewSummary> summary in summaries)
+            {
+                reviewsByCocktail.Add(summary.Key, summary.Value);
+            }
             ReviewStatus = string.Empty;
             ApplyFilters();
         }
@@ -191,7 +196,6 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
             HasReviewError = true;
         }
 
-        UpdateDetailReviews();
     }
 
     private async Task OpenCocktailAsync(Cocktail cocktail)
@@ -201,11 +205,11 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
             return;
         }
 
-        SelectedCocktail = new CocktailDetailViewModel(cocktail, languageManager.GetText(cocktail.NameId),
+        CocktailDetailViewModel detail = new CocktailDetailViewModel(cocktail, languageManager.GetText(cocktail.NameId),
             cocktail.IngredientNameIds.Select(languageManager.GetText).ToArray(), favoriteIds.Contains(cocktail.NameId),
-            favoriteStore, imageLoader, reviewService, reviewerNameStore, OnFavoriteChanged, CloseCocktail);
-        UpdateDetailReviews();
-        await SelectedCocktail.LoadImageAsync();
+            favoriteStore, imageLoader, reviewService, reviewerNameStore, OnFavoriteChanged, CloseCocktail, OnReviewsChanged);
+        SelectedCocktail = detail;
+        await Task.WhenAll(detail.LoadImageAsync(), detail.RefreshReviewsCommand.ExecuteAsync(null));
     }
 
     private void CloseCocktail()
@@ -215,15 +219,10 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         detail?.Dispose();
     }
 
-    private void UpdateDetailReviews()
+    private void OnReviewsChanged(ReviewSummary summary)
     {
-        if (SelectedCocktail is null)
-        {
-            return;
-        }
-
-        SelectedCocktail.Reviews = reviewsByCocktail.GetValueOrDefault(SelectedCocktail.Cocktail.NameId) ?? [];
-        SelectedCocktail.ReviewStatus = ReviewStatus;
+        reviewsByCocktail[summary.CocktailId] = summary;
+        ApplyFilters();
     }
 
     private void OnFavoriteChanged(string cocktailId, bool isFavorite)
@@ -340,8 +339,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
 
     private double GetRating(string cocktailId)
     {
-        IReadOnlyList<CocktailReview>? reviews = reviewsByCocktail.GetValueOrDefault(cocktailId);
-        return reviews is { Count: > 0 } ? reviews.Average(review => review.Rating) : 0d;
+        return reviewsByCocktail.GetValueOrDefault(cocktailId)?.AverageRating ?? 0d;
     }
 
     partial void OnSearchTextChanged(string value) => ApplyFilters();

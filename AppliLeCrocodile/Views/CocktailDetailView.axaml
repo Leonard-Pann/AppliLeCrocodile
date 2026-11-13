@@ -91,6 +91,7 @@
                                IsVisible="{Binding IsDemo}" />
                     <TextBlock Text="{Binding ReviewStatus}" TextWrapping="Wrap"
                                IsVisible="{Binding ReviewStatus, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                    <Button Content="Actualiser les avis" Command="{Binding RefreshReviewsCommand}" MinHeight="48" />
                     <ItemsControl ItemsSource="{Binding Reviews}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:CocktailReview">
@@ -106,6 +107,8 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                    <Button Content="Afficher plus de commentaires" Command="{Binding LoadMoreReviewsCommand}"
+                            IsVisible="{Binding HasMoreReviews}" MinHeight="48" />
                 </StackPanel>
             </ScrollViewer>
         </Grid>

@@ -2,6 +2,7 @@ using Avalonia.Media.Imaging;
 using AppliLeCrocodile.Infrastructure.Assets;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
+using LeCrocodile.Reviews.Contracts;
 
 namespace AppliLeCrocodile.Tests;
 
@@ -80,6 +81,38 @@ internal sealed class FixedReviewService : ICocktailReviewService
     public List<(string CocktailId, CocktailReview Review)> Submissions { get; } = [];
 
     public TaskCompletionSource? SubmissionGate { get; set; }
+
+    public int PageRequests { get; private set; }
+
+    public Func<long?, ReviewPage>? PageFactory { get; set; }
+
+    public async Task<IReadOnlyDictionary<string, ReviewSummary>> GetSummariesAsync(
+        IReadOnlyList<string> cocktailIds, CancellationToken cancellationToken)
+    {
+        IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> reviews = await GetReviewsAsync(cocktailIds, cancellationToken);
+        return reviews.ToDictionary(entry => entry.Key,
+            entry => new ReviewSummary(entry.Key, entry.Value.Count, entry.Value.Average(review => review.Rating)));
+    }
+
+    public async Task<ReviewPage> GetReviewPageAsync(string cocktailId, long? before, CancellationToken cancellationToken)
+    {
+        PageRequests++;
+        if (FailRequests)
+        {
+            throw new IOException("Simulated page request failure.");
+        }
+
+        if (PageFactory is not null)
+        {
+            return PageFactory(before);
+        }
+
+        IReadOnlyDictionary<string, IReadOnlyList<CocktailReview>> reviews = await GetReviewsAsync([cocktailId], cancellationToken);
+        ReviewResponse[] items = reviews[cocktailId].Select((review, index) => new ReviewResponse(
+            index + 1, review.UserName, review.Rating, review.Comment, DateTimeOffset.UnixEpoch, DateTimeOffset.UnixEpoch, false))
+            .ToArray();
+        return new ReviewPage(items, items.Length, items.Average(review => review.Rating), null);
+    }
 
     public async Task SubmitReviewAsync(string cocktailId, CocktailReview review, CancellationToken cancellationToken)
     {

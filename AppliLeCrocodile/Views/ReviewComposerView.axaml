@@ -19,6 +19,9 @@
                 <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False">
                     <StackPanel Spacing="12" Margin="0,0,0,4">
                         <ProgressBar IsVisible="{Binding IsBusy}" IsIndeterminate="True" Height="4" />
+                        <TextBlock Text="Un seul avis par cocktail sur cet appareil. Un nouvel envoi remplace le précédent."
+                                   FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource MenuMuted}"
+                                   IsVisible="{Binding !IsDemo}" />
                         <StackPanel Spacing="12" IsEnabled="{Binding !IsBusy}">
                             <StackPanel IsVisible="{Binding IsUserNameRequired}" Spacing="6">
                                 <TextBlock Text="Votre pseudo" Classes="sectionTitle" />

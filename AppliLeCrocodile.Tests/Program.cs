@@ -5,6 +5,7 @@ using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
 using AppliLeCrocodile.Services.Filters;
 using AppliLeCrocodile.ViewModels;
+using LeCrocodile.Reviews.Contracts;
 
 namespace AppliLeCrocodile.Tests;
 
@@ -97,13 +98,19 @@ internal static class Program
             "The rating summary excludes the review count.");
         IReadOnlyList<CocktailReview> originalReviews = detail.Reviews;
         detail.Reviews = [new CocktailReview("A", 2, ""), new CocktailReview("B", 3, ""), new CocktailReview("C", 3, "")];
+        detail.TotalReviewCount = 3;
+        detail.AverageRating = 8d / 3d;
         Check(detail.RatingStars.Count == 5 && detail.RatingStars[0].FillWidth == 20d
             && detail.RatingStars[1].FillWidth == 20d && Math.Abs(detail.RatingStars[2].FillWidth - 40d / 3d) < 0.001d
             && detail.RatingStars[3].FillWidth == 0d && detail.RatingStars[4].FillWidth == 0d,
             "Global stars preserve the fractional average rating.");
         detail.Reviews = [];
+        detail.TotalReviewCount = 0;
+        detail.AverageRating = 0;
         Check(!detail.HasReviews && detail.RatingStars.Count == 0, "No reviews means no misleading rating stars.");
         detail.Reviews = originalReviews;
+        detail.TotalReviewCount = originalReviews.Count;
+        detail.AverageRating = originalReviews.Average(review => review.Rating);
         IReadOnlyList<CocktailRowViewModel> originalRows = page.Rows;
         await detail.ToggleFavoriteCommand.ExecuteAsync(null);
         Check(detail.IsFavorite, "A cocktail can be favorited.");
@@ -171,12 +178,25 @@ internal static class Program
         Check(afterSubmission["ABBAYE"].SequenceEqual(sample["ABBAYE"]), "Demo submissions are discarded.");
         await VerifyReviewComposerAsync();
         await VerifyReviewerNameStorageAsync();
+        assertions += await ReviewServiceTests.RunAsync();
+        await VerifyDetailPaginationAsync(catalog.Cocktails[0]);
         await first.OpenCommand.ExecuteAsync(null);
         detail = page.SelectedCocktail!;
         await detail.OpenReviewComposerCommand.ExecuteAsync(null);
         Check(detail.HasReviewComposer && page.IsInteractionBlocked, "The comment form opens inside the cocktail detail.");
         detail.CloseCommand.Execute(null);
         Check(!detail.HasReviewComposer && page.HasSelectedCocktail, "Back closes the form before closing the cocktail.");
+        int previousPageRequests = reviews.PageRequests;
+        await detail.RefreshReviewsCommand.ExecuteAsync(null);
+        Check(reviews.PageRequests == previousPageRequests + 1, "Refreshing a detail always rereads the remote reviews.");
+        await detail.OpenReviewComposerCommand.ExecuteAsync(null);
+        ReviewComposerViewModel detailComposer = detail.ReviewComposer!;
+        detailComposer.UserName = "Visitor";
+        detailComposer.Comment = "Persist this review.";
+        detailComposer.Rating = 5;
+        await detailComposer.SubmitCommand.ExecuteAsync(null);
+        Check(!detail.HasReviewComposer && detail.SubmissionStatus.Contains("enregistré", StringComparison.Ordinal)
+            && reviews.PageRequests == previousPageRequests + 2, "A successful submission refreshes the cocktail detail.");
         detail.CloseCommand.Execute(null);
         Console.WriteLine($"Passed {assertions} checks.");
     }
@@ -186,6 +206,38 @@ internal static class Program
         return page.Rows.SelectMany(row => row.Right is null ? new[] { row.Left } : new[] { row.Left, row.Right }).ToArray();
     }
 
+    private static async Task VerifyDetailPaginationAsync(Cocktail cocktail)
+    {
+        FixedReviewService service = new FixedReviewService
+        {
+            PageFactory = before => new ReviewPage(
+                [new ReviewResponse(before is null ? 2 : 1, before is null ? "Newest" : "Oldest", 1, "Comment",
+                    DateTimeOffset.UnixEpoch, DateTimeOffset.UnixEpoch, false)], 100, 4.25, before is null ? 2 : null)
+        };
+        using CocktailDetailViewModel detail = new CocktailDetailViewModel(cocktail, "Cocktail", [], false,
+            new MemoryFavoriteStore(), new EmptyImageLoader(), service, new MemoryReviewerNameStore(), (_, _) => { }, () => { });
+        await detail.RefreshReviewsCommand.ExecuteAsync(null);
+        Check(detail.Reviews.Count == 1 && detail.TotalReviewCount == 100 && detail.AverageRating == 4.25
+            && detail.RatingStars[4].FillWidth == 5 && detail.HasMoreReviews,
+            "A paged detail displays the global average instead of averaging the loaded comments.");
+        await detail.LoadMoreReviewsCommand.ExecuteAsync(null);
+        Check(detail.Reviews.Select(review => review.UserName).SequenceEqual(["Newest", "Oldest"])
+            && !detail.HasMoreReviews && !detail.LoadMoreReviewsCommand.CanExecute(null),
+            "Loading another page appends comments and disables pagination at the end.");
+        await detail.RefreshReviewsCommand.ExecuteAsync(null);
+        Check(detail.Reviews.Count == 1 && detail.HasMoreReviews, "Refreshing resets pagination to the newest comments.");
+        service.FailRequests = true;
+        await detail.LoadMoreReviewsCommand.ExecuteAsync(null);
+        Check(detail.HasReviewError && detail.Reviews.Count == 1 && detail.AverageRating == 4.25,
+            "Failed pagination preserves the current comments and global rating.");
+        service.FailRequests = false;
+        await detail.LoadMoreReviewsCommand.ExecuteAsync(null);
+        Check(!detail.HasReviewError && detail.Reviews.Count == 2, "A failed comment page can be retried without losing its cursor.");
+        detail.Dispose();
+        Check(!detail.RefreshReviewsCommand.CanExecute(null) && !detail.LoadMoreReviewsCommand.CanExecute(null),
+            "Closed cocktail details cannot start additional network requests.");
+    }
+
     private static async Task VerifyReviewComposerAsync()
     {
         MemoryReviewerNameStore names = new MemoryReviewerNameStore();
@@ -193,7 +245,7 @@ internal static class Program
         int submitted = 0;
         int canceled = 0;
         using ReviewComposerViewModel composer = new ReviewComposerViewModel(
-            "ABBAYE", service, names, () => submitted++, () => canceled++);
+            "ABBAYE", service, names, () => { submitted++; return Task.CompletedTask; }, () => canceled++);
         Check(!composer.SubmitCommand.CanExecute(null), "Submission is blocked while the nickname is loading.");
         await composer.LoadNameAsync();
         Check(composer.IsUserNameRequired && !composer.SubmitCommand.CanExecute(null), "The first review asks for a nickname.");
@@ -221,7 +273,7 @@ internal static class Program
             "Submission sends the cocktail identifier, nickname, rating and trimmed comment through the service.");
 
         using ReviewComposerViewModel next = new ReviewComposerViewModel(
-            "ALASKA", service, names, () => submitted++, () => canceled++);
+            "ALASKA", service, names, () => { submitted++; return Task.CompletedTask; }, () => canceled++);
         await next.LoadNameAsync();
         Check(!next.IsUserNameRequired && next.UserName == "Croco visitor", "The next cocktail reuses the saved nickname.");
         next.CancelCommand.Execute(null);
@@ -229,7 +281,7 @@ internal static class Program
 
         MemoryReviewerNameStore failingNames = new MemoryReviewerNameStore { FailLoads = true };
         using ReviewComposerViewModel retry = new ReviewComposerViewModel(
-            "ALASKA", service, failingNames, () => submitted++, () => { });
+            "ALASKA", service, failingNames, () => { submitted++; return Task.CompletedTask; }, () => { });
         await retry.LoadNameAsync();
         Check(retry.HasLoadError && !retry.SubmitCommand.CanExecute(null), "Nickname loading failures block submission.");
         failingNames.FailLoads = false;
@@ -252,7 +304,7 @@ internal static class Program
 
         service.SubmissionGate = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         using ReviewComposerViewModel pending = new ReviewComposerViewModel(
-            "ALASKA", service, names, () => submitted++, () => { });
+            "ALASKA", service, names, () => { submitted++; return Task.CompletedTask; }, () => { });
         await pending.LoadNameAsync();
         pending.Rating = 5;
         pending.Comment = "Waiting for the server.";

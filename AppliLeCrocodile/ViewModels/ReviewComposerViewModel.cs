@@ -10,7 +10,7 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
     private readonly string cocktailId;
     private readonly ICocktailReviewService reviewService;
     private readonly IReviewerNameStore nameStore;
-    private readonly Action submitted;
+    private readonly Func<Task> submitted;
     private readonly CancellationTokenSource lifetime = new CancellationTokenSource();
     private bool isDisposed;
 
@@ -51,7 +51,7 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
         string cocktailId,
         ICocktailReviewService reviewService,
         IReviewerNameStore nameStore,
-        Action submitted,
+        Func<Task> submitted,
         Action cancel)
     {
         this.cocktailId = cocktailId;
@@ -116,7 +116,9 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
     {
         return !isDisposed && !IsBusy && !HasLoadError && Rating is >= 1 and <= 5
             && !string.IsNullOrWhiteSpace(UserName) && UserName.Trim().Length <= 40
-            && !string.IsNullOrWhiteSpace(Comment) && Comment.Trim().Length <= 2000;
+            && !UserName.Any(char.IsControl)
+            && !string.IsNullOrWhiteSpace(Comment) && Comment.Trim().Length <= 2000
+            && !Comment.Any(character => char.IsControl(character) && character is not '\r' and not '\n' and not '\t');
     }
 
     [RelayCommand(CanExecute = nameof(CanSubmit))]
@@ -143,7 +145,7 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
             await reviewService.SubmitReviewAsync(cocktailId, review, lifetime.Token);
             if (!isDisposed)
             {
-                submitted();
+                await submitted();
             }
         }
         catch (OperationCanceledException) when (isDisposed)

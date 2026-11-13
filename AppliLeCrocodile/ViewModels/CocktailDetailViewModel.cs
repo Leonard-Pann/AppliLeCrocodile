@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
+using LeCrocodile.Reviews.Contracts;
 
 namespace AppliLeCrocodile.ViewModels;
 
@@ -14,7 +15,9 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
     private readonly IReviewerNameStore reviewerNameStore;
     private readonly Action close;
     private readonly Action<string, bool> favoriteChanged;
+    private readonly Action<ReviewSummary>? reviewsChanged;
     private readonly CancellationTokenSource lifetime = new CancellationTokenSource();
+    private long? nextBefore;
     private bool isDisposed;
 
     [ObservableProperty]
@@ -29,10 +32,30 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
     private string errorMessage = string.Empty;
 
     [ObservableProperty]
+    private IReadOnlyList<CocktailReview> reviews = [];
+
+    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(RatingText))]
     [NotifyPropertyChangedFor(nameof(RatingStars))]
     [NotifyPropertyChangedFor(nameof(HasReviews))]
-    private IReadOnlyList<CocktailReview> reviews = [];
+    private long totalReviewCount;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RatingText))]
+    [NotifyPropertyChangedFor(nameof(RatingStars))]
+    private double averageRating;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(RefreshReviewsCommand))]
+    [NotifyCanExecuteChangedFor(nameof(LoadMoreReviewsCommand))]
+    private bool isLoadingReviews;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(LoadMoreReviewsCommand))]
+    private bool hasMoreReviews;
+
+    [ObservableProperty]
+    private bool hasReviewError;
 
     [ObservableProperty]
     private string reviewStatus = string.Empty;
@@ -54,7 +77,8 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         ICocktailReviewService reviewService,
         IReviewerNameStore reviewerNameStore,
         Action<string, bool> favoriteChanged,
-        Action close)
+        Action close,
+        Action<ReviewSummary>? reviewsChanged = null)
     {
         Cocktail = cocktail;
         Name = name;
@@ -66,6 +90,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         this.reviewerNameStore = reviewerNameStore;
         this.close = close;
         this.favoriteChanged = favoriteChanged;
+        this.reviewsChanged = reviewsChanged;
         CloseCommand = new RelayCommand(Close);
     }
 
@@ -89,11 +114,11 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
     public string FavoriteActionText => IsFavorite ? "Retirer des favoris" : "Ajouter aux favoris";
 
-    public string RatingText => Reviews.Count == 0
+    public string RatingText => TotalReviewCount == 0
         ? "Pas encore d’avis"
-        : $"{Reviews.Average(review => review.Rating):0.0} / 5";
+        : $"{AverageRating:0.0} / 5";
 
-    public bool HasReviews => Reviews.Count > 0;
+    public bool HasReviews => TotalReviewCount > 0;
 
     public IReadOnlyList<RatingStarViewModel> RatingStars
     {
@@ -104,7 +129,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
                 return [];
             }
 
-            double average = Reviews.Average(review => review.Rating);
+            double average = AverageRating;
             return Enumerable.Range(0, 5)
                 .Select(index => new RatingStarViewModel(Math.Clamp(average - index, 0d, 1d) * 20d)).ToArray();
         }
@@ -126,16 +151,87 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
         SubmissionStatus = string.Empty;
         ReviewComposer = new ReviewComposerViewModel(
-            Cocktail.NameId, reviewService, reviewerNameStore, OnReviewSubmitted, CloseReviewComposer);
+            Cocktail.NameId, reviewService, reviewerNameStore, OnReviewSubmittedAsync, CloseReviewComposer);
         await ReviewComposer.LoadNameAsync();
     }
 
-    private void OnReviewSubmitted()
+    private async Task OnReviewSubmittedAsync()
     {
         CloseReviewComposer();
         SubmissionStatus = reviewService.IsDemo
             ? "Merci ! En mode démonstration, cet avis n’est pas conservé."
-            : "Merci pour votre avis !";
+            : "Merci ! Votre avis a été enregistré. Un nouvel envoi remplacera votre avis sur ce cocktail.";
+        Task? pendingRefresh = RefreshReviewsCommand.ExecutionTask;
+        Task? pendingPage = LoadMoreReviewsCommand.ExecutionTask;
+        if (pendingRefresh is not null)
+        {
+            await pendingRefresh;
+        }
+
+        if (pendingPage is not null)
+        {
+            await pendingPage;
+        }
+
+        if (!isDisposed)
+        {
+            await RefreshReviewsCommand.ExecuteAsync(null);
+        }
+    }
+
+    private bool CanRefreshReviews() => !isDisposed && !IsLoadingReviews;
+
+    private bool CanLoadMoreReviews() => CanRefreshReviews() && HasMoreReviews;
+
+    [RelayCommand(CanExecute = nameof(CanRefreshReviews))]
+    private Task RefreshReviewsAsync() => LoadReviewsAsync(false);
+
+    [RelayCommand(CanExecute = nameof(CanLoadMoreReviews))]
+    private Task LoadMoreReviewsAsync() => LoadReviewsAsync(true);
+
+    private async Task LoadReviewsAsync(bool append)
+    {
+        if (!CanRefreshReviews())
+        {
+            return;
+        }
+
+        IsLoadingReviews = true;
+        HasReviewError = false;
+        ReviewStatus = "Chargement des avis…";
+        try
+        {
+            ReviewPage page = await reviewService.GetReviewPageAsync(Cocktail.NameId, append ? nextBefore : null, lifetime.Token);
+            if (isDisposed)
+            {
+                return;
+            }
+
+            CocktailReview[] loaded = page.Items.Select(review => new CocktailReview(
+                review.UserName, review.Rating, review.Comment)).ToArray();
+            Reviews = append ? Reviews.Concat(loaded).ToArray() : loaded;
+            TotalReviewCount = page.TotalCount;
+            AverageRating = page.AverageRating;
+            nextBefore = page.NextBefore;
+            HasMoreReviews = nextBefore is not null;
+            ReviewStatus = TotalReviewCount == 0 ? "Soyez le premier à donner votre avis." : string.Empty;
+            reviewsChanged?.Invoke(new ReviewSummary(Cocktail.NameId, TotalReviewCount, AverageRating));
+        }
+        catch (OperationCanceledException) when (isDisposed)
+        {
+        }
+        catch (Exception)
+        {
+            if (!isDisposed)
+            {
+                HasReviewError = true;
+                ReviewStatus = "Impossible de charger les avis. Vérifiez votre connexion puis réessayez.";
+            }
+        }
+        finally
+        {
+            IsLoadingReviews = false;
+        }
     }
 
     private void CloseReviewComposer()
@@ -216,6 +312,8 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         }
 
         isDisposed = true;
+        RefreshReviewsCommand.NotifyCanExecuteChanged();
+        LoadMoreReviewsCommand.NotifyCanExecuteChanged();
         CloseReviewComposer();
         lifetime.Cancel();
         Image?.Dispose();
