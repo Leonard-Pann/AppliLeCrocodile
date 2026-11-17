@@ -46,6 +46,7 @@ internal static class Program
             "Search ignores accents.");
         page.SearchText = "a cocktail that does not exist";
         Check(page.HasNoResults && page.ResultCount == 0, "Empty search results are explicit.");
+        Check(!page.OpenRandomCocktailCommand.CanExecute(null), "Random selection is disabled when there are no results.");
         page.ResetFiltersCommand.Execute(null);
 
         page.IncludeLowAlcohol = true;
@@ -68,6 +69,11 @@ internal static class Program
         page.SearchText = "gin";
         Check(Flatten(page).All(item => item.Cocktail!.AlcoholLevel == AlcoholLevel.Medium
             && item.Cocktail.IngredientNameIds.Contains("CITRON")), "Text, alcohol and ingredient filters compose.");
+        Cocktail[] eligible = Flatten(page).Select(item => item.Cocktail!).ToArray();
+        await page.OpenRandomCocktailCommand.ExecuteAsync(null);
+        Check(page.SelectedCocktail is not null && eligible.Contains(page.SelectedCocktail.Cocktail),
+            "Random selection respects the combined search and filters.");
+        page.SelectedCocktail!.CloseCommand.Execute(null);
         page.ResetFiltersCommand.Execute(null);
         Check(!page.HasActiveFilters && page.SearchText.Length == 0 && page.SelectedIngredients.Count == 0
             && page.ResultCount == catalog.Cocktails.Count, "Reset restores the entire catalogue and every filter.");
@@ -254,7 +260,7 @@ internal static class Program
         composer.RatingChoices[3].SelectCommand.Execute(null);
         Check(composer.Rating == 4 && composer.RatingChoices.Count(choice => choice.IsFilled) == 4,
             "Selecting a star sets the rating and fills the preceding stars.");
-        Check(!composer.SubmitCommand.CanExecute(null), "Whitespace-only comments cannot be submitted.");
+        Check(composer.SubmitCommand.CanExecute(null), "A rating can be submitted without a comment.");
         composer.Comment = "  A lovely cocktail.  ";
         composer.Rating = 0;
         Check(!composer.SubmitCommand.CanExecute(null), "A rating must be selected.");

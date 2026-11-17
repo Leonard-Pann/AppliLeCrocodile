@@ -30,10 +30,6 @@ public partial class CocktailFiltersView : UserControl
         {
             FocusCloseButton();
         }
-        else
-        {
-            IngredientPicker?.Flyout?.Hide();
-        }
     }
 
     private void FocusCloseButton()

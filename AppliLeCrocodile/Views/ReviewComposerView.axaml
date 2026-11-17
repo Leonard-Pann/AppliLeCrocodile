@@ -52,8 +52,8 @@
                             </ItemsControl>
                             <TextBlock Text="{Binding Rating, StringFormat='Note choisie : {0} / 5'}" FontSize="12"
                                        Foreground="{StaticResource MenuMuted}" HorizontalAlignment="Center" />
-                            <TextBlock Text="Votre commentaire" Classes="sectionTitle" />
-                            <TextBox Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000" AcceptsReturn="True"
+                            <TextBlock Text="Votre commentaire (facultatif)" Classes="sectionTitle" />
+                            <TextBox x:Name="CommentInput" Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000" AcceptsReturn="True"
                                      TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
                                      PlaceholderText="Qu’avez-vous pensé de ce cocktail ?"
                                      AutomationProperties.Name="Votre commentaire" />

@@ -14,6 +14,14 @@ public partial class ReviewComposerView : UserControl
     public ReviewComposerView()
     {
         InitializeComponent();
+        CommentInput.GotFocus += (_, _) => Dispatcher.UIThread.Post(() => CommentInput.BringIntoView());
+        SizeChanged += (_, _) =>
+        {
+            if (CommentInput.IsFocused)
+            {
+                Dispatcher.UIThread.Post(() => CommentInput.BringIntoView());
+            }
+        };
     }
 
     protected override void OnLoaded(RoutedEventArgs eventArgs)

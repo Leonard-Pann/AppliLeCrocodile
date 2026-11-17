@@ -117,7 +117,7 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
         return !isDisposed && !IsBusy && !HasLoadError && Rating is >= 1 and <= 5
             && !string.IsNullOrWhiteSpace(UserName) && UserName.Trim().Length <= 40
             && !UserName.Any(char.IsControl)
-            && !string.IsNullOrWhiteSpace(Comment) && Comment.Trim().Length <= 2000
+            && Comment.Trim().Length <= 2000
             && !Comment.Any(character => char.IsControl(character) && character is not '\r' and not '\n' and not '\t');
     }
 

@@ -22,7 +22,7 @@
     </UserControl.Resources>
     <Grid>
         <Grid RowDefinitions="Auto,Auto,*" MaxWidth="780" IsEnabled="{Binding !IsInteractionBlocked}">
-            <Grid Margin="18,18,18,0" ColumnDefinitions="*,Auto" ColumnSpacing="8" Height="50">
+            <Grid Margin="18,18,18,0" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8" Height="50">
                 <Border BorderBrush="Black" BorderThickness="1" CornerRadius="6" Padding="1">
                     <TextBox Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="{Binding SearchPlaceholder}"
                              FontSize="16" Padding="10,7" MinHeight="0" Background="White" BorderThickness="0"
@@ -34,7 +34,17 @@
                         </TextBox.InnerRightContent>
                     </TextBox>
                 </Border>
-                <Button Grid.Column="1" Classes="icon" Command="{Binding OpenFiltersCommand}"
+                <Button Grid.Column="1" Classes="icon" Command="{Binding OpenRandomCocktailCommand}"
+                        Width="50" Height="50" BorderBrush="{StaticResource CrocodileGreen}" BorderThickness="1"
+                        AutomationProperties.Name="Choisir un cocktail au hasard" ToolTip.Tip="Choisir un cocktail au hasard">
+                    <Grid Width="24" Height="24">
+                        <Rectangle RadiusX="4" RadiusY="4" Stroke="{StaticResource CrocodileGreen}" StrokeThickness="1.7" />
+                        <Ellipse Width="4" Height="4" Fill="{StaticResource CrocodileGreen}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5" />
+                        <Ellipse Width="4" Height="4" Fill="{StaticResource CrocodileGreen}" />
+                        <Ellipse Width="4" Height="4" Fill="{StaticResource CrocodileGreen}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" />
+                    </Grid>
+                </Button>
+                <Button Grid.Column="2" Classes="icon" Command="{Binding OpenFiltersCommand}"
                         Width="50" Height="50"
                         BorderBrush="{StaticResource CrocodileGreen}" BorderThickness="1"
                         AutomationProperties.Name="Filtrer les cocktails" ToolTip.Tip="Filtrer les cocktails">

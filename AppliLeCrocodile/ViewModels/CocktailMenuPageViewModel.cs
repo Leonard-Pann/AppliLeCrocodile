@@ -18,6 +18,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     private readonly IReviewerNameStore reviewerNameStore;
     private readonly IReadOnlyList<CocktailItemViewModel> allItems;
     private readonly IReadOnlyList<IngredientChoiceViewModel> ingredientChoices;
+    private IReadOnlyList<CocktailItemViewModel> filteredItems = [];
     private readonly HashSet<string> favoriteIds = new HashSet<string>(StringComparer.Ordinal);
     private readonly Dictionary<string, ReviewSummary> reviewsByCocktail = new Dictionary<string, ReviewSummary>();
 
@@ -31,6 +32,9 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsInteractionBlocked))]
     private bool isFilterOpen;
+
+    [ObservableProperty]
+    private bool isIngredientPickerOpen;
 
     [ObservableProperty]
     private bool includeLowAlcohol;
@@ -245,6 +249,20 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         }
     }
 
+    [RelayCommand(CanExecute = nameof(CanOpenRandomCocktail))]
+    private Task OpenRandomCocktailAsync()
+    {
+        return OpenCocktailAsync(filteredItems[Random.Shared.Next(filteredItems.Count)].Cocktail!);
+    }
+
+    private bool CanOpenRandomCocktail() => filteredItems.Count > 0;
+
+    [RelayCommand]
+    private void OpenIngredientPicker() => IsIngredientPickerOpen = true;
+
+    [RelayCommand]
+    private void CloseIngredientPicker() => IsIngredientPickerOpen = false;
+
     [RelayCommand]
     private void OpenFilters()
     {
@@ -254,6 +272,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     [RelayCommand]
     private void CloseFilters()
     {
+        IsIngredientPickerOpen = false;
         IsFilterOpen = false;
     }
 
@@ -323,6 +342,8 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         }
 
         CocktailItemViewModel[] items = results.ToArray();
+        filteredItems = items;
+        OpenRandomCocktailCommand.NotifyCanExecuteChanged();
         List<CocktailRowViewModel> resultRows = [];
         for (int index = 0; index < items.Length; index += 2)
         {

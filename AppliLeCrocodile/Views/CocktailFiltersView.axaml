@@ -18,7 +18,7 @@
                             Command="{Binding CloseFiltersCommand}" AutomationProperties.Name="Fermer les filtres" />
                 </Grid>
                 <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled"
-                              VerticalScrollBarVisibility="Auto" IsScrollChainingEnabled="False">
+                              VerticalScrollBarVisibility="Hidden" IsScrollChainingEnabled="False">
                     <StackPanel Spacing="12" Margin="0,0,4,6">
                         <TextBlock Text="Quantité d’alcool" Classes="sectionTitle" />
                         <TextBlock Text="Tous les niveaux si aucun n’est sélectionné." FontSize="12"
@@ -40,29 +40,9 @@
                         <TextBlock Text="Ingrédients" Classes="sectionTitle" Margin="0,6,0,0" />
                         <TextBlock Text="Le cocktail doit contenir tous les ingrédients sélectionnés."
                                    TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource MenuMuted}" />
-                        <Button x:Name="IngredientPicker" Content="Ajouter un ingrédient  ▾" HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Left" AutomationProperties.Name="Choisir des ingrédients">
-                            <Button.Flyout>
-                                <Flyout Placement="Bottom" ShowMode="Standard">
-                                    <Grid RowDefinitions="Auto,*" Width="240" MaxHeight="300" RowSpacing="8">
-                                        <TextBox Text="{Binding IngredientSearchText, Mode=TwoWay}"
-                                                 PlaceholderText="Rechercher un ingrédient" MinHeight="48"
-                                                 AutomationProperties.Name="Rechercher un ingrédient" />
-                                        <ScrollViewer Grid.Row="1" MaxHeight="230" IsScrollChainingEnabled="False">
-                                            <ItemsControl ItemsSource="{Binding AvailableIngredients}">
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate x:DataType="vm:IngredientChoiceViewModel">
-                                                        <Button Content="{Binding Name}" Command="{Binding ToggleCommand}"
-                                                                HorizontalAlignment="Stretch" Background="Transparent"
-                                                                HorizontalContentAlignment="Left" />
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-                                        </ScrollViewer>
-                                    </Grid>
-                                </Flyout>
-                            </Button.Flyout>
-                        </Button>
+                        <Button Content="Ajouter un ingrédient  ▾" HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left" Command="{Binding OpenIngredientPickerCommand}"
+                                AutomationProperties.Name="Choisir des ingrédients" />
                         <ItemsControl ItemsSource="{Binding SelectedIngredients}" IsVisible="{Binding SelectedIngredients.Count}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
@@ -119,6 +99,28 @@
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
                 </StackPanel>
             </Grid>
+        </Border>
+        <Border IsVisible="{Binding IsIngredientPickerOpen}" Background="#66000000" ZIndex="10">
+            <Border Margin="18" Padding="16" MaxWidth="480" VerticalAlignment="Stretch" Background="White" CornerRadius="12">
+                <Grid RowDefinitions="Auto,*" RowSpacing="8">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <TextBox Text="{Binding IngredientSearchText, Mode=TwoWay}" PlaceholderText="Rechercher un ingrédient"
+                                 MinHeight="48" AutomationProperties.Name="Rechercher un ingrédient" />
+                        <Button Grid.Column="1" Content="×" Classes="icon" FontSize="26"
+                                Command="{Binding CloseIngredientPickerCommand}" AutomationProperties.Name="Fermer les ingrédients" />
+                    </Grid>
+                    <ScrollViewer Grid.Row="1" IsScrollChainingEnabled="False">
+                        <ItemsControl ItemsSource="{Binding AvailableIngredients}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:IngredientChoiceViewModel">
+                                    <Button Content="{Binding Name}" Command="{Binding ToggleCommand}" MinHeight="48"
+                                            HorizontalAlignment="Stretch" Background="Transparent" HorizontalContentAlignment="Left" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
         </Border>
     </Grid>
 </UserControl>
