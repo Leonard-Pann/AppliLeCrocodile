@@ -1,5 +1,7 @@
 using System.ComponentModel;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
@@ -14,6 +16,7 @@ public partial class ReviewComposerView : UserControl
     public ReviewComposerView()
     {
         InitializeComponent();
+        AddHandler(InputElement.PointerPressedEvent, OnPointerPressed, RoutingStrategies.Tunnel);
         CommentInput.GotFocus += (_, _) =>
         {
             if (viewModel is not null)
@@ -21,19 +24,41 @@ public partial class ReviewComposerView : UserControl
                 viewModel.IsEditingComment = true;
                 Dispatcher.UIThread.Post(() =>
                 {
-                    FocusedCommentInput.CaretIndex = FocusedCommentInput.Text?.Length ?? 0;
-                    FocusedCommentInput.Focus();
+                    if (viewModel?.IsEditingComment == true)
+                    {
+                        FocusedCommentInput.CaretIndex = FocusedCommentInput.Text?.Length ?? 0;
+                        FocusedCommentInput.Focus();
+                    }
                 });
             }
         };
-        FinishEditingButton.Click += (_, _) =>
+        FinishEditingButton.Click += (_, _) => FinishEditing();
+    }
+
+    private void OnPointerPressed(object? sender, PointerPressedEventArgs eventArgs)
+    {
+        if (viewModel?.IsEditingComment != true || eventArgs.Source is not Visual source)
         {
-            if (viewModel is not null)
-            {
-                viewModel.IsEditingComment = false;
-                StarChoices.GetVisualDescendants().OfType<Button>().FirstOrDefault()?.Focus();
-            }
-        };
+            return;
+        }
+
+        if (source.FindAncestorOfType<TextBox>(includeSelf: true) == FocusedCommentInput
+            || source.FindAncestorOfType<Button>(includeSelf: true) == FinishEditingButton)
+        {
+            return;
+        }
+
+        FinishEditing();
+        eventArgs.Handled = true;
+    }
+
+    private void FinishEditing()
+    {
+        if (viewModel is not null)
+        {
+            viewModel.IsEditingComment = false;
+            StarChoices.GetVisualDescendants().OfType<Button>().FirstOrDefault()?.Focus();
+        }
     }
 
     protected override void OnLoaded(RoutedEventArgs eventArgs)

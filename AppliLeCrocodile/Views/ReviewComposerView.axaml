@@ -15,7 +15,7 @@
         <KeyBinding Gesture="Escape" Command="{Binding CancelCommand}" />
     </UserControl.KeyBindings>
     <Grid Background="#66000000">
-        <Border Classes="composer" Classes.editing="{Binding IsEditingComment}" Margin="18" Padding="20" MaxWidth="460" MaxHeight="680"
+        <Border Classes="composer" Classes.editing="{Binding IsEditingComment}" Margin="18" Padding="20,16" MaxWidth="460" MaxHeight="680"
                 Background="White" CornerRadius="12" BorderBrush="{StaticResource MenuDivider}" BorderThickness="1">
             <Grid RowDefinitions="Auto,*,Auto" RowSpacing="16">
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6" IsVisible="{Binding !IsEditingComment}">
@@ -28,27 +28,24 @@
                             IsVisible="{Binding IsEditingComment}">
                     <Grid ColumnDefinitions="*,Auto">
                         <TextBlock Text="Votre commentaire" Classes="sectionTitle" VerticalAlignment="Center" />
-                        <Button x:Name="FinishEditingButton" Grid.Column="1" Content="Terminé" />
+                        <Button x:Name="FinishEditingButton" Grid.Column="1" Content="Terminé"
+                                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                     </Grid>
                     <TextBox x:Name="FocusedCommentInput" Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000"
                              AcceptsReturn="True" TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
                              PlaceholderText="Qu’avez-vous pensé de ce cocktail ?" AutomationProperties.Name="Votre commentaire" />
                 </StackPanel>
-                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False"
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden"
+                              IsScrollChainingEnabled="False"
                               IsVisible="{Binding !IsEditingComment}">
                     <StackPanel Spacing="12" Margin="0,0,0,4">
                         <ProgressBar IsVisible="{Binding IsBusy}" IsIndeterminate="True" Height="4" />
-                        <TextBlock Text="Un seul avis par cocktail sur cet appareil. Un nouvel envoi remplace le précédent."
-                                   FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource MenuMuted}"
-                                   IsVisible="{Binding !IsDemo}" />
                         <StackPanel Spacing="12" IsEnabled="{Binding !IsBusy}">
                             <StackPanel IsVisible="{Binding IsUserNameRequired}" Spacing="6">
                                 <TextBlock Text="Votre pseudo" Classes="sectionTitle" />
                                 <TextBox x:Name="UserNameInput" Text="{Binding UserName, Mode=TwoWay}" MaxLength="40"
                                          MinHeight="48" PlaceholderText="Choisissez un pseudo"
                                          AutomationProperties.Name="Votre pseudo" />
-                                <TextBlock Text="Il sera mémorisé sur cet appareil pour vos prochains avis."
-                                           FontSize="12" TextWrapping="Wrap" Foreground="{StaticResource MenuMuted}" />
                             </StackPanel>
                             <TextBlock Text="{Binding UserName, StringFormat='Votre avis sera signé : {0}'}"
                                        IsVisible="{Binding !IsUserNameRequired}" TextWrapping="Wrap" />
@@ -69,8 +66,6 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-                            <TextBlock Text="{Binding Rating, StringFormat='Note choisie : {0} / 5'}" FontSize="12"
-                                       Foreground="{StaticResource MenuMuted}" HorizontalAlignment="Center" />
                             <TextBlock Text="Niveau d’alcool (facultatif)" Classes="sectionTitle" />
                             <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6">
                                 <ToggleButton Classes="alcohol" IsChecked="{Binding IsLowAlcoholSelected, Mode=OneWay}"
@@ -82,7 +77,7 @@
                             </Grid>
                             <TextBlock Text="Votre commentaire (facultatif)" Classes="sectionTitle" />
                             <TextBox x:Name="CommentInput" Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000" AcceptsReturn="True"
-                                     TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
+                                     TextWrapping="NoWrap" MinHeight="48" Height="48"
                                      PlaceholderText="Qu’avez-vous pensé de ce cocktail ?"
                                      AutomationProperties.Name="Votre commentaire" />
                         </StackPanel>
