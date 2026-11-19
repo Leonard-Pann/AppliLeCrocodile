@@ -20,9 +20,6 @@ internal sealed class CocktailDto
     [JsonPropertyName("ingredientsNameID")]
     public string[] IngredientNameIds { get; init; } = [];
 
-    [JsonPropertyName("alcoholLevel")]
-    public AlcoholLevel? AlcoholLevel { get; init; }
-
     [JsonPropertyName("description")]
     public string Description { get; init; } = string.Empty;
 }

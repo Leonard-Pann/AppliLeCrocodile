@@ -27,6 +27,8 @@ internal static class Program
         MemoryReviewerNameStore reviewerNames = new MemoryReviewerNameStore();
         CocktailMenuPageViewModel page = new CocktailMenuPageViewModel(
             catalog, language, options, favorites, reviews, images, reviewerNames);
+        reviews.AlcoholLevels = catalog.Cocktails.Select((cocktail, index) => (cocktail.NameId, Level: index % 3))
+            .ToDictionary(entry => entry.NameId, entry => entry.Level, StringComparer.Ordinal);
 
         Check(page.ResultCount == catalog.Cocktails.Count && page.ResultCount > 300, "Every cocktail is present.");
         Check(Flatten(page).Select(item => item.Cocktail).SequenceEqual(catalog.Cocktails),
@@ -50,9 +52,10 @@ internal static class Program
         page.ResetFiltersCommand.Execute(null);
 
         page.IncludeLowAlcohol = true;
-        Check(Flatten(page).All(item => item.Cocktail!.AlcoholLevel == AlcoholLevel.Low), "Low alcohol filter.");
+        await page.ApplyFiltersCommand.ExecuteAsync(null);
+        Check(Flatten(page).All(item => reviews.AlcoholLevels[item.Cocktail!.NameId] == 0), "Low alcohol filter.");
         page.IncludeStrongAlcohol = true;
-        Check(page.ResultCount == catalog.Cocktails.Count(cocktail => cocktail.AlcoholLevel != AlcoholLevel.Medium),
+        Check(page.ResultCount == catalog.Cocktails.Count(cocktail => reviews.AlcoholLevels[cocktail.NameId] != 1),
             "Selected alcohol levels are combined with OR.");
         page.ResetFiltersCommand.Execute(null);
         page.IngredientSearchText = "gin";
@@ -67,7 +70,7 @@ internal static class Program
             && cocktail.IngredientNameIds.Contains("CITRON")), "Multiple ingredients are combined with AND.");
         page.IncludeMediumAlcohol = true;
         page.SearchText = "gin";
-        Check(Flatten(page).All(item => item.Cocktail!.AlcoholLevel == AlcoholLevel.Medium
+        Check(Flatten(page).All(item => reviews.AlcoholLevels[item.Cocktail!.NameId] == 1
             && item.Cocktail.IngredientNameIds.Contains("CITRON")), "Text, alcohol and ingredient filters compose.");
         Cocktail[] eligible = Flatten(page).Select(item => item.Cocktail!).ToArray();
         await page.OpenRandomCocktailCommand.ExecuteAsync(null);
@@ -77,6 +80,22 @@ internal static class Program
         page.ResetFiltersCommand.Execute(null);
         Check(!page.HasActiveFilters && page.SearchText.Length == 0 && page.SelectedIngredients.Count == 0
             && page.ResultCount == catalog.Cocktails.Count, "Reset restores the entire catalogue and every filter.");
+
+        IReadOnlyDictionary<string, int> fullLevels = reviews.AlcoholLevels;
+        reviews.AlcoholLevels = new Dictionary<string, int> { [catalog.Cocktails[0].NameId] = 2 };
+        page.IncludeStrongAlcohol = true;
+        await page.ApplyFiltersCommand.ExecuteAsync(null);
+        Check(page.ResultCount == 1 && page.Rows[0].Left.Cocktail == catalog.Cocktails[0],
+            "Cocktails without server votes are excluded from alcohol filters.");
+        page.OpenFiltersCommand.Execute(null);
+        reviews.FailRequests = true;
+        await page.ApplyFiltersCommand.ExecuteAsync(null);
+        Check(page.IsFilterOpen && page.ReviewStatus.Contains("Impossible", StringComparison.Ordinal),
+            "An unavailable alcohol service leaves the filters open with an error.");
+        reviews.FailRequests = false;
+        reviews.AlcoholLevels = fullLevels;
+        page.ResetFiltersCommand.Execute(null);
+        page.CloseFiltersCommand.Execute(null);
 
         await page.LoadReviewsCommand.ExecuteAsync(null);
         page.SelectedRating = page.RatingOptions.Single(option => option.MinimumRating == 4);
@@ -156,6 +175,18 @@ internal static class Program
         Check(!page.HasReviewError, "Review loading can be retried.");
 
         MainViewModel main = new MainViewModel(language, manager, options, favorites, reviews, images, reviewerNames);
+        reviews.MinimumVersion = "1.2.0";
+        await main.CheckCompatibilityAsync(force: true);
+        Check(main.IsUpdateAvailable, "A newer minimum version displays the update prompt.");
+        main.DismissUpdateCommand.Execute(null);
+        Check(!main.IsUpdateAvailable, "The update prompt can be dismissed.");
+        reviews.MinimumVersion = "1.0.0";
+        await main.CheckCompatibilityAsync(force: true);
+        Check(!main.IsUpdateAvailable, "The current version is accepted.");
+        reviews.FailRequests = true;
+        await main.CheckCompatibilityAsync(force: true);
+        Check(!main.IsUpdateAvailable, "Compatibility failures do not block the application.");
+        reviews.FailRequests = false;
         await main.InitializeCommand.ExecuteAsync(null);
         Check(main.IsMenuReady && main.Pages.Count == 5 && main.Pages[2] is CocktailMenuPageViewModel
             && main.Pages[3] is SoftPageViewModel && main.Pages[4] is LastPageViewModel, "The menu contains exactly five sections.");
@@ -187,6 +218,7 @@ internal static class Program
         assertions += await ReviewServiceTests.RunAsync();
         assertions += await Ipv4TransportTests.RunAsync();
         await VerifyDetailPaginationAsync(catalog.Cocktails[0]);
+        await VerifyOwnReviewAsync(catalog.Cocktails[0]);
         await first.OpenCommand.ExecuteAsync(null);
         detail = page.SelectedCocktail!;
         await detail.OpenReviewComposerCommand.ExecuteAsync(null);
@@ -211,6 +243,26 @@ internal static class Program
     private static CocktailItemViewModel[] Flatten(CocktailMenuPageViewModel page)
     {
         return page.Rows.SelectMany(row => row.Right is null ? new[] { row.Left } : new[] { row.Left, row.Right }).ToArray();
+    }
+
+    private static async Task VerifyOwnReviewAsync(Cocktail cocktail)
+    {
+        ReviewResponse own = new ReviewResponse(1, "Visitor", 4, "Original", DateTimeOffset.UnixEpoch,
+            DateTimeOffset.UnixEpoch, true, 2);
+        FixedReviewService service = new FixedReviewService
+        {
+            PageFactory = _ => new ReviewPage([], 1, 4, null, own, 1)
+        };
+        using CocktailDetailViewModel detail = new CocktailDetailViewModel(cocktail, "Cocktail", [], false,
+            new MemoryFavoriteStore(), new EmptyImageLoader(), service, new MemoryReviewerNameStore(), (_, _) => { }, () => { });
+        Check(!detail.OpenReviewComposerCommand.CanExecute(null), "Editing waits until review ownership is known.");
+        await detail.RefreshReviewsCommand.ExecuteAsync(null);
+        Check(detail.ReviewActionText == "Modifier son commentaire" && detail.AlcoholText == "Alcool : moyen",
+            "The detail uses the server's own review and cached alcohol level.");
+        await detail.OpenReviewComposerCommand.ExecuteAsync(null);
+        Check(detail.ReviewComposer is { Rating: 4, Comment: "Original", AlcoholLevel: 2 },
+            "Editing an existing review restores its rating, comment and alcohol vote.");
+        detail.CloseCommand.Execute(null);
     }
 
     private static async Task VerifyDetailPaginationAsync(Cocktail cocktail)
@@ -263,6 +315,8 @@ internal static class Program
             "Selecting a star sets the rating and fills the preceding stars.");
         Check(composer.SubmitCommand.CanExecute(null), "A rating can be submitted without a comment.");
         composer.Comment = "  A lovely cocktail.  ";
+        composer.SelectAlcoholCommand.Execute("2");
+        Check(composer.AlcoholLevel == 2 && composer.IsStrongAlcoholSelected, "Alcohol selection is optional and visible.");
         composer.Rating = 0;
         Check(!composer.SubmitCommand.CanExecute(null), "A rating must be selected.");
         composer.Rating = 6;
@@ -276,7 +330,8 @@ internal static class Program
         composer.Comment = "  A lovely cocktail.  ";
         await composer.SubmitCommand.ExecuteAsync(null);
         Check(submitted == 1 && names.UserName == "Croco visitor", "The first submission saves the trimmed nickname.");
-        Check(service.Submissions is [{ CocktailId: "ABBAYE", Review.Rating: 4, Review.Comment: "A lovely cocktail." }],
+        Check(service.Submissions is [{ CocktailId: "ABBAYE", Review.Rating: 4, Review.Comment: "A lovely cocktail.",
+            Review.AlcoholLevel: 2 }],
             "Submission sends the cocktail identifier, nickname, rating and trimmed comment through the service.");
 
         using ReviewComposerViewModel next = new ReviewComposerViewModel(
@@ -386,15 +441,9 @@ internal static class Program
 
     private static async Task VerifyValidationAsync(ILanguageManager language)
     {
-        OverrideAssetReader invalidReader = new OverrideAssetReader(json =>
-            Regex.Replace(json, "\"alcoholLevel\": [123]", "\"alcoholLevel\": 7"));
-        CocktailManager invalid = new CocktailManager(invalidReader, language);
-        await ExpectAsync<InvalidDataException>(() => invalid.LoadAsync(CancellationToken.None));
-        OverrideAssetReader missingReader = new OverrideAssetReader(json =>
-            Regex.Replace(json, "\"alcoholLevel\": [123],", string.Empty));
-        CocktailManager missing = new CocktailManager(missingReader, language);
-        await ExpectAsync<InvalidDataException>(() => missing.LoadAsync(CancellationToken.None));
-        Check(true, "Missing or invalid alcohol levels are rejected by catalogue validation.");
+        CocktailManager manager = new CocktailManager(new FileAssetReader(), language);
+        Check((await manager.LoadAsync(CancellationToken.None)).Cocktails.Count > 0,
+            "The catalogue loads without local alcohol levels.");
     }
 
     private static async Task ExpectAsync<TException>(Func<Task> action) where TException : Exception

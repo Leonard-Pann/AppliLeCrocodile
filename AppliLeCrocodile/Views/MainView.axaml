@@ -28,5 +28,20 @@
                 <Button Command="{Binding InitializeCommand}" Content="{Binding RetryText}" HorizontalAlignment="Center" />
             </StackPanel>
         </Border>
+        <Grid IsVisible="{Binding IsUpdateAvailable}" Background="#66000000" ZIndex="100">
+            <Border Margin="18" Padding="24" MaxWidth="420" VerticalAlignment="Center"
+                    Background="White" CornerRadius="12">
+                <StackPanel Spacing="20">
+                    <TextBlock Text="Mise à jour disponible, veuillez mettre à jour l’application."
+                               TextWrapping="Wrap" TextAlignment="Center" FontSize="18" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                        <Button Content="Annuler" Command="{Binding DismissUpdateCommand}"
+                                HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                        <Button x:Name="UpdateButton" Grid.Column="1" Content="Mettre à jour" Classes="primary"
+                                HorizontalAlignment="Stretch" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>

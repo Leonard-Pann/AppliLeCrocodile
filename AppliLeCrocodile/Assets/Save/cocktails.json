@@ -3,7 +3,6 @@
         {
             "nameID": "ABBAYE",
             "imagePath": "abbaye.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "ORANGE",
@@ -13,7 +12,6 @@
         {
             "nameID": "ACAPULCO",
             "imagePath": "acapulco.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "RHUM",
@@ -24,7 +22,6 @@
         {
             "nameID": "ACCROCHE_COEUR",
             "imagePath": "accroche_coeur.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CANNELLE",
                 "CHAMPAGNE"
@@ -33,7 +30,6 @@
         {
             "nameID": "AFFREUX_JOJO",
             "imagePath": "affreux_jojo.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CAFE",
                 "COGNAC",
@@ -45,7 +41,6 @@
         {
             "nameID": "AHURI",
             "imagePath": "ahuri.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CAFE",
                 "KIRSCH",
@@ -55,7 +50,6 @@
         {
             "nameID": "ALASKA",
             "imagePath": "alaska.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CHARTREUSE",
                 "VODKA",
@@ -65,7 +59,6 @@
         {
             "nameID": "ALCHIMISTE",
             "imagePath": "alchimiste.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "ANANAS",
@@ -75,7 +68,6 @@
         {
             "nameID": "ALEXANDRA",
             "imagePath": "alexandra.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COGNAC",
                 "CREME_DE_CACAO",
@@ -85,7 +77,6 @@
         {
             "nameID": "ALIBI",
             "imagePath": "alibi.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "COINTREAU",
@@ -96,7 +87,6 @@
         {
             "nameID": "ALTA_MIRA",
             "imagePath": "alta_mira.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "CACHACA",
@@ -107,7 +97,6 @@
         {
             "nameID": "AMBASSADOR",
             "imagePath": "ambassador.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "TEQUILA",
                 "ORANGE",
@@ -117,7 +106,6 @@
         {
             "nameID": "AMERICAN_LEGION",
             "imagePath": "american_legion.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "COINTREAU",
@@ -128,7 +116,6 @@
         {
             "nameID": "AMERICANO",
             "imagePath": "americano.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "CINZANO",
@@ -139,7 +126,6 @@
         {
             "nameID": "AMOUREUX_TIMIDE",
             "imagePath": "amoureux_timide.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_MUROISE",
                 "CHAMPAGNE"
@@ -148,7 +134,6 @@
         {
             "nameID": "ANE_DE_BURIDAN",
             "imagePath": "ane_de_buridan.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "PISCO",
                 "CITRON",
@@ -158,7 +143,6 @@
         {
             "nameID": "ANGEVINE",
             "imagePath": "angevine.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COINTREAU",
                 "ABRICOT"
@@ -167,7 +151,6 @@
         {
             "nameID": "ANTIDOTE",
             "imagePath": "antidote.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "CREME_DE_CACAO",
@@ -178,7 +161,6 @@
         {
             "nameID": "APACHE",
             "imagePath": "apache.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_CANNELLE",
@@ -188,7 +170,6 @@
         {
             "nameID": "AURORE",
             "imagePath": "aurore.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DE_MANDARINE",
@@ -198,7 +179,6 @@
         {
             "nameID": "BABICOCO",
             "imagePath": "babicoco.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BATIDA_DE_COCO",
                 "ANANAS"
@@ -207,7 +187,6 @@
         {
             "nameID": "BACARDI",
             "imagePath": "bacardi.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "CITRON",
@@ -218,7 +197,6 @@
         {
             "nameID": "BACHI_BOUZOUK",
             "imagePath": "bachi_bouzouk.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CHARTREUSE_VERTE",
                 "COINTREAU",
@@ -229,7 +207,6 @@
         {
             "nameID": "BAGUENAUDE",
             "imagePath": "baguenaude.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_MYRTILLE",
                 "POMME",
@@ -239,7 +216,6 @@
         {
             "nameID": "BALALAIKA",
             "imagePath": "balalaika.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "COINTREAU",
@@ -249,7 +225,6 @@
         {
             "nameID": "BALLET_RUSSE",
             "imagePath": "ballet_russe.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "CREME_DE_CASSIS",
@@ -259,7 +234,6 @@
         {
             "nameID": "BANANA_COW",
             "imagePath": "banana_cow.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_BANANE",
                 "MALIBU",
@@ -270,7 +244,6 @@
         {
             "nameID": "BANDIT_D'HONNEUR",
             "imagePath": "bandit_d'honneur.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COGNAC",
                 "LIQUEUR_DE_CAFE",
@@ -281,7 +254,6 @@
         {
             "nameID": "BAOBAB",
             "imagePath": "baobab.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CHARTREUSE",
                 "VODKA"
@@ -290,7 +262,6 @@
         {
             "nameID": "BARAKA",
             "imagePath": "baraka.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "MALIBU",
                 "PAMPLEMOUSSE"
@@ -299,7 +270,6 @@
         {
             "nameID": "BASKARIA",
             "imagePath": "baskaria.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "LIQUEUR_DABRICOT",
@@ -309,7 +279,6 @@
         {
             "nameID": "BATIDA",
             "imagePath": "batida.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CACHACA",
                 "CITRON",
@@ -320,7 +289,6 @@
         {
             "nameID": "BATIDINHA",
             "imagePath": "batidinha.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "CITRON",
@@ -330,7 +298,6 @@
         {
             "nameID": "BEBER_PARA_VIVIR",
             "imagePath": "beber_para_vivir.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_MURE",
                 "TRIPLE_SEC",
@@ -341,7 +308,6 @@
         {
             "nameID": "BENI_OUI_OUI",
             "imagePath": "beni_oui_oui.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CALVADOS",
                 "LIQUEUR_DE_CANNELLE",
@@ -351,7 +317,6 @@
         {
             "nameID": "BEGUIN",
             "imagePath": "beguin.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_ROSE",
                 "LIQUEUR_DE_VIOLETTE",
@@ -361,7 +326,6 @@
         {
             "nameID": "BIG_DANE",
             "imagePath": "big_dane.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "AQUAVIT",
                 "PAMPLEMOUSSE",
@@ -371,7 +335,6 @@
         {
             "nameID": "BLACKSON",
             "imagePath": "blackson.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "MARIE_BRIZARD",
@@ -382,7 +345,6 @@
         {
             "nameID": "BLOODY_MARY",
             "imagePath": "bloody_mary.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "TOMATE",
@@ -394,7 +356,6 @@
         {
             "nameID": "BLUE_HAWAIAN",
             "imagePath": "blue_hawaian.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "CURACAO_BLEU",
@@ -405,7 +366,6 @@
         {
             "nameID": "BLUE_LAGOON",
             "imagePath": "blue_lagoon.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COINTREAU",
                 "GIN",
@@ -416,7 +376,6 @@
         {
             "nameID": "BOHEME",
             "imagePath": "boheme.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "CREME_DE_POIRE_WILLIAM",
@@ -426,7 +385,6 @@
         {
             "nameID": "BOISSON_DES_ILES",
             "imagePath": "boisson_des_iles.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "MALIBU",
                 "ANANAS"
@@ -435,7 +393,6 @@
         {
             "nameID": "BOOTLEGGER",
             "imagePath": "bootlegger.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "FRAISE",
@@ -446,7 +403,6 @@
         {
             "nameID": "BOUGON",
             "imagePath": "bougon.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_BANANE",
@@ -456,7 +412,6 @@
         {
             "nameID": "BOUTE_EN_TRAIN",
             "imagePath": "boute_en_train.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CREME_DE_PECHE_DE_VIGNE",
@@ -466,7 +421,6 @@
         {
             "nameID": "BOUTON_D'OR",
             "imagePath": "bouton_d'or.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BOURBON",
                 "ABRICOT"
@@ -475,7 +429,6 @@
         {
             "nameID": "BRIGAND",
             "imagePath": "brigand.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_MANDARINE",
@@ -486,7 +439,6 @@
         {
             "nameID": "BRULE_POURPOINT",
             "imagePath": "brule_pourpoint.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CHATAIGNE",
                 "VODKA",
@@ -496,7 +448,6 @@
         {
             "nameID": "CABOCHARD",
             "imagePath": "cabochard.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CALVADOS",
                 "TRIPLE_SEC",
@@ -507,7 +458,6 @@
         {
             "nameID": "CABOTIN",
             "imagePath": "cabotin.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_MURE",
                 "CANNEBERGE",
@@ -517,7 +467,6 @@
         {
             "nameID": "CAIMAN_I",
             "imagePath": "caiman_i.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_WHISKY",
                 "WHISKY",
@@ -527,7 +476,6 @@
         {
             "nameID": "CAIMAN_II",
             "imagePath": "caiman_ii.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_BOURBON",
                 "BOURBON",
@@ -537,7 +485,6 @@
         {
             "nameID": "CAIPIRISSIMA",
             "imagePath": "caipirissima.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "CITRON",
@@ -548,7 +495,6 @@
         {
             "nameID": "CAMOUFLET",
             "imagePath": "camouflet.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BAILEYS",
                 "GIN",
@@ -558,7 +504,6 @@
         {
             "nameID": "CAMPARI_GIN",
             "imagePath": "campari_gin.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CAMPARI",
                 "GIN",
@@ -568,7 +513,6 @@
         {
             "nameID": "CANULAR",
             "imagePath": "canular.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DANANAS",
                 "CREME_DE_CACAO",
@@ -578,7 +522,6 @@
         {
             "nameID": "CAPHARNAUM",
             "imagePath": "capharnaum.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DANANAS",
@@ -589,7 +532,6 @@
         {
             "nameID": "CARACAS_NIGHT",
             "imagePath": "caracas_night.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "KIRSCH",
                 "CHERRY",
@@ -599,7 +541,6 @@
         {
             "nameID": "CARDINAL",
             "imagePath": "cardinal.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "GIN",
                 "VERMOUTH",
@@ -609,7 +550,6 @@
         {
             "nameID": "CARIOCA",
             "imagePath": "carioca.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CACHACA",
                 "CITRON_VERT",
@@ -619,7 +559,6 @@
         {
             "nameID": "CASSE_COU",
             "imagePath": "casse_cou.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "MEZCAL",
                 "CREME_DE_MYRTILLE",
@@ -630,7 +569,6 @@
         {
             "nameID": "CHANTACO",
             "imagePath": "chantaco.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "ORANGE",
@@ -642,7 +580,6 @@
         {
             "nameID": "CHARABIA",
             "imagePath": "charabia.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DABRICOT",
                 "NOYAU_DE_POISSY",
@@ -652,7 +589,6 @@
         {
             "nameID": "CHALOUPEE",
             "imagePath": "chaloupee.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM_CUBAIN",
                 "LIQUEUR_DE_MELON",
@@ -663,7 +599,6 @@
         {
             "nameID": "CHARANOVA",
             "imagePath": "charanova.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "COINTREAU",
@@ -674,7 +609,6 @@
         {
             "nameID": "CHARENTAISE",
             "imagePath": "charentaise.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GRAND_MARNIER",
                 "ABRICOT"
@@ -683,7 +617,6 @@
         {
             "nameID": "CHARIVARI",
             "imagePath": "charivari.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "TRIPLE_SEC",
@@ -693,7 +626,6 @@
         {
             "nameID": "CHARLES_HENRY",
             "imagePath": "charles_henry.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "TRIPLE_SEC",
@@ -703,7 +635,6 @@
         {
             "nameID": "CHAT_BOTTE",
             "imagePath": "chat_botte.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "LIQUEUR_DE_MANGUE",
@@ -713,7 +644,6 @@
         {
             "nameID": "CHAUDRON_DU_DIABLE",
             "imagePath": "chaudron_du_diable.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "PIPPERMINT_DOUX",
@@ -723,7 +653,6 @@
         {
             "nameID": "CHEMIN_DE_DAMAS",
             "imagePath": "chemin_de_damas.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "NOYAU_DE_POISSY",
@@ -733,7 +662,6 @@
         {
             "nameID": "CHENAPAN",
             "imagePath": "chenapan.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANGUE",
                 "MARACUJA",
@@ -743,7 +671,6 @@
         {
             "nameID": "CHERUBIN",
             "imagePath": "cherubin.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "LIQUEUR_DE_MARACUJA",
@@ -754,7 +681,6 @@
         {
             "nameID": "CHICANO",
             "imagePath": "chicano.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "MEZCAL",
                 "LIQUEUR_DE_KIWI",
@@ -765,7 +691,6 @@
         {
             "nameID": "CHIMERE",
             "imagePath": "chimere.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "ABSINTHE"
@@ -774,7 +699,6 @@
         {
             "nameID": "CHOCOLAT_COINTREAU",
             "imagePath": "chocolat_cointreau.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CHOCOLAT",
                 "COINTREAU",
@@ -784,7 +708,6 @@
         {
             "nameID": "CIBOULETTE",
             "imagePath": "ciboulette.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "TRIPLE_SEC",
@@ -796,7 +719,6 @@
         {
             "nameID": "CIEL_DE_PROVENCE",
             "imagePath": "ciel_de_provence.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CURACAO_BLEU",
                 "CHAMPAGNE"
@@ -805,7 +727,6 @@
         {
             "nameID": "CIGALE",
             "imagePath": "cigale.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CHATAIGNE",
                 "PIPPERMINT",
@@ -815,7 +736,6 @@
         {
             "nameID": "CLARIDGE",
             "imagePath": "claridge.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "VERMOUTH_DRY",
@@ -826,7 +746,6 @@
         {
             "nameID": "CLE_DES_CHAMPS",
             "imagePath": "cle_des_champs.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_POMME_VERTE",
@@ -837,7 +756,6 @@
         {
             "nameID": "CLOU_ROUILLE",
             "imagePath": "clou_rouille.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_WHISKY",
                 "WHISKY"
@@ -846,7 +764,6 @@
         {
             "nameID": "CONQUISTADOR",
             "imagePath": "conquistador.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "TRIPLE_SEC",
@@ -857,7 +774,6 @@
         {
             "nameID": "CONSUL_DO_BRASIL",
             "imagePath": "consul_do_brasil.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_MARACUJA",
@@ -868,7 +784,6 @@
         {
             "nameID": "COQUELICOT_COCKTAIL",
             "imagePath": "coquelicot.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "MARIE_BRIZARD",
                 "COINTREAU",
@@ -879,7 +794,6 @@
         {
             "nameID": "COQ_EN_PATE",
             "imagePath": "coq_en_pate.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "EAU_DE_VIE_DE_POIRE_WILLIAM",
                 "LIQUEUR_DE_POIRE_WILLIAM",
@@ -889,7 +803,6 @@
         {
             "nameID": "CORDE_AU_COU",
             "imagePath": "corde_au_cou.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_PASTEQUE",
@@ -899,7 +812,6 @@
         {
             "nameID": "CROQUE_MITAINE",
             "imagePath": "croque_mitaine.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_LITCHI",
@@ -910,7 +822,6 @@
         {
             "nameID": "CROCODILE",
             "imagePath": "crocodile.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "GIN",
                 "GUIGNOLET",
@@ -922,7 +833,6 @@
         {
             "nameID": "CUPIDON",
             "imagePath": "cupidon.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CACAO",
                 "VODKA",
@@ -933,7 +843,6 @@
         {
             "nameID": "DAIKIRI",
             "imagePath": "daikiri.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "CITRON",
@@ -943,7 +852,6 @@
         {
             "nameID": "DAIKIRI_ORANGE",
             "imagePath": "daikiri_orange.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "ORANGE",
@@ -953,7 +861,6 @@
         {
             "nameID": "DANDY",
             "imagePath": "dandy.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_KIWI",
                 "MARACUJA"
@@ -962,7 +869,6 @@
         {
             "nameID": "DESPERADO",
             "imagePath": "desperado.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_FRAISE",
                 "MEZCAL",
@@ -972,7 +878,6 @@
         {
             "nameID": "DEGONFLE",
             "imagePath": "degonfle.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_FRAISE",
                 "FRAISE",
@@ -982,7 +887,6 @@
         {
             "nameID": "DJAHDIEUF",
             "imagePath": "djahdieuf.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM_BRUN",
                 "LIQUEUR_DE_MANGUE",
@@ -992,7 +896,6 @@
         {
             "nameID": "DON_DU_CIEL",
             "imagePath": "don_du_ciel.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_FRAMBOISE",
                 "CITRON",
@@ -1002,7 +905,6 @@
         {
             "nameID": "DOUCEUR_EXOTIQUE",
             "imagePath": "douceur_exotique.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "MANGUE",
@@ -1014,7 +916,6 @@
         {
             "nameID": "DOUX_REVEUR",
             "imagePath": "doux_reveur.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DABRICOT",
@@ -1025,7 +926,6 @@
         {
             "nameID": "DRAGON_VERT",
             "imagePath": "dragon_vert.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "PIPPERMINT_DOUX",
@@ -1035,7 +935,6 @@
         {
             "nameID": "DUR_A_CUIRE",
             "imagePath": "dur_a_cuire.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CACHACA",
                 "CREME_DE_MYRTILLE",
@@ -1046,7 +945,6 @@
         {
             "nameID": "ELIXIR",
             "imagePath": "elixir.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CREME_DE_MURE",
@@ -1056,7 +954,6 @@
         {
             "nameID": "EMBRUME",
             "imagePath": "embrume.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CALVADOS",
                 "POMME",
@@ -1066,7 +963,6 @@
         {
             "nameID": "ENFANT_GATE",
             "imagePath": "enfant_gate.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_MANGUE",
@@ -1078,7 +974,6 @@
         {
             "nameID": "ENTOURLOUPE",
             "imagePath": "entourloupe.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POMME_VERTE",
                 "CALVADOS",
@@ -1088,7 +983,6 @@
         {
             "nameID": "ESCALE",
             "imagePath": "escale.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "AQUAVIT",
@@ -1099,7 +993,6 @@
         {
             "nameID": "ESCOGRIFFE",
             "imagePath": "escogriffe.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "MEZCAL",
                 "LIQUEUR_DE_CITRON",
@@ -1109,7 +1002,6 @@
         {
             "nameID": "ESPADON",
             "imagePath": "espadon.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANDARINE",
                 "CHAMPAGNE"
@@ -1118,7 +1010,6 @@
         {
             "nameID": "FAIR_PLAY",
             "imagePath": "fair_play.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POIRE_WILLIAM",
                 "CHAMPAGNE"
@@ -1127,7 +1018,6 @@
         {
             "nameID": "FAKIR",
             "imagePath": "fakir.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CALVADOS",
                 "LIQUEUR_DE_MANGUE",
@@ -1138,7 +1028,6 @@
         {
             "nameID": "FALBALA",
             "imagePath": "falbala.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BOUKHA",
                 "CURACAO_BLEU",
@@ -1148,7 +1037,6 @@
         {
             "nameID": "FANFARON",
             "imagePath": "fanfaron.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_GINGEMBRE",
                 "GIN",
@@ -1159,7 +1047,6 @@
         {
             "nameID": "FARFADET",
             "imagePath": "farfadet.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BAILEYS",
                 "MALIBU",
@@ -1169,7 +1056,6 @@
         {
             "nameID": "FAVELA",
             "imagePath": "favela.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "CREME_DE_CASSIS",
@@ -1179,7 +1065,6 @@
         {
             "nameID": "FEU_FOLLET",
             "imagePath": "feu_follet.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "CREME_DE_FRAMBOISE",
@@ -1189,7 +1074,6 @@
         {
             "nameID": "FLIBUSTIER",
             "imagePath": "flibustier.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_VANILLE",
                 "LIQUEUR_DE_CAFE",
@@ -1199,7 +1083,6 @@
         {
             "nameID": "FLIRT",
             "imagePath": "flirt.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "VODKA",
@@ -1209,7 +1092,6 @@
         {
             "nameID": "FOLLE_DE_CHAILLOT",
             "imagePath": "folle_de_chaillot.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "CHAMPAGNE"
@@ -1218,7 +1100,6 @@
         {
             "nameID": "FOND_DE_CULOTTE",
             "imagePath": "fond_de_culotte.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "SUZE",
                 "CREME_DE_CASSIS"
@@ -1227,7 +1108,6 @@
         {
             "nameID": "FONDU",
             "imagePath": "fondu.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANDARINE",
                 "GIN",
@@ -1237,7 +1117,6 @@
         {
             "nameID": "FORMULE_3",
             "imagePath": "formule_3.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "KIRSCH",
                 "VODKA",
@@ -1248,7 +1127,6 @@
         {
             "nameID": "FORMULE_2",
             "imagePath": "formule_2.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "KIRSCH",
                 "CREME_DE_FRAMBOISE",
@@ -1258,7 +1136,6 @@
         {
             "nameID": "FORMULE_1",
             "imagePath": "formule_1.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "KIRSCH",
                 "GIN",
@@ -1268,7 +1145,6 @@
         {
             "nameID": "FOULIVET",
             "imagePath": "foulivet.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "PISANG"
@@ -1277,7 +1153,6 @@
         {
             "nameID": "FRANCISCO",
             "imagePath": "francisco.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "VODKA",
@@ -1287,7 +1162,6 @@
         {
             "nameID": "FRELUQUET",
             "imagePath": "freluquet.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CREME_DE_ROSE",
@@ -1297,7 +1171,6 @@
         {
             "nameID": "FRIPOUILLE",
             "imagePath": "fripouille.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "VODKA",
@@ -1307,7 +1180,6 @@
         {
             "nameID": "FRUIT_DEFENDU",
             "imagePath": "fruit_defendu.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "PISCO",
                 "LIQUEUR_DE_CAFE",
@@ -1317,7 +1189,6 @@
         {
             "nameID": "FUNAMBULE",
             "imagePath": "funambule.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_PIMENT",
@@ -1327,7 +1198,6 @@
         {
             "nameID": "GAGNE_PETIT",
             "imagePath": "gagne_petit.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "ZUBROWKA",
                 "LIQUEUR_DE_PIMENT",
@@ -1337,7 +1207,6 @@
         {
             "nameID": "GALEJADE",
             "imagePath": "galejade.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM_CUBAIN",
                 "LIQUEUR_DE_MARACUJA",
@@ -1347,7 +1216,6 @@
         {
             "nameID": "GALERIEN",
             "imagePath": "galerien.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "PISANG",
@@ -1359,7 +1227,6 @@
         {
             "nameID": "GALIPETTE",
             "imagePath": "galipette.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BATIDA_DE_COCO",
                 "LIQUEUR_DE_PIMENT",
@@ -1369,7 +1236,6 @@
         {
             "nameID": "GALOUPIOT",
             "imagePath": "galoupiot.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "CREME_DE_MUROISE",
@@ -1380,7 +1246,6 @@
         {
             "nameID": "GARGOUILLE",
             "imagePath": "gargouille.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "MALIBU",
                 "MELON"
@@ -1389,7 +1254,6 @@
         {
             "nameID": "GAVROCHE",
             "imagePath": "gavroche.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DE_FRUITS_EXOTIQUES",
@@ -1401,7 +1265,6 @@
         {
             "nameID": "GIMMICK",
             "imagePath": "gimmick.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_BANANE",
@@ -1412,7 +1275,6 @@
         {
             "nameID": "GIN_FIZZ",
             "imagePath": "gin_fizz.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "CITRON",
@@ -1422,7 +1284,6 @@
         {
             "nameID": "GIROUETTE",
             "imagePath": "girouette.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANGUE",
                 "LIQUEUR_DE_LITCHI",
@@ -1432,7 +1293,6 @@
         {
             "nameID": "GITAN",
             "imagePath": "gitan.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POIRE_WILLIAM",
                 "CALVADOS",
@@ -1443,7 +1303,6 @@
         {
             "nameID": "GODELUREAU",
             "imagePath": "godelureau.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CALVADOS",
                 "COINTREAU",
@@ -1454,7 +1313,6 @@
         {
             "nameID": "GOUGNAFIER",
             "imagePath": "gougnafier.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "VODKA",
@@ -1464,7 +1322,6 @@
         {
             "nameID": "GOUROU",
             "imagePath": "gourou.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "CREME_DE_PECHE_DE_VIGNE",
@@ -1475,7 +1332,6 @@
         {
             "nameID": "GRAND_LARGE",
             "imagePath": "grand_large.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "LIQUEUR_DE_CANNELLE",
@@ -1485,7 +1341,6 @@
         {
             "nameID": "GRAND_MARNIER_TONIC",
             "imagePath": "grand_marnier_tonic.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GRAND_MARNIER",
                 "TONIC",
@@ -1495,7 +1350,6 @@
         {
             "nameID": "GRASSHOPPER",
             "imagePath": "grasshopper.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "PIPPERMINT",
                 "CREME_DE_CACAO",
@@ -1505,7 +1359,6 @@
         {
             "nameID": "GRENOUILLE_DE_BENITIER",
             "imagePath": "grenouille_de_benitier.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CHARTREUSE",
                 "CHAMPAGNE"
@@ -1514,7 +1367,6 @@
         {
             "nameID": "GRI_GRI",
             "imagePath": "gri_gri.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "AMARETTO",
@@ -1524,7 +1376,6 @@
         {
             "nameID": "GRINGO",
             "imagePath": "gringo.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "LIQUEUR_DE_CAFE",
@@ -1534,7 +1385,6 @@
         {
             "nameID": "GRIPPE_SOU",
             "imagePath": "grippe_sou.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DABRICOT",
                 "TEQUILA",
@@ -1544,7 +1394,6 @@
         {
             "nameID": "GUINGUETTE",
             "imagePath": "guinguette.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "EAU_DE_VIE_DE_POIRE_WILLIAM",
                 "CREME_DE_PECHE_DE_VIGNE",
@@ -1554,7 +1403,6 @@
         {
             "nameID": "HALLALI",
             "imagePath": "hallali.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_COQUELICOT",
@@ -1564,7 +1412,6 @@
         {
             "nameID": "HAS_BEEN",
             "imagePath": "has_been.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "TEQUILA",
                 "LIQUEUR_DE_MARACUJA",
@@ -1575,7 +1422,6 @@
         {
             "nameID": "HURLUBERLU",
             "imagePath": "hurluberlu.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "LIQUEUR_DE_VANILLE",
@@ -1585,7 +1431,6 @@
         {
             "nameID": "IMPERTINENT",
             "imagePath": "impertinent.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "CREME_DE_MUROISE",
@@ -1595,7 +1440,6 @@
         {
             "nameID": "INDECIS",
             "imagePath": "indecis.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "LIQUEUR_DE_MARACUJA",
@@ -1606,7 +1450,6 @@
         {
             "nameID": "INDISCRET",
             "imagePath": "indiscret.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "GIN",
                 "COINTREAU",
@@ -1617,7 +1460,6 @@
         {
             "nameID": "JACARE",
             "imagePath": "jacare.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "MEZCAL",
                 "TRIPLE_SEC",
@@ -1629,7 +1471,6 @@
         {
             "nameID": "JACK_ROSE",
             "imagePath": "jack_rose.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CALVADOS",
                 "GRENADINE",
@@ -1640,7 +1481,6 @@
         {
             "nameID": "JOBARD",
             "imagePath": "jobard.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MELON",
                 "PAPAYE"
@@ -1649,7 +1489,6 @@
         {
             "nameID": "JOLIE_MOME",
             "imagePath": "jolie_mome.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_VIOLETTE",
                 "LIQUEUR_DE_LITCHI",
@@ -1659,7 +1498,6 @@
         {
             "nameID": "KAMIKAZE",
             "imagePath": "kamikaze.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "VODKA",
@@ -1669,7 +1507,6 @@
         {
             "nameID": "KHAN",
             "imagePath": "khan.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "POMMEAU",
                 "LIQUEUR_DE_MERISE",
@@ -1679,7 +1516,6 @@
         {
             "nameID": "KING_ALFONSO",
             "imagePath": "king_alfonso.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "COGNAC",
                 "LIQUEUR_DE_CAFE",
@@ -1689,7 +1525,6 @@
         {
             "nameID": "LAION",
             "imagePath": "laion.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "ORANGE",
@@ -1700,7 +1535,6 @@
         {
             "nameID": "LAION_CASSIS",
             "imagePath": "laion_cassis.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "CREME_DE_CASSIS"
@@ -1709,7 +1543,6 @@
         {
             "nameID": "LARENJEIRA",
             "imagePath": "larenjeira.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CACHACA",
                 "PAMPLEMOUSSE",
@@ -1720,7 +1553,6 @@
         {
             "nameID": "LAZY_RIVER",
             "imagePath": "lazy_river.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GRAND_MARNIER",
                 "CHAMPAGNE",
@@ -1730,7 +1562,6 @@
         {
             "nameID": "LEA_DOUDOU",
             "imagePath": "lea_doudou.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DE_CITRON",
@@ -1742,7 +1573,6 @@
         {
             "nameID": "LIBELLULE",
             "imagePath": "libellule.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANGUE",
                 "LIQUEUR_DE_MARACUJA",
@@ -1752,7 +1582,6 @@
         {
             "nameID": "LIBERTIN",
             "imagePath": "libertin.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "LIQUEUR_DE_MARACUJA",
@@ -1763,7 +1592,6 @@
         {
             "nameID": "LOUP_DE_MER",
             "imagePath": "loup_de_mer.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "CREME_DE_FRAISE_DES_BOIS",
@@ -1774,7 +1602,6 @@
         {
             "nameID": "LOUPEDADE",
             "imagePath": "loupedade.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "COINTREAU",
@@ -1784,7 +1611,6 @@
         {
             "nameID": "LOUP_GAROU",
             "imagePath": "loup_garou.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BAILEYS",
                 "COGNAC",
@@ -1794,7 +1620,6 @@
         {
             "nameID": "LUCIOLE",
             "imagePath": "luciole.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "VODKA",
@@ -1804,7 +1629,6 @@
         {
             "nameID": "MAEVA",
             "imagePath": "maeva.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_VANILLE",
@@ -1814,7 +1638,6 @@
         {
             "nameID": "MAI_TAI",
             "imagePath": "mai_tai.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "RHUM",
@@ -1826,7 +1649,6 @@
         {
             "nameID": "MANHATTAN",
             "imagePath": "manhattan.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BOURBON",
                 "VERMOUTH_DRY"
@@ -1835,7 +1657,6 @@
         {
             "nameID": "MARGARITA",
             "imagePath": "margarita.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "TEQUILA",
                 "TRIPLE_SEC",
@@ -1846,7 +1667,6 @@
         {
             "nameID": "MARGOULIN",
             "imagePath": "margoulin.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "PISANG",
@@ -1856,7 +1676,6 @@
         {
             "nameID": "MARINA",
             "imagePath": "marina.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "WHISKY",
                 "LIQUEUR_DE_BANANE",
@@ -1866,7 +1685,6 @@
         {
             "nameID": "MARTINI_DRY_COCKTAIL",
             "imagePath": "martini_dry.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "MARTINI_DOUX",
                 "MARTINI_DRY",
@@ -1877,7 +1695,6 @@
         {
             "nameID": "MASCOTTE",
             "imagePath": "mascotte.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MARACUJA",
                 "ANANAS",
@@ -1889,7 +1706,6 @@
         {
             "nameID": "M'AS_TU_VU",
             "imagePath": "m'as_tu_vu.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COGNAC",
                 "CHAMPAGNE",
@@ -1899,7 +1715,6 @@
         {
             "nameID": "MEA_CULPA",
             "imagePath": "mea_culpa.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "VODKA",
@@ -1909,7 +1724,6 @@
         {
             "nameID": "MEK_TOUB",
             "imagePath": "mek_toub.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "VODKA",
@@ -1919,7 +1733,6 @@
         {
             "nameID": "MEXICAIN",
             "imagePath": "mexicain.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "LIQUEUR_DE_CAFE"
@@ -1928,7 +1741,6 @@
         {
             "nameID": "MIDINETTE",
             "imagePath": "midinette.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MELON",
                 "ORANGE"
@@ -1937,7 +1749,6 @@
         {
             "nameID": "MIRAGE",
             "imagePath": "mirage.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "FRAISE",
@@ -1947,7 +1758,6 @@
         {
             "nameID": "MISANTHROPE",
             "imagePath": "misanthrope.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CREME_DE_GRIOTTE",
@@ -1958,7 +1768,6 @@
         {
             "nameID": "MISS_BA",
             "imagePath": "miss_ba.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_NOISETTE",
                 "COGNAC",
@@ -1969,7 +1778,6 @@
         {
             "nameID": "MISTIGRI",
             "imagePath": "mistigri.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_BANANE",
                 "GIN",
@@ -1979,7 +1787,6 @@
         {
             "nameID": "MOHICAN",
             "imagePath": "mohican.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BAILEYS",
                 "CALVADOS",
@@ -1989,7 +1796,6 @@
         {
             "nameID": "MUCARA",
             "imagePath": "mucara.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "LIQUEUR_DE_CAFE",
@@ -2000,7 +1806,6 @@
         {
             "nameID": "MUTIN",
             "imagePath": "mutin.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_CACAO",
                 "RHUM_VIEUX",
@@ -2010,7 +1815,6 @@
         {
             "nameID": "MUSE",
             "imagePath": "muse.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MARACUJA",
                 "ANANAS"
@@ -2019,7 +1823,6 @@
         {
             "nameID": "NABAB",
             "imagePath": "nabab.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_PIMENT",
                 "CHAMPAGNE"
@@ -2028,7 +1831,6 @@
         {
             "nameID": "NEFERTITI",
             "imagePath": "nefertiti.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BAILEYS",
                 "GRAND_MARNIER",
@@ -2038,7 +1840,6 @@
         {
             "nameID": "NIRVANA",
             "imagePath": "nirvana.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_MANGUE",
@@ -2049,7 +1850,6 @@
         {
             "nameID": "NUNUCHE",
             "imagePath": "nunuche.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "LIQUEUR_DE_MELON",
@@ -2060,7 +1860,6 @@
         {
             "nameID": "NYMPHE",
             "imagePath": "nymphe.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "GIN",
                 "LIQUEUR_DE_FRAISE_DES_BOIS",
@@ -2071,7 +1870,6 @@
         {
             "nameID": "OISEAU_BLEU",
             "imagePath": "oiseau_bleu.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "CURACAO_BLEU",
@@ -2081,7 +1879,6 @@
         {
             "nameID": "OLIBRIUS",
             "imagePath": "olibrius.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "PISANG",
                 "LIQUEUR_DE_PIMENT",
@@ -2092,7 +1889,6 @@
         {
             "nameID": "OMBRAGE",
             "imagePath": "ombrage.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "SIROP_DORGEAT",
                 "GIN",
@@ -2103,7 +1899,6 @@
         {
             "nameID": "ONCLE_TOM",
             "imagePath": "oncle_tom.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CITRON",
@@ -2113,7 +1908,6 @@
         {
             "nameID": "OUBLI",
             "imagePath": "oubli.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "GIN",
                 "CREME_DE_MURE",
@@ -2124,7 +1918,6 @@
         {
             "nameID": "OUED",
             "imagePath": "oued.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BOUKHA",
                 "PAPAYE"
@@ -2133,7 +1926,6 @@
         {
             "nameID": "QUISTITI",
             "imagePath": "quistiti.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANGUE",
                 "BANANE",
@@ -2143,7 +1935,6 @@
         {
             "nameID": "OULAN_BATOR",
             "imagePath": "oulan_bator.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM_CUBAIN",
                 "PISANG",
@@ -2154,7 +1945,6 @@
         {
             "nameID": "PACTOLE",
             "imagePath": "pactole.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "PISANG",
                 "ORANGE"
@@ -2163,7 +1953,6 @@
         {
             "nameID": "PAILLOTTE",
             "imagePath": "paillotte.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "GRAND_MARNIER",
@@ -2174,7 +1963,6 @@
         {
             "nameID": "PALTOQUET",
             "imagePath": "paltoquet.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "AMARETTO",
                 "CHAMPAGNE"
@@ -2183,7 +1971,6 @@
         {
             "nameID": "PAPA_COLLINS",
             "imagePath": "papa_collins.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "CITRON",
@@ -2193,7 +1980,6 @@
         {
             "nameID": "PAPOOSE",
             "imagePath": "papoose.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "LIQUEUR_DE_KIWI",
@@ -2203,7 +1989,6 @@
         {
             "nameID": "PARADISE_ABRICOT",
             "imagePath": "paradise_abricot.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DABRICOT",
                 "GIN",
@@ -2214,7 +1999,6 @@
         {
             "nameID": "PARADISE_BANANE",
             "imagePath": "paradise_banane.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_BANANE",
                 "GIN",
@@ -2225,7 +2009,6 @@
         {
             "nameID": "PARADISE_CASSIS",
             "imagePath": "paradise_cassis.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_CASSIS",
                 "GIN",
@@ -2236,7 +2019,6 @@
         {
             "nameID": "PARADISE_FRAISE",
             "imagePath": "paradise_fraise.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_FRAISE_DES_BOIS",
                 "GIN",
@@ -2247,7 +2029,6 @@
         {
             "nameID": "PARADISE_FRAMBOISE",
             "imagePath": "paradise_framboise.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "GIN",
@@ -2258,7 +2039,6 @@
         {
             "nameID": "PARADISE_GRIOTTE",
             "imagePath": "paradise_griotte.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_GRIOTTE",
                 "GIN",
@@ -2269,7 +2049,6 @@
         {
             "nameID": "PARADISE_LITCHI",
             "imagePath": "paradise_litchi.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "GIN",
@@ -2280,7 +2059,6 @@
         {
             "nameID": "PARADISE_MANGUE",
             "imagePath": "paradise_mangue.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANGUE",
                 "GIN",
@@ -2291,7 +2069,6 @@
         {
             "nameID": "PARADISE_MANDARINE",
             "imagePath": "paradise_mandarine.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANDARINE",
                 "GIN",
@@ -2303,7 +2080,6 @@
         {
             "nameID": "PARADISE_MELON",
             "imagePath": "paradise_melon.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MELON",
                 "GIN",
@@ -2314,7 +2090,6 @@
         {
             "nameID": "PARADISE_MURE",
             "imagePath": "paradise_mure.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_MURE",
                 "GIN",
@@ -2325,7 +2100,6 @@
         {
             "nameID": "PARADISE_MUROISE",
             "imagePath": "paradise_muroise.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_MUROISE",
                 "GIN",
@@ -2336,7 +2110,6 @@
         {
             "nameID": "PARADISE_MYRTILLE",
             "imagePath": "paradise_myrtille.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_MYRTILLE",
                 "GIN",
@@ -2347,7 +2120,6 @@
         {
             "nameID": "PARADISE_PECHE",
             "imagePath": "paradise_peche.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "GIN",
@@ -2358,7 +2130,6 @@
         {
             "nameID": "PARADISE_PISANG",
             "imagePath": "paradise_pisang.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "PISANG",
                 "GIN",
@@ -2369,7 +2140,6 @@
         {
             "nameID": "PARIA",
             "imagePath": "paria.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "CREME_DE_CACAO",
@@ -2379,7 +2149,6 @@
         {
             "nameID": "PARENTHESE",
             "imagePath": "parenthese.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BATIDA_DE_COCO",
                 "PISCO",
@@ -2390,7 +2159,6 @@
         {
             "nameID": "PASSE_MURAILLE",
             "imagePath": "passe_muraille.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CALVADOS",
                 "CREME_DE_MYRTILLE",
@@ -2400,7 +2168,6 @@
         {
             "nameID": "PATATRAC",
             "imagePath": "patatrac.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_COQUELICOT",
@@ -2410,7 +2177,6 @@
         {
             "nameID": "PECHE_KOBA",
             "imagePath": "peche_koba.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "CHAMPAGNE"
@@ -2419,7 +2185,6 @@
         {
             "nameID": "PERLIMPINPIN",
             "imagePath": "perlimpinpin.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MANDARINE",
                 "BATIDA_DE_COCO"
@@ -2428,7 +2193,6 @@
         {
             "nameID": "PETIT_CHOSE",
             "imagePath": "petit_chose.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_BANANE",
@@ -2438,7 +2202,6 @@
         {
             "nameID": "PHILTRE",
             "imagePath": "philtre.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POMME_VERTE",
                 "LIQUEUR_DANANAS",
@@ -2448,7 +2211,6 @@
         {
             "nameID": "PIERRE_VERT",
             "imagePath": "pierre_vert.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "PISANG",
                 "MARIE_BRIZARD",
@@ -2458,7 +2220,6 @@
         {
             "nameID": "PIMS_COCKTAIL",
             "imagePath": "pim's.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "PIMS",
                 "CHERRY",
@@ -2468,7 +2229,6 @@
         {
             "nameID": "PINA_COLADA",
             "imagePath": "pina_colada.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "MALIBU",
@@ -2480,7 +2240,6 @@
         {
             "nameID": "PINCE_SANS_RIRE",
             "imagePath": "pince_sans_rire.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_NOISETTE",
                 "CHAMPAGNE"
@@ -2489,7 +2248,6 @@
         {
             "nameID": "PINK_PUSSY",
             "imagePath": "pink_pussy.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "CAMPARI"
@@ -2498,7 +2256,6 @@
         {
             "nameID": "PIROUETTE",
             "imagePath": "pirouette.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "AMARETTO",
                 "COGNAC",
@@ -2509,7 +2266,6 @@
         {
             "nameID": "PISKINHA",
             "imagePath": "piskinha.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "PISCO",
                 "CITRON_VERT",
@@ -2519,7 +2275,6 @@
         {
             "nameID": "PISKITA",
             "imagePath": "piskita.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "PISCO",
                 "TRIPLE_SEC",
@@ -2530,7 +2285,6 @@
         {
             "nameID": "PITCHOUNE",
             "imagePath": "pitchoune.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM_VIEUX",
                 "COINTREAU",
@@ -2540,7 +2294,6 @@
         {
             "nameID": "PLANTEUR",
             "imagePath": "planteur.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "CHERRY",
@@ -2552,7 +2305,6 @@
         {
             "nameID": "PLOUC",
             "imagePath": "plouc.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "PORTO",
                 "LIQUEUR_DE_MELON"
@@ -2561,7 +2313,6 @@
         {
             "nameID": "POLSKA_BANANE",
             "imagePath": "polska_banane.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_BANANE",
@@ -2571,7 +2322,6 @@
         {
             "nameID": "POLTRON",
             "imagePath": "poltron.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "GOYAVE"
@@ -2580,7 +2330,6 @@
         {
             "nameID": "PONDICHERRY",
             "imagePath": "pondicherry.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_COQUELICOT",
                 "CHAMPAGNE"
@@ -2589,7 +2338,6 @@
         {
             "nameID": "PORTO_FLIP",
             "imagePath": "porto_flip.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "PORTO",
                 "JAUNE_DOEUF",
@@ -2599,7 +2347,6 @@
         {
             "nameID": "POULBOT",
             "imagePath": "poulbot.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "RHUM_CUBAIN",
@@ -2609,7 +2356,6 @@
         {
             "nameID": "P'TIT_QUINQUIN",
             "imagePath": "p'tit_quinquin.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BAILEYS",
                 "GRAND_MARNIER",
@@ -2619,7 +2365,6 @@
         {
             "nameID": "P'TITE_SIRENE",
             "imagePath": "p'tite_sirene.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "AQUAVIT",
                 "PIPPERMINT",
@@ -2629,7 +2374,6 @@
         {
             "nameID": "PUDIBOND",
             "imagePath": "pudibond.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BATIDA_DE_COCO",
                 "LIQUEUR_DE_KIWI"
@@ -2638,7 +2382,6 @@
         {
             "nameID": "PUNCH",
             "imagePath": "punch.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "CHERRY",
@@ -2648,7 +2391,6 @@
         {
             "nameID": "QUI_QU'EN_GROGNE",
             "imagePath": "qui_qu'en_grogne.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "BAILEYS",
                 "COGNAC",
@@ -2658,7 +2400,6 @@
         {
             "nameID": "RAS_LE_BOL",
             "imagePath": "ras_le_bol.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POMME_VERTE",
                 "PAMPLEMOUSSE_ROSE"
@@ -2667,7 +2408,6 @@
         {
             "nameID": "RAYA",
             "imagePath": "raya.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_CARAMBOLE",
@@ -2677,7 +2417,6 @@
         {
             "nameID": "REGAIN",
             "imagePath": "regain.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MERISE",
                 "CHAMPAGNE"
@@ -2686,7 +2425,6 @@
         {
             "nameID": "REINE_DES_CARAIBES",
             "imagePath": "reine_des_caraibes.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "PISANG",
                 "LIQUEUR_DE_BANANE",
@@ -2697,7 +2435,6 @@
         {
             "nameID": "RIBOULDINGUE",
             "imagePath": "ribouldingue.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DE_BANANE",
@@ -2707,7 +2444,6 @@
         {
             "nameID": "RIFIFI",
             "imagePath": "rififi.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "LIQUEUR_DE_POIRE_WILLIAM",
@@ -2717,7 +2453,6 @@
         {
             "nameID": "RIGOLO",
             "imagePath": "rigolo.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "MELON"
@@ -2726,7 +2461,6 @@
         {
             "nameID": "RIO_GRANDE",
             "imagePath": "rio_grande.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "TEQUILA",
@@ -2739,7 +2473,6 @@
         {
             "nameID": "ROMAINE",
             "imagePath": "romaine.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "SIROP_DORGEAT",
                 "RHUM",
@@ -2750,7 +2483,6 @@
         {
             "nameID": "ROND_DE_CUIR",
             "imagePath": "rond_de_cuir.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "WHISKY",
                 "AMARETTO",
@@ -2760,7 +2492,6 @@
         {
             "nameID": "ROSE",
             "imagePath": "rose.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "VERMOUTH_DRY",
@@ -2770,7 +2501,6 @@
         {
             "nameID": "ROYAL_PUNCH_COCO",
             "imagePath": "royal_punch_coco.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "MALIBU",
@@ -2781,7 +2511,6 @@
         {
             "nameID": "RUSSIE_BLANCHE",
             "imagePath": "russie_blanche.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CAFE",
                 "VODKA",
@@ -2791,7 +2520,6 @@
         {
             "nameID": "RUSSIE_NOIRE",
             "imagePath": "russie_noire.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CAFE",
                 "VODKA"
@@ -2800,7 +2528,6 @@
         {
             "nameID": "SACRIPANT",
             "imagePath": "sacripant.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "AQUAVIT",
                 "LIQUEUR_DE_LITCHI",
@@ -2810,7 +2537,6 @@
         {
             "nameID": "SAGOUIN",
             "imagePath": "sagouin.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_POMME_VERTE",
@@ -2820,7 +2546,6 @@
         {
             "nameID": "SALE_GOSSE",
             "imagePath": "sale_gosse.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CHATAIGNE",
                 "CHAMPAGNE"
@@ -2829,7 +2554,6 @@
         {
             "nameID": "SALTIMBANQUE",
             "imagePath": "saltimbanque.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CACAO",
                 "EAU_DE_VIE_DE_POIRE_WILLIAM",
@@ -2839,7 +2563,6 @@
         {
             "nameID": "SAN_CRISTOBAL",
             "imagePath": "san_cristobal.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "RHUM",
                 "MALIBU",
@@ -2851,7 +2574,6 @@
         {
             "nameID": "SANS_GENE",
             "imagePath": "sans_gene.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "LIQUEUR_DE_MELON",
@@ -2862,7 +2584,6 @@
         {
             "nameID": "SANS_SOUCI",
             "imagePath": "sans_souci.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CACAO",
                 "COCO"
@@ -2871,7 +2592,6 @@
         {
             "nameID": "SAUDADE",
             "imagePath": "saudade.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BAILEYS",
                 "BATIDA_DE_COCO",
@@ -2881,7 +2601,6 @@
         {
             "nameID": "SCOUBIDOU",
             "imagePath": "scoubidou.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "LIQUEUR_DE_MELON",
@@ -2892,7 +2611,6 @@
         {
             "nameID": "SHOSHONEE",
             "imagePath": "shoshonee.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_CASSIS",
                 "RHUM",
@@ -2902,7 +2620,6 @@
         {
             "nameID": "SIDE_CAR",
             "imagePath": "side_car.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "COINTREAU",
                 "GIN",
@@ -2912,7 +2629,6 @@
         {
             "nameID": "SIMPLET",
             "imagePath": "simplet.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "PISANG",
                 "ANANAS"
@@ -2921,7 +2637,6 @@
         {
             "nameID": "SINGAPORE_SLING",
             "imagePath": "singapore_sling.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN_CHERRY",
                 "CITRON",
@@ -2931,7 +2646,6 @@
         {
             "nameID": "SINOQUE",
             "imagePath": "sinoque.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "MEZCAL",
                 "LIQUEUR_DE_MARACUJA",
@@ -2941,7 +2655,6 @@
         {
             "nameID": "SMILING",
             "imagePath": "smiling.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "LIQUEUR_DE_MANDARINE",
@@ -2951,7 +2664,6 @@
         {
             "nameID": "SO_BRITISH",
             "imagePath": "so_british.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CHATAIGNE",
                 "GIN",
@@ -2961,7 +2673,6 @@
         {
             "nameID": "SORTILEGE",
             "imagePath": "sortilege.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "BAILEYS",
                 "LIQUEUR_DE_CHATAIGNE",
@@ -2971,7 +2682,6 @@
         {
             "nameID": "SOUPIRANT",
             "imagePath": "soupirant.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POMME_VERTE",
                 "EAU_DE_VIE_DE_POIRE_WILLIAM",
@@ -2983,7 +2693,6 @@
         {
             "nameID": "TABARLY",
             "imagePath": "tabarly.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "CHERRY",
@@ -2993,7 +2702,6 @@
         {
             "nameID": "TAJ_MAHAL",
             "imagePath": "taj_mahal.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DE_MANGUE",
@@ -3003,7 +2711,6 @@
         {
             "nameID": "TARTEMPION",
             "imagePath": "tartempion.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CARAMEL",
                 "CREME_DE_CACAO",
@@ -3013,7 +2720,6 @@
         {
             "nameID": "TEQUILA_FIZZ",
             "imagePath": "tequila_fizz.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CITRON",
@@ -3023,7 +2729,6 @@
         {
             "nameID": "TEQUILA_SUNRISE",
             "imagePath": "tequila_sunrise.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "ORANGE",
@@ -3034,7 +2739,6 @@
         {
             "nameID": "TETARD",
             "imagePath": "tetard.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_KIWI",
                 "PAMPLEMOUSSE"
@@ -3043,7 +2747,6 @@
         {
             "nameID": "TETE_A_TETE",
             "imagePath": "tete_a_tete.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MARACUJA",
                 "PHYSALIS"
@@ -3052,7 +2755,6 @@
         {
             "nameID": "TETE_DE_LINOTTE",
             "imagePath": "tete_de_linotte.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_KIWI",
                 "LIQUEUR_DE_PASTEQUE",
@@ -3062,7 +2764,6 @@
         {
             "nameID": "TEXAS",
             "imagePath": "texas.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "TEQUILA",
                 "PAMPLEMOUSSE",
@@ -3072,7 +2773,6 @@
         {
             "nameID": "THOMASSINO",
             "imagePath": "thomassino.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_FRAMBOISE",
                 "MEZCAL",
@@ -3082,7 +2782,6 @@
         {
             "nameID": "TINTAMARRE",
             "imagePath": "tintamarre.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "ABSINTHE",
                 "LIQUEUR_DE_LITCHI",
@@ -3092,7 +2791,6 @@
         {
             "nameID": "TI'PUNCH",
             "imagePath": "ti'punch.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "RHUM",
                 "CITRON_VERT",
@@ -3102,7 +2800,6 @@
         {
             "nameID": "TIRE_AU_FLANC",
             "imagePath": "tire_au_flanc.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CHATAIGNE",
                 "LIQUEUR_DE_VANILLE",
@@ -3113,7 +2810,6 @@
         {
             "nameID": "TOCADE",
             "imagePath": "tocade.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "PISCO",
                 "CINZANO",
@@ -3123,7 +2819,6 @@
         {
             "nameID": "TOHU_BOHU",
             "imagePath": "tohu_bohu.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_PECHE_DE_VIGNE",
                 "VODKA",
@@ -3134,7 +2829,6 @@
         {
             "nameID": "TOM_COLLLINS",
             "imagePath": "tom_colllins.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "GIN",
                 "CITRON",
@@ -3144,7 +2838,6 @@
         {
             "nameID": "TOM_JUNIOR",
             "imagePath": "tom_junior.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "CITRON",
@@ -3154,7 +2847,6 @@
         {
             "nameID": "TONKINOIS",
             "imagePath": "tonkinois.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_LITCHI",
                 "ABRICOT",
@@ -3164,7 +2856,6 @@
         {
             "nameID": "TRAINE_SAVATES",
             "imagePath": "traine_savates.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_CACAO",
                 "LIQUEUR_DE_BANANE",
@@ -3175,7 +2866,6 @@
         {
             "nameID": "TRAIT_D'UNION",
             "imagePath": "trait_d'union.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_VANILLE",
                 "CAFE",
@@ -3185,7 +2875,6 @@
         {
             "nameID": "TRALALA",
             "imagePath": "tralala.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_NOISETTE",
                 "POMME",
@@ -3195,7 +2884,6 @@
         {
             "nameID": "TRAQUENARD",
             "imagePath": "traquenard.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "LIQUEUR_DE_MARACUJA",
@@ -3206,7 +2894,6 @@
         {
             "nameID": "TREMOLO",
             "imagePath": "tremolo.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_GINGEMBRE",
                 "CHAMPAGNE"
@@ -3215,7 +2902,6 @@
         {
             "nameID": "333",
             "imagePath": "333.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COINTREAU",
                 "CALVADOS",
@@ -3225,7 +2911,6 @@
         {
             "nameID": "TROLL",
             "imagePath": "troll.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "AQUAVIT",
                 "CITRON",
@@ -3235,7 +2920,6 @@
         {
             "nameID": "TROUBADOUR",
             "imagePath": "troubadour.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POIRE_WILLIAM",
                 "CALVADOS",
@@ -3245,7 +2929,6 @@
         {
             "nameID": "TROUBLE_FETE",
             "imagePath": "trouble_fete.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "MEZCAL",
                 "PISANG",
@@ -3255,7 +2938,6 @@
         {
             "nameID": "TRUBLION",
             "imagePath": "trublion.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "POMME_VERTE"
@@ -3264,7 +2946,6 @@
         {
             "nameID": "TYPHON",
             "imagePath": "typhon.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "EAU_DE_VIE_DE_POIRE_WILLIAM",
                 "CREME_DE_PECHE_DE_VIGNE",
@@ -3274,7 +2955,6 @@
         {
             "nameID": "UPPERCUT",
             "imagePath": "uppercut.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CALVADOS",
                 "CHAMPAGNE",
@@ -3284,7 +2964,6 @@
         {
             "nameID": "VAGABOND",
             "imagePath": "vagabond.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "CREME_DE_FRAMBOISE",
                 "LIQUEUR_DE_POMME_VERTE",
@@ -3295,7 +2974,6 @@
         {
             "nameID": "VAGUE_A_L'AME",
             "imagePath": "vague_a_l'ame.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "LIQUEUR_DE_MERISE",
@@ -3305,7 +2983,6 @@
         {
             "nameID": "VAHINE",
             "imagePath": "vahine.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "LIQUEUR_DANANAS",
@@ -3315,7 +2992,6 @@
         {
             "nameID": "VA_NU_PIED",
             "imagePath": "va_nu_pied.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_FRUITS_EXOTIQUES",
                 "LIQUEUR_DE_CITRON",
@@ -3325,7 +3001,6 @@
         {
             "nameID": "VEAU_QUI_TETE",
             "imagePath": "veau_qui_tete.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "LIQUEUR_DE_POMME_VERTE",
                 "CALVADOS",
@@ -3337,7 +3012,6 @@
         {
             "nameID": "VENDETTA",
             "imagePath": "vendetta.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "BAILEYS",
                 "CALVADOS",
@@ -3347,7 +3021,6 @@
         {
             "nameID": "VERT_GALANT",
             "imagePath": "vert_galant.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "RHUM",
                 "PISANG",
@@ -3357,7 +3030,6 @@
         {
             "nameID": "VIKING",
             "imagePath": "viking.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "LIQUEUR_DE_MELON",
                 "CALVADOS",
@@ -3367,7 +3039,6 @@
         {
             "nameID": "VODKA_LEMON",
             "imagePath": "vodka_lemon.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "CITRON",
@@ -3377,7 +3048,6 @@
         {
             "nameID": "VODKA_ORANGE",
             "imagePath": "vodka_orange.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "VODKA",
                 "ORANGE",
@@ -3387,7 +3057,6 @@
         {
             "nameID": "WHISKY_SOUR",
             "imagePath": "whisky_sour.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "WHISKY",
                 "CITRON",
@@ -3397,7 +3066,6 @@
         {
             "nameID": "WHITE_LADY",
             "imagePath": "white_lady.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "COINTREAU",
                 "COGNAC",
@@ -3407,7 +3075,6 @@
         {
             "nameID": "YOYO_VERDE",
             "imagePath": "yoyo_verde.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "CURACAO_BLEU",
@@ -3418,7 +3085,6 @@
         {
             "nameID": "YUCATAN",
             "imagePath": "yucatan.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "TEQUILA",
                 "PISANG",
@@ -3429,7 +3095,6 @@
         {
             "nameID": "ZAZOU",
             "imagePath": "zazou.jpg",
-            "alcoholLevel": 1,
             "ingredientsNameID": [
                 "CREME_DE_GRIOTTE",
                 "CHAMPAGNE",
@@ -3439,7 +3104,6 @@
         {
             "nameID": "ZEBULON",
             "imagePath": "zebulon.jpg",
-            "alcoholLevel": 3,
             "ingredientsNameID": [
                 "VODKA",
                 "CREME_DE_FRAISE_DES_BOIS",
@@ -3450,7 +3114,6 @@
         {
             "nameID": "ZEPHYR",
             "imagePath": "zephyr.jpg",
-            "alcoholLevel": 2,
             "ingredientsNameID": [
                 "GIN",
                 "CREME_DE_FRAMBOISE",

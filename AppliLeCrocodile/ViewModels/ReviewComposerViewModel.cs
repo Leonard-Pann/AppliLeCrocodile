@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using AppliLeCrocodile.Models;
 using AppliLeCrocodile.Services;
+using LeCrocodile.Reviews.Contracts;
 
 namespace AppliLeCrocodile.ViewModels;
 
@@ -30,6 +31,15 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
     private int rating;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsLowAlcoholSelected))]
+    [NotifyPropertyChangedFor(nameof(IsMediumAlcoholSelected))]
+    [NotifyPropertyChangedFor(nameof(IsStrongAlcoholSelected))]
+    private int? alcoholLevel;
+
+    [ObservableProperty]
+    private bool isEditingComment;
+
+    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsBusy))]
     [NotifyCanExecuteChangedFor(nameof(SubmitCommand))]
     private bool isLoading = true;
@@ -52,7 +62,8 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
         ICocktailReviewService reviewService,
         IReviewerNameStore nameStore,
         Func<Task> submitted,
-        Action cancel)
+        Action cancel,
+        ReviewResponse? ownReview = null)
     {
         this.cocktailId = cocktailId;
         this.reviewService = reviewService;
@@ -60,9 +71,36 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
         this.submitted = submitted;
         CancelCommand = new RelayCommand(cancel, () => !IsSubmitting);
         RatingChoices = Enumerable.Range(1, 5).Select(value => new ReviewStarChoiceViewModel(value, SelectRating)).ToArray();
+        IsEditingReview = ownReview is not null;
+        if (ownReview is not null)
+        {
+            UserName = ownReview.UserName;
+            Rating = ownReview.Rating;
+            Comment = ownReview.Comment;
+            AlcoholLevel = ownReview.AlcoholLevel;
+        }
     }
 
     public IReadOnlyList<ReviewStarChoiceViewModel> RatingChoices { get; }
+
+    public bool IsEditingReview { get; }
+
+    public string Title => IsEditingReview ? "Modifier son commentaire" : "Ajouter un commentaire";
+
+    public bool IsLowAlcoholSelected => AlcoholLevel == 0;
+
+    public bool IsMediumAlcoholSelected => AlcoholLevel == 1;
+
+    public bool IsStrongAlcoholSelected => AlcoholLevel == 2;
+
+    [RelayCommand]
+    private void SelectAlcohol(string? value)
+    {
+        if (int.TryParse(value, out int level) && level is >= 0 and <= 2)
+        {
+            AlcoholLevel = AlcoholLevel == level ? null : level;
+        }
+    }
 
     public bool IsBusy => IsLoading || IsSubmitting;
 
@@ -81,8 +119,8 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
             string? savedName = await nameStore.LoadAsync(lifetime.Token);
             if (!isDisposed)
             {
-                UserName = savedName ?? UserName;
-                IsUserNameRequired = savedName is null;
+                UserName = IsEditingReview ? UserName : savedName ?? UserName;
+                IsUserNameRequired = !IsEditingReview && savedName is null;
             }
         }
         catch (OperationCanceledException) when (isDisposed)
@@ -141,7 +179,7 @@ public sealed partial class ReviewComposerViewModel : ViewModelBase, IDisposable
                 IsUserNameRequired = false;
             }
 
-            CocktailReview review = new CocktailReview(author, Rating, Comment.Trim());
+            CocktailReview review = new CocktailReview(author, Rating, Comment.Trim(), AlcoholLevel);
             await reviewService.SubmitReviewAsync(cocktailId, review, lifetime.Token);
             if (!isDisposed)
             {

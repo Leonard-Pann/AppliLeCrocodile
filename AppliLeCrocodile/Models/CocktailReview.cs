@@ -2,7 +2,7 @@ namespace AppliLeCrocodile.Models;
 
 public sealed record CocktailReview
 {
-    public CocktailReview(string userName, int rating, string comment)
+    public CocktailReview(string userName, int rating, string comment, int? alcoholLevel = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(userName);
         if (rating is < 1 or > 5)
@@ -13,6 +13,7 @@ public sealed record CocktailReview
         UserName = userName;
         Rating = rating;
         Comment = comment ?? throw new ArgumentNullException(nameof(comment));
+        AlcoholLevel = alcoholLevel;
     }
 
     public string UserName { get; }
@@ -20,6 +21,8 @@ public sealed record CocktailReview
     public int Rating { get; }
 
     public string Comment { get; }
+
+    public int? AlcoholLevel { get; }
 
     public string Stars => new string('★', Rating) + new string('☆', 5 - Rating);
 }

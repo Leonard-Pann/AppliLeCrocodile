@@ -8,6 +8,12 @@ namespace AppliLeCrocodile.Services;
 /// </summary>
 public sealed class DemoCocktailReviewService : ICocktailReviewService
 {
+    public Task<IReadOnlyDictionary<string, int>> GetAlcoholLevelsAsync(CancellationToken cancellationToken)
+        => Task.FromResult<IReadOnlyDictionary<string, int>>(new Dictionary<string, int>());
+
+    public Task<AppCompatibility> GetCompatibilityAsync(CancellationToken cancellationToken)
+        => Task.FromResult(new AppCompatibility("1.0.0"));
+
     public bool IsDemo => true;
 
     public async Task<IReadOnlyDictionary<string, ReviewSummary>> GetSummariesAsync(

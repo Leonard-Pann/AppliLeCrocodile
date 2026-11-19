@@ -258,11 +258,6 @@ public sealed class CocktailManager : ICocktailManager
         {
             ValidateTextId(cocktail.NameId, sourcePath, errors);
 
-            if (sourcePath == CocktailsPath && (cocktail.AlcoholLevel is null || !Enum.IsDefined(cocktail.AlcoholLevel.Value)))
-            {
-                errors.Add($"- Cocktail '{cocktail.NameId}' in '{sourcePath}' must define alcoholLevel as 1, 2 or 3.");
-            }
-
             if (cocktail.IngredientNameIds.Count == 0)
             {
                 errors.Add($"- Cocktail '{cocktail.NameId}' in '{sourcePath}' has no ingredients.");
@@ -321,7 +316,6 @@ public sealed class CocktailManager : ICocktailManager
             cocktail.NameId,
             cocktail.ImagePath,
             Array.AsReadOnly(cocktail.IngredientNameIds.ToArray()),
-            cocktail.AlcoholLevel,
             cocktail.Description)).ToArray();
     }
 

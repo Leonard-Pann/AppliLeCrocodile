@@ -80,8 +80,8 @@
                                 HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" CornerRadius="6"
                                 BorderBrush="{StaticResource CrocodileGreen}" BorderThickness="1" Background="White"
                                 Command="{Binding OpenReviewComposerCommand}"
-                                ToolTip.Tip="Ajouter un commentaire" AutomationProperties.Name="Ajouter un commentaire">
-                            <TextBlock Text="Ajouter un commentaire" FontSize="12" LineHeight="16" TextWrapping="Wrap"
+                                ToolTip.Tip="{Binding ReviewActionText}" AutomationProperties.Name="{Binding ReviewActionText}">
+                            <TextBlock Text="{Binding ReviewActionText}" FontSize="12" LineHeight="16" TextWrapping="Wrap"
                                        TextAlignment="Center" Foreground="{StaticResource CrocodileGreen}" />
                         </Button>
                     </Grid>

@@ -19,6 +19,16 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
     private readonly CancellationTokenSource lifetime = new CancellationTokenSource();
     private long? nextBefore;
     private bool isDisposed;
+    private ReviewResponse? ownReview;
+    private bool hasLoadedReviewState;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(AlcoholText))]
+    private int? alcoholLevel;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ReviewActionText))]
+    private bool hasOwnReview;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(FavoriteActionText))]
@@ -102,13 +112,15 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
     public string Description => string.IsNullOrWhiteSpace(Cocktail.Description) ? "Description à venir." : Cocktail.Description;
 
-    public string AlcoholText => Cocktail.AlcoholLevel switch
+    public string AlcoholText => AlcoholLevel switch
     {
-        AlcoholLevel.Low => "Alcool : faible",
-        AlcoholLevel.Medium => "Alcool : moyen",
-        AlcoholLevel.Strong => "Alcool : chargé",
-        _ => string.Empty
+        0 => "Alcool : faible",
+        1 => "Alcool : moyen",
+        2 => "Alcool : chargé",
+        _ => "Alcool : niveau inconnu"
     };
+
+    public string ReviewActionText => HasOwnReview ? "Modifier son commentaire" : "Ajouter un commentaire";
 
     public bool HasNoImage => Image is null;
 
@@ -141,7 +153,9 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
     public bool IsDemo => reviewService.IsDemo;
 
-    [RelayCommand]
+    private bool CanOpenReviewComposer() => hasLoadedReviewState && !IsLoadingReviews && !HasReviewError && !isDisposed;
+
+    [RelayCommand(CanExecute = nameof(CanOpenReviewComposer))]
     private async Task OpenReviewComposerAsync()
     {
         if (ReviewComposer is not null || isDisposed)
@@ -151,7 +165,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
 
         SubmissionStatus = string.Empty;
         ReviewComposer = new ReviewComposerViewModel(
-            Cocktail.NameId, reviewService, reviewerNameStore, OnReviewSubmittedAsync, CloseReviewComposer);
+            Cocktail.NameId, reviewService, reviewerNameStore, OnReviewSubmittedAsync, CloseReviewComposer, ownReview);
         await ReviewComposer.LoadNameAsync();
     }
 
@@ -197,6 +211,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         }
 
         IsLoadingReviews = true;
+        OpenReviewComposerCommand.NotifyCanExecuteChanged();
         HasReviewError = false;
         ReviewStatus = "Chargement des avis…";
         try
@@ -210,6 +225,10 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
             CocktailReview[] loaded = page.Items.Select(review => new CocktailReview(
                 review.UserName, review.Rating, review.Comment)).ToArray();
             Reviews = append ? Reviews.Concat(loaded).ToArray() : loaded;
+            ownReview = page.OwnReview ?? (append ? ownReview : page.Items.FirstOrDefault(review => review.IsOwnReview));
+            HasOwnReview = ownReview is not null;
+            AlcoholLevel = page.AlcoholLevel;
+            hasLoadedReviewState = true;
             TotalReviewCount = page.TotalCount;
             AverageRating = page.AverageRating;
             nextBefore = page.NextBefore;
@@ -231,6 +250,7 @@ public sealed partial class CocktailDetailViewModel : ViewModelBase, IDisposable
         finally
         {
             IsLoadingReviews = false;
+            OpenReviewComposerCommand.NotifyCanExecuteChanged();
         }
     }
 

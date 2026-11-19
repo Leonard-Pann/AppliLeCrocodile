@@ -17,9 +17,7 @@
                     <Button x:Name="CloseFiltersButton" Grid.Column="1" Classes="icon" Content="×" FontSize="26"
                             Command="{Binding CloseFiltersCommand}" AutomationProperties.Name="Fermer les filtres" />
                 </Grid>
-                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled"
-                              VerticalScrollBarVisibility="Hidden" IsScrollChainingEnabled="False">
-                    <StackPanel Spacing="12" Margin="0,0,4,6">
+                    <StackPanel Grid.Row="1" Spacing="8" Margin="0,0,4,6">
                         <TextBlock Text="Quantité d’alcool" Classes="sectionTitle" />
                         <TextBlock Text="Tous les niveaux si aucun n’est sélectionné." FontSize="12"
                                    Foreground="{StaticResource MenuMuted}" TextWrapping="Wrap" />
@@ -90,10 +88,9 @@
                         <Button Content="Réessayer les avis" Command="{Binding LoadReviewsCommand}"
                                 IsVisible="{Binding HasReviewError}" />
                     </StackPanel>
-                </ScrollViewer>
                 <StackPanel Grid.Row="2" Spacing="8">
-                    <Button Classes="primary" Command="{Binding CloseFiltersCommand}" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding ResultText, StringFormat='Afficher les {0}'}" Foreground="White" />
+                    <Button Classes="primary" Command="{Binding ApplyFiltersCommand}" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding ApplyFiltersText}" Foreground="White" />
                     </Button>
                     <Button Content="Tout réinitialiser" Command="{Binding ResetFiltersCommand}"
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />

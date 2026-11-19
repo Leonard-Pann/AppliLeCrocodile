@@ -27,6 +27,25 @@ public sealed class HttpCocktailReviewService : ICocktailReviewService
 
     public bool IsDemo => false;
 
+    public async Task<IReadOnlyDictionary<string, int>> GetAlcoholLevelsAsync(CancellationToken cancellationToken)
+    {
+        AlcoholSummary[] summaries = await SendAsync(HttpMethod.Get, "api/v1/cocktails/alcohol-summaries", null,
+            ReviewApiJsonContext.Default.AlcoholSummaryArray, cancellationToken).ConfigureAwait(false);
+        if (summaries.Any(summary => string.IsNullOrWhiteSpace(summary.CocktailId) || summary.Level is < 0 or > 2)
+            || summaries.Select(summary => summary.CocktailId).Distinct(StringComparer.Ordinal).Count() != summaries.Length)
+        {
+            throw new InvalidDataException("The review API returned invalid alcohol levels.");
+        }
+
+        return summaries.ToDictionary(summary => summary.CocktailId, summary => summary.Level, StringComparer.Ordinal);
+    }
+
+    public Task<AppCompatibility> GetCompatibilityAsync(CancellationToken cancellationToken)
+    {
+        return SendAsync(HttpMethod.Get, "api/v1/compatibility", null,
+            ReviewApiJsonContext.Default.AppCompatibility, cancellationToken);
+    }
+
     public async Task<IReadOnlyDictionary<string, ReviewSummary>> GetSummariesAsync(
         IReadOnlyList<string> cocktailIds, CancellationToken cancellationToken)
     {
@@ -61,6 +80,11 @@ public sealed class HttpCocktailReviewService : ICocktailReviewService
                 || review.UserName.Length > 40 || review.Rating is < 1 or > 5 || review.Comment is null
                 || review.Comment.Length > 2000)
             || page.Items.Select(review => review.Id).Distinct().Count() != page.Items.Length
+            || page.AlcoholLevel is < 0 or > 2
+            || (page.OwnReview is not null && (!page.OwnReview.IsOwnReview || page.OwnReview.Id <= 0
+                || string.IsNullOrWhiteSpace(page.OwnReview.UserName) || page.OwnReview.UserName.Length > 40
+                || page.OwnReview.Rating is < 1 or > 5 || page.OwnReview.Comment is null
+                || page.OwnReview.Comment.Length > 2000 || page.OwnReview.AlcoholLevel is < 0 or > 2))
             || !page.Items.Select(review => review.Id).SequenceEqual(page.Items.Select(review => review.Id).OrderDescending())
             || (before is not null && page.Items.Any(review => review.Id >= before.Value))
             || (page.NextBefore is not null && (page.Items.Length == 0 || page.NextBefore != page.Items[^1].Id))
@@ -74,7 +98,7 @@ public sealed class HttpCocktailReviewService : ICocktailReviewService
 
     public async Task SubmitReviewAsync(string cocktailId, CocktailReview review, CancellationToken cancellationToken)
     {
-        SubmitReviewRequest request = new SubmitReviewRequest(review.UserName, review.Rating, review.Comment);
+        SubmitReviewRequest request = new SubmitReviewRequest(review.UserName, review.Rating, review.Comment, review.AlcoholLevel);
         byte[] body = await Task.Run(() => JsonSerializer.SerializeToUtf8Bytes(
             request, ReviewApiJsonContext.Default.SubmitReviewRequest), cancellationToken).ConfigureAwait(false);
         await SendAsync(HttpMethod.Put, $"api/v1/cocktails/{Uri.EscapeDataString(cocktailId)}/reviews", body,

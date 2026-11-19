@@ -71,6 +71,16 @@ internal static class ReviewServiceTests
                 return JsonResponse(new ReviewSummary[] { new ReviewSummary("ABBAYE", 123, 3.75) });
             }
 
+            if (request.RequestUri.AbsolutePath.EndsWith("alcohol-summaries", StringComparison.Ordinal))
+            {
+                return JsonResponse(new AlcoholSummary[] { new AlcoholSummary("ABBAYE", 2) });
+            }
+
+            if (request.RequestUri.AbsolutePath.EndsWith("compatibility", StringComparison.Ordinal))
+            {
+                return JsonResponse(new AppCompatibility("1.2.0"));
+            }
+
             if (request.Method == HttpMethod.Put)
             {
                 SubmitReviewRequest submitted = JsonSerializer.Deserialize<SubmitReviewRequest>(body!, JsonOptions)!;
@@ -94,11 +104,15 @@ internal static class ReviewServiceTests
         Check(requests[1].Uri.Query.Contains("before=100", StringComparison.Ordinal)
             && requests[1].Uri.GetComponents(UriComponents.Path, UriFormat.Unescaped).Contains("BANDIT_D'HONNEUR"),
             "Cocktail identifiers containing apostrophes survive URI encoding.");
-        await service.SubmitReviewAsync("ABBAYE", new CocktailReview("Visitor", 5, "Bon 🍹"), default);
+        await service.SubmitReviewAsync("ABBAYE", new CocktailReview("Visitor", 5, "Bon 🍹", 2), default);
         Check(requests[^1].Method == HttpMethod.Put
             && JsonSerializer.Deserialize<SubmitReviewRequest>(requests[^1].Body!, JsonOptions)
-                is { Rating: 5, Comment: "Bon 🍹" },
+                is { Rating: 5, Comment: "Bon 🍹", AlcoholLevel: 2 },
             "Submissions use the shared PUT contract and preserve Unicode.");
+        Check((await service.GetAlcoholLevelsAsync(default))["ABBAYE"] == 2,
+            "The client reads the server's cached alcohol levels.");
+        Check((await service.GetCompatibilityAsync(default)).MinimumVersion == "1.2.0",
+            "The client reads the minimum compatible version.");
         Check(requests.All(request => request.Uri.Scheme == "https"
             && request.Uri.Query.Contains($"userId={installationId:D}", StringComparison.Ordinal)),
             "Every API request uses HTTPS and the persistent installation UUID.");

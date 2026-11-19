@@ -14,12 +14,24 @@ public partial class ReviewComposerView : UserControl
     public ReviewComposerView()
     {
         InitializeComponent();
-        CommentInput.GotFocus += (_, _) => Dispatcher.UIThread.Post(() => CommentInput.BringIntoView());
-        SizeChanged += (_, _) =>
+        CommentInput.GotFocus += (_, _) =>
         {
-            if (CommentInput.IsFocused)
+            if (viewModel is not null)
             {
-                Dispatcher.UIThread.Post(() => CommentInput.BringIntoView());
+                viewModel.IsEditingComment = true;
+                Dispatcher.UIThread.Post(() =>
+                {
+                    FocusedCommentInput.CaretIndex = FocusedCommentInput.Text?.Length ?? 0;
+                    FocusedCommentInput.Focus();
+                });
+            }
+        };
+        FinishEditingButton.Click += (_, _) =>
+        {
+            if (viewModel is not null)
+            {
+                viewModel.IsEditingComment = false;
+                StarChoices.GetVisualDescendants().OfType<Button>().FirstOrDefault()?.Focus();
             }
         };
     }

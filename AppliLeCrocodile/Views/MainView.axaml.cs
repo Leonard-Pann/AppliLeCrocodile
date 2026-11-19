@@ -11,6 +11,14 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
+        UpdateButton.Click += async (_, _) =>
+        {
+            TopLevel? topLevel = TopLevel.GetTopLevel(this);
+            if (topLevel is not null)
+            {
+                await topLevel.Launcher.LaunchUriAsync(new Uri("https://github.com/Leonard-Pann/AppliLeCrocodile/releases"));
+            }
+        };
     }
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs eventArgs)
     {
@@ -34,6 +42,13 @@ public partial class MainView : UserControl
 
     private void OnBackRequested(object? sender, RoutedEventArgs eventArgs)
     {
+        if (DataContext is MainViewModel { IsUpdateAvailable: true } main)
+        {
+            main.DismissUpdateCommand.Execute(null);
+            eventArgs.Handled = true;
+            return;
+        }
+
         CocktailMenuPageViewModel? page = (DataContext as MainViewModel)?.CocktailPage;
         if (page?.SelectedCocktail is CocktailDetailViewModel detail)
         {

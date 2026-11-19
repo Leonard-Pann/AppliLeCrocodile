@@ -3,20 +3,39 @@
              xmlns:vm="using:AppliLeCrocodile.ViewModels"
              x:Class="AppliLeCrocodile.Views.ReviewComposerView"
              x:DataType="vm:ReviewComposerViewModel" KeyboardNavigation.TabNavigation="Cycle">
+    <UserControl.Styles>
+        <Style Selector="Border.composer">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Border.composer.editing">
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+    </UserControl.Styles>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Escape" Command="{Binding CancelCommand}" />
     </UserControl.KeyBindings>
     <Grid Background="#66000000">
-        <Border Margin="18" Padding="20" MaxWidth="460" MaxHeight="680" VerticalAlignment="Center"
+        <Border Classes="composer" Classes.editing="{Binding IsEditingComment}" Margin="18" Padding="20" MaxWidth="460" MaxHeight="680"
                 Background="White" CornerRadius="12" BorderBrush="{StaticResource MenuDivider}" BorderThickness="1">
             <Grid RowDefinitions="Auto,*,Auto" RowSpacing="16">
-                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6">
-                    <TextBlock Text="Ajouter un commentaire" Classes="sectionTitle" TextWrapping="Wrap"
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="6" IsVisible="{Binding !IsEditingComment}">
+                    <TextBlock Text="{Binding Title}" Classes="sectionTitle" TextWrapping="Wrap"
                                VerticalAlignment="Center" />
                     <Button Grid.Column="1" Classes="icon" Content="×" FontSize="26" Command="{Binding CancelCommand}"
                             AutomationProperties.Name="Fermer le formulaire" />
                 </Grid>
-                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False">
+                <StackPanel Grid.Row="0" Grid.RowSpan="3" Spacing="8" VerticalAlignment="Top"
+                            IsVisible="{Binding IsEditingComment}">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock Text="Votre commentaire" Classes="sectionTitle" VerticalAlignment="Center" />
+                        <Button x:Name="FinishEditingButton" Grid.Column="1" Content="Terminé" />
+                    </Grid>
+                    <TextBox x:Name="FocusedCommentInput" Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000"
+                             AcceptsReturn="True" TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
+                             PlaceholderText="Qu’avez-vous pensé de ce cocktail ?" AutomationProperties.Name="Votre commentaire" />
+                </StackPanel>
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsScrollChainingEnabled="False"
+                              IsVisible="{Binding !IsEditingComment}">
                     <StackPanel Spacing="12" Margin="0,0,0,4">
                         <ProgressBar IsVisible="{Binding IsBusy}" IsIndeterminate="True" Height="4" />
                         <TextBlock Text="Un seul avis par cocktail sur cet appareil. Un nouvel envoi remplace le précédent."
@@ -52,6 +71,15 @@
                             </ItemsControl>
                             <TextBlock Text="{Binding Rating, StringFormat='Note choisie : {0} / 5'}" FontSize="12"
                                        Foreground="{StaticResource MenuMuted}" HorizontalAlignment="Center" />
+                            <TextBlock Text="Niveau d’alcool (facultatif)" Classes="sectionTitle" />
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6">
+                                <ToggleButton Classes="alcohol" IsChecked="{Binding IsLowAlcoholSelected, Mode=OneWay}"
+                                              Command="{Binding SelectAlcoholCommand}" CommandParameter="0" Content="Faible" />
+                                <ToggleButton Grid.Column="1" Classes="alcohol" IsChecked="{Binding IsMediumAlcoholSelected, Mode=OneWay}"
+                                              Command="{Binding SelectAlcoholCommand}" CommandParameter="1" Content="Moyen" />
+                                <ToggleButton Grid.Column="2" Classes="alcohol" IsChecked="{Binding IsStrongAlcoholSelected, Mode=OneWay}"
+                                              Command="{Binding SelectAlcoholCommand}" CommandParameter="2" Content="Chargé" />
+                            </Grid>
                             <TextBlock Text="Votre commentaire (facultatif)" Classes="sectionTitle" />
                             <TextBox x:Name="CommentInput" Text="{Binding Comment, Mode=TwoWay}" MaxLength="2000" AcceptsReturn="True"
                                      TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
@@ -66,7 +94,7 @@
                                    IsVisible="{Binding IsDemo}" />
                     </StackPanel>
                 </ScrollViewer>
-                <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="8" IsVisible="{Binding !IsEditingComment}">
                     <Button Content="Annuler" Command="{Binding CancelCommand}" HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Center" />
                     <Button Grid.Column="1" Classes="primary" Content="Envoyer" Command="{Binding SubmitCommand}"

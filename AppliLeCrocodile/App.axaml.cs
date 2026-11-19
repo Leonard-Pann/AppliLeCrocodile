@@ -20,6 +20,11 @@ public partial class App : Application
     {
         MainViewModel mainViewModel = CompositionRoot.CreateMainViewModel();
 
+        if (ApplicationLifetime is IActivatableLifetime activatable)
+        {
+            activatable.Activated += (_, _) => _ = mainViewModel.CheckCompatibilityAsync();
+        }
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow

@@ -21,6 +21,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     private IReadOnlyList<CocktailItemViewModel> filteredItems = [];
     private readonly HashSet<string> favoriteIds = new HashSet<string>(StringComparer.Ordinal);
     private readonly Dictionary<string, ReviewSummary> reviewsByCocktail = new Dictionary<string, ReviewSummary>();
+    private IReadOnlyDictionary<string, int> alcoholLevels = new Dictionary<string, int>();
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(HasSearchText))]
@@ -126,6 +127,9 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     public int ResultCount { get; private set; }
 
     public string ResultText => $"{ResultCount} cocktail{(ResultCount == 1 ? string.Empty : "s")}";
+
+    public string ApplyFiltersText => IncludeLowAlcohol || IncludeMediumAlcohol || IncludeStrongAlcohol
+        ? "Afficher les cocktails" : $"Afficher les {ResultText}";
 
     public bool HasActiveFilters => IncludeLowAlcohol || IncludeMediumAlcohol || IncludeStrongAlcohol
         || FavoritesOnly || SortByRating || SelectedRating.MinimumRating > 0 || SelectedIngredients.Count > 0;
@@ -277,6 +281,30 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
     }
 
     [RelayCommand]
+    private async Task ApplyFiltersAsync(CancellationToken cancellationToken)
+    {
+        if (IncludeLowAlcohol || IncludeMediumAlcohol || IncludeStrongAlcohol)
+        {
+            try
+            {
+                alcoholLevels = await reviewService.GetAlcoholLevelsAsync(cancellationToken);
+                ApplyFilters();
+            }
+            catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+            {
+                return;
+            }
+            catch (Exception)
+            {
+                ReviewStatus = "Impossible de charger les niveaux d’alcool. Vérifiez votre connexion et réessayez.";
+                return;
+            }
+        }
+
+        CloseFilters();
+    }
+
+    [RelayCommand]
     private void ClearSearch()
     {
         SearchText = string.Empty;
@@ -326,13 +354,13 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
             return textFilter.IsValidCocktail(cocktail)
                 && (!FavoritesOnly || favoriteIds.Contains(cocktail.NameId))
                 && SelectedIngredients.All(ingredient => cocktail.IngredientNameIds.Contains(ingredient.NameId))
-                && (!filterAlcohol || cocktail.AlcoholLevel switch
+                && (!filterAlcohol || (alcoholLevels.TryGetValue(cocktail.NameId, out int level) && level switch
                 {
-                    AlcoholLevel.Low => IncludeLowAlcohol,
-                    AlcoholLevel.Medium => IncludeMediumAlcohol,
-                    AlcoholLevel.Strong => IncludeStrongAlcohol,
+                    0 => IncludeLowAlcohol,
+                    1 => IncludeMediumAlcohol,
+                    2 => IncludeStrongAlcohol,
                     _ => false
-                })
+                }))
                 && (SelectedRating.MinimumRating == 0 || GetRating(cocktail.NameId) >= SelectedRating.MinimumRating);
         });
 
@@ -354,6 +382,7 @@ public sealed partial class CocktailMenuPageViewModel : MenuPageViewModel
         Rows = resultRows.AsReadOnly();
         OnPropertyChanged(nameof(ResultCount));
         OnPropertyChanged(nameof(ResultText));
+        OnPropertyChanged(nameof(ApplyFiltersText));
         OnPropertyChanged(nameof(HasNoResults));
         OnPropertyChanged(nameof(HasActiveFilters));
     }

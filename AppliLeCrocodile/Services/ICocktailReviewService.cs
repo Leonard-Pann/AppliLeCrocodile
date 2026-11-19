@@ -13,5 +13,9 @@ public interface ICocktailReviewService
 
     Task<ReviewPage> GetReviewPageAsync(string cocktailId, long? before, CancellationToken cancellationToken);
 
+    Task<IReadOnlyDictionary<string, int>> GetAlcoholLevelsAsync(CancellationToken cancellationToken);
+
+    Task<AppCompatibility> GetCompatibilityAsync(CancellationToken cancellationToken);
+
     Task SubmitReviewAsync(string cocktailId, CocktailReview review, CancellationToken cancellationToken);
 }

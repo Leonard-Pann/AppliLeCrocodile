@@ -72,6 +72,30 @@ internal sealed class EmptyImageLoader : ICocktailImageLoader
 
 internal sealed class FixedReviewService : ICocktailReviewService
 {
+    public IReadOnlyDictionary<string, int> AlcoholLevels { get; set; } = new Dictionary<string, int>();
+
+    public Task<IReadOnlyDictionary<string, int>> GetAlcoholLevelsAsync(CancellationToken cancellationToken)
+    {
+        if (FailRequests)
+        {
+            throw new IOException("Simulated alcohol request failure.");
+        }
+
+        return Task.FromResult(AlcoholLevels);
+    }
+
+    public string MinimumVersion { get; set; } = "1.0.0";
+
+    public Task<AppCompatibility> GetCompatibilityAsync(CancellationToken cancellationToken)
+    {
+        if (FailRequests)
+        {
+            throw new IOException("Simulated compatibility request failure.");
+        }
+
+        return Task.FromResult(new AppCompatibility(MinimumVersion));
+    }
+
     public bool IsDemo => false;
 
     public bool FailRequests { get; set; }

@@ -16,6 +16,11 @@ public partial class MainViewModel : ViewModelBase
     private readonly ICocktailReviewService reviewService;
     private readonly ICocktailImageLoader imageLoader;
     private readonly IReviewerNameStore reviewerNameStore;
+    private DateTimeOffset lastCompatibilityCheck = DateTimeOffset.MinValue;
+    private bool isCheckingCompatibility;
+
+    [ObservableProperty]
+    private bool isUpdateAvailable;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsMenuReady))]
@@ -66,6 +71,39 @@ public partial class MainViewModel : ViewModelBase
 
     public bool IsHorizontalSwipeEnabled => CocktailPage?.IsInteractionBlocked != true;
 
+    public async Task CheckCompatibilityAsync(bool force = false)
+    {
+        if (isCheckingCompatibility || (!force && DateTimeOffset.UtcNow - lastCompatibilityCheck < TimeSpan.FromHours(1)))
+        {
+            return;
+        }
+
+        isCheckingCompatibility = true;
+        lastCompatibilityCheck = DateTimeOffset.UtcNow;
+        try
+        {
+            LeCrocodile.Reviews.Contracts.AppCompatibility compatibility = await reviewService.GetCompatibilityAsync(CancellationToken.None);
+            Version? applicationVersion = typeof(MainViewModel).Assembly.GetName().Version;
+            if (applicationVersion is not null && Version.TryParse(compatibility.MinimumVersion, out Version? minimum)
+                && minimum.Build >= 0 && minimum.Revision < 0)
+            {
+                Version current = new Version(applicationVersion.Major, applicationVersion.Minor, Math.Max(0, applicationVersion.Build));
+                IsUpdateAvailable = current < minimum;
+            }
+        }
+        catch (Exception)
+        {
+            // A temporary network failure must not prevent the menu from opening.
+        }
+        finally
+        {
+            isCheckingCompatibility = false;
+        }
+    }
+
+    [RelayCommand]
+    private void DismissUpdate() => IsUpdateAvailable = false;
+
     [RelayCommand(CanExecute = nameof(CanGoToNextPage))]
     private void GoToNextPage()
     {
@@ -91,6 +129,7 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     private async Task InitializeAsync(CancellationToken cancellationToken)
     {
+        _ = CheckCompatibilityAsync();
         IsLoading = true;
         ErrorMessage = string.Empty;
         try

@@ -10,6 +10,8 @@ namespace AppliLeCrocodile.Infrastructure.Serialization;
 [JsonSerializable(typeof(ReviewResponse))]
 [JsonSerializable(typeof(ReviewSummary[]))]
 [JsonSerializable(typeof(ReviewPage))]
+[JsonSerializable(typeof(AlcoholSummary[]))]
+[JsonSerializable(typeof(AppCompatibility))]
 internal sealed partial class ReviewApiJsonContext : JsonSerializerContext
 {
 }
