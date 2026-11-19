@@ -7,11 +7,7 @@ namespace AppliLeCrocodile;
 
 internal static class CompositionRoot
 {
-    private static readonly System.Net.Http.HttpClient ReviewHttpClient = new System.Net.Http.HttpClient(
-        new System.Net.Http.HttpClientHandler { AllowAutoRedirect = false })
-    {
-        Timeout = TimeSpan.FromSeconds(15)
-    };
+    private static readonly System.Net.Http.HttpClient ReviewHttpClient = ReviewHttpClientFactory.Create();
 
     public static MainViewModel CreateMainViewModel()
     {

@@ -185,6 +185,7 @@ internal static class Program
         await VerifyReviewComposerAsync();
         await VerifyReviewerNameStorageAsync();
         assertions += await ReviewServiceTests.RunAsync();
+        assertions += await Ipv4TransportTests.RunAsync();
         await VerifyDetailPaginationAsync(catalog.Cocktails[0]);
         await first.OpenCommand.ExecuteAsync(null);
         detail = page.SelectedCocktail!;
